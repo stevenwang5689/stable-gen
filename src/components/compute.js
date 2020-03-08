@@ -1,18 +1,32 @@
 import React, { Component, Fragment } from 'react';
+
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import SendIcon from '@material-ui/icons/Send';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 import axios from 'axios';
+import Alerts from './snackbar';
 
 class Compute extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-        inputData: null,
-        inputConstraints: null,
-        gen: 1,
-        polymers: []
-      }
+    this.state = {
+      inputData: null,
+      inputConstraints: null,
+      gen: 1,
+
+      checkConstraints: false,
+      checkGen: false,
+
+      // for snackbar alerts
+      dataMissingFlag: false,
+      inputInvalidFlag: false,
+
+      polymers: []
+    }
   }
 
   onDataChangeHandler = (event) => { 
@@ -29,8 +43,35 @@ class Compute extends Component {
 
   handleGenChange = (event) => {
     this.setState({
-      gen: event.target.value
+      // only allow integers
+      gen: event.target.value.replace(/\D/, '')
     })
+  }
+
+  handleSwitchChange = (target) => event => {
+    if (target === "checkConstraints") {
+      this.setState({ 
+        [target]: event.target.checked,
+        constraints: null 
+      })
+    } else if (target === "checkGen") {
+      this.setState({ 
+        [target]: event.target.checked,
+        gen:1
+      })
+    }
+  };
+
+  handleCallback = (target) => {
+    if (target === "dataMissingFlag") {
+      this.setState({
+        dataMissingFlag: false
+      })
+    } else if (target === "inputInvalidFlag") {
+      this.setState({
+        inputInvalidFlag: false
+      })
+    }
   }
 
   onClickHandler = () => {
@@ -74,8 +115,19 @@ class Compute extends Component {
             polymers: jsonResponse.configs
           })
         })
+        .catch(error => {
+          if (error.response.status === 403) {
+            this.setState({
+              inputInvalidFlag: true
+            })
+          }
+        })
       }
       dataReader.readAsText(this.state.inputData)
+    } else {
+      this.setState({
+        dataMissingFlag: true
+      })
     }
   }
 
@@ -104,45 +156,74 @@ class Compute extends Component {
             
         </Fragment>)
     })
+
+    var inputButtons = 
+    <Grid container spacing={3} direction="column">
+      <Grid item>
+        <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
+          Upload Data
+          <input
+            type="file"
+            style={{ display: "none" }}
+            onChange={this.onDataChangeHandler}
+          />
+        </Button>
+      </Grid>
+      <Grid item>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={this.state.checkConstraints}
+              onChange={this.handleSwitchChange('checkConstraints')}
+              value="checkConstraints"
+              color="primary"
+            />
+          }
+        />
+        <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />} disabled={!this.state.checkConstraints}>
+          Upload Constraints
+          <input
+            type="file"
+            style={{ display: "none" }}
+            onChange={this.onConstraintsChangeHandler}
+          />
+        </Button>
+      </Grid>
+      <Grid item>
+        <FormControlLabel
+            control={
+              <Switch
+                checked={this.state.checkGen}
+                onChange={this.handleSwitchChange('checkGen')}
+                value="checkGen"
+                color="primary"
+              />
+            }
+          />
+        <TextField variant="outlined" label="Generations" value={this.state.gen} onChange={this.handleGenChange} disabled={!this.state.checkGen}/>
+      </Grid>
+    </Grid>
+
     return (
       <Fragment>
         <br/>
         <Grid container spacing={10} justify="center" alignItems="center">
           <Grid item>
-            <Grid container spacing={3} direction="column" alignItems="center">
-              <Grid item>
-                <Button variant="contained" component="label" color="primary">
-                  Upload Data
-                  <input
-                    type="file"
-                    style={{ display: "none" }}
-                    onChange={this.onDataChangeHandler}
-                  />
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button variant="contained" component="label" color="primary">
-                  Upload Constraints
-                  <input
-                    type="file"
-                    style={{ display: "none" }}
-                    onChange={this.onConstraintsChangeHandler}
-                  />
-                </Button>
-              </Grid>
-              <Grid item>
-                <TextField value={this.state.gen} onChange={this.handleGenChange}/>
-              </Grid>
-            </Grid>
+            {inputButtons}
           </Grid>
           <Grid item>
-            <Button type="button" variant="contained" color="secondary" onClick={this.onClickHandler}>
+            <Button type="button" variant="contained" color="secondary" onClick={this.onClickHandler} endIcon={<SendIcon />}>
               Compute
             </Button>
           </Grid>
         </Grid>
 
         <h1> {listItems} </h1>
+        <Alerts 
+          dataMissingFlag = {this.state.dataMissingFlag}
+          inputInvalidFlag = {this.state.inputInvalidFlag}
+          parentCallback = {this.handleCallback}
+        />
       </Fragment>
     );
   }
