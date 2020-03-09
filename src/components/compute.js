@@ -7,6 +7,14 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SendIcon from '@material-ui/icons/Send';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import GetAppIcon from '@material-ui/icons/GetApp';
 import axios from 'axios';
 import Alerts from './snackbar';
 
@@ -25,7 +33,7 @@ class Compute extends Component {
       dataMissingFlag: false,
       inputInvalidFlag: false,
 
-      polymers: []
+      result: []
     }
   }
 
@@ -74,7 +82,7 @@ class Compute extends Component {
     }
   }
 
-  onClickHandler = () => {
+  onClickComputeHandler = () => {
     var dataJson
     var constraintsJson
     var inputJson
@@ -112,7 +120,7 @@ class Compute extends Component {
         .then((data) => {
           var jsonResponse = JSON.parse(data.request.response)
           this.setState({
-            polymers: jsonResponse.configs
+            result: jsonResponse.configs
           })
         })
         .catch(error => {
@@ -131,10 +139,18 @@ class Compute extends Component {
     }
   }
 
+  onClickDownloadHandler = () => {
+    const element = document.createElement("a");
+    const file = new Blob([JSON.stringify(this.state.result)], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = "output.txt";
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+  }
+
   render() {
-    var i = 0
-    var listItems = this.state.polymers.map((poly) => {
-      var listOfPolymers = poly.polymers.map((polymers) => {
+    var output = this.state.result.map((config, index) => {
+      var listOfPolymers = config.polymers.map((polymers) => {
         var monomers = polymers.map(monomer => {
           return(
             <p> {monomer} </p>
@@ -142,18 +158,29 @@ class Compute extends Component {
         });
         return(
           <Fragment>
-          <p>{monomers}</p>
-          <br/>
+            <Grid item>
+              <Card>
+                <CardContent>
+                  {monomers}
+                  <br/>
+                </CardContent>
+              </Card>
+            </Grid>
           </Fragment>
-      )})
-      return( <Fragment>
-            <h1>Configuration {++i}</h1>
-            <p>This configuration has {poly.polymers_count} polymers</p>
-            <box>
-              {listOfPolymers}
-            </box>
-
-            
+        )
+      })
+      return( 
+        <Fragment>
+          <ExpansionPanel defaultExpanded={true}>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography> Configuration {index+1} ({config.polymers_count} polymers)</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Grid container spacing={2}>
+                {listOfPolymers}
+              </Grid>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
         </Fragment>)
     })
 
@@ -212,13 +239,24 @@ class Compute extends Component {
             {inputButtons}
           </Grid>
           <Grid item>
-            <Button type="button" variant="contained" color="secondary" onClick={this.onClickHandler} endIcon={<SendIcon />}>
-              Compute
-            </Button>
+            <Grid container spacing={3} direction="column">
+              <Grid item>
+                <Button type="button" variant="contained" color="secondary" onClick={this.onClickComputeHandler} endIcon={<SendIcon />}>
+                  Compute
+                </Button>
+              </Grid>
+              {(this.state.result.length !== 0) && ( 
+              <Grid item>
+                <Button type="button" variant="outlined" color="secondary" onClick={this.onClickDownloadHandler} startIcon={<GetAppIcon />}>
+                  Download Output
+                </Button>
+              </Grid>
+              )}
+            </Grid>
           </Grid>
         </Grid>
-
-        <h1> {listItems} </h1>
+        <br/>
+        {output}
         <Alerts 
           dataMissingFlag = {this.state.dataMissingFlag}
           inputInvalidFlag = {this.state.inputInvalidFlag}
