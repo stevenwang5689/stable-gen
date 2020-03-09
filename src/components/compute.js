@@ -179,7 +179,7 @@ class Compute extends Component {
       var listOfPolymers = config.polymers.map((polymers) => {
         var monomers = polymers.map(monomer => {
           return(
-            <p> {monomer} </p>
+            <p> {monomer.join(" ")} </p>
           )
         });
         return(

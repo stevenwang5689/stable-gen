@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import './App.css';
-import Home from "./components/home"
+import Help from "./components/help"
 import About from "./components/about"
 import Compute from "./components/compute"
 import Error from "./components/error"
@@ -24,15 +24,15 @@ function App() {
                     <Fragment>
                         <h2> StableGEN</h2>
                         <Tabs value = {location.pathname} centered variant="fullWidth">
-                            <Tab label = "Home" value = "/" component = {Link} to = '/' />
-                            <Tab label = "Compute" value = "/compute" component = {Link} to = '/compute' />
+                            <Tab label = "Compute" value = "/" component = {Link} to = '/' />
+                            <Tab label = "Help" value = "/help" component = {Link} to = '/help' />
                             <Tab label = "About" value = "/about" component = {Link} to = '/about' />
                         </Tabs>
                         
                         <Switch>
-                            <Route path = '/compute' component={Compute} />
+                            <Route path = '/' component={Compute} />
                             <Route path = '/about' component={About} />
-                            <Route path = '/' component={Home} />
+                            <Route path = '/help' component={Help} />
                             <Route component={Error} />
                         </Switch>
                     </Fragment>
