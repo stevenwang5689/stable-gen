@@ -30,9 +30,9 @@ function App() {
                         </Tabs>
                         
                         <Switch>
-                            <Route path = '/' component={Compute} />
-                            <Route path = '/about' component={About} />
                             <Route path = '/help' component={Help} />
+                            <Route path = '/about' component={About} />
+                            <Route path = '/' component={Compute} />
                             <Route component={Error} />
                         </Switch>
                     </Fragment>
