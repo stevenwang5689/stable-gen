@@ -15,6 +15,10 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import axios from 'axios';
 import Alerts from './snackbar';
 
@@ -32,6 +36,11 @@ class Compute extends Component {
       // for snackbar alerts
       dataMissingFlag: false,
       inputInvalidFlag: false,
+
+      // for circular progress 
+      calculating: false,
+
+      tabIndex: 0,
 
       result: []
     }
@@ -68,7 +77,13 @@ class Compute extends Component {
         gen:1
       })
     }
-  };
+  }
+
+  handleTabChange = (event, newIndex) => {
+    this.setState({
+      tabIndex: newIndex
+    })
+  }
 
   handleCallback = (target) => {
     if (target === "dataMissingFlag") {
@@ -86,6 +101,10 @@ class Compute extends Component {
     var dataJson
     var constraintsJson
     var inputJson
+
+    this.setState({
+      calculating: true
+    })
 
     // read constraint file
     if (this.state.inputConstraints != null) {
@@ -109,7 +128,6 @@ class Compute extends Component {
           return monomer.split(" ")
         })
         inputJson = JSON.stringify({monomers: dataJson, constraints: constraintsJson, gen: Number(this.state.gen)})
-        console.log(inputJson)
         // invoke API
         axios.post("http://localhost:5005/", inputJson, {
           headers: {
@@ -120,10 +138,14 @@ class Compute extends Component {
         .then((data) => {
           var jsonResponse = JSON.parse(data.request.response)
           this.setState({
-            result: jsonResponse.configs
+            result: jsonResponse.configs,
+            calculating: false
           })
         })
         .catch(error => {
+          this.setState({
+            calculating: false
+          })
           if (error.response.status === 403) {
             this.setState({
               inputInvalidFlag: true
@@ -197,65 +219,92 @@ class Compute extends Component {
         </Button>
       </Grid>
       <Grid item>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.checkConstraints}
-              onChange={this.handleSwitchChange('checkConstraints')}
-              value="checkConstraints"
-              color="primary"
+        <Grid container spacing={3} direction="column" alignItems="flex-start">
+          <Grid item>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={this.state.checkConstraints}
+                  onChange={this.handleSwitchChange('checkConstraints')}
+                  value="checkConstraints"
+                  color="primary"
+                />
+              }
             />
-          }
-        />
-        <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />} disabled={!this.state.checkConstraints}>
-          Upload Constraints
-          <input
-            type="file"
-            style={{ display: "none" }}
-            onChange={this.onConstraintsChangeHandler}
-          />
+            <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />} disabled={!this.state.checkConstraints}>
+              Upload Constraints
+              <input
+                type="file"
+                style={{ display: "none" }}
+                onChange={this.onConstraintsChangeHandler}
+              />
+            </Button>
+          </Grid>
+          <Grid item>
+            <FormControlLabel
+                control={
+                  <Switch
+                    checked={this.state.checkGen}
+                    onChange={this.handleSwitchChange('checkGen')}
+                    value="checkGen"
+                    color="primary"
+                  />
+                }
+              />
+            <TextField variant="outlined" label="Generations" value={this.state.gen} onChange={this.handleGenChange} disabled={!this.state.checkGen}/>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
+
+    var computeButton = 
+    <Grid container spacing={2}>
+      <Grid item>
+        <Button type="button" variant="contained" color="secondary" onClick={this.onClickComputeHandler} endIcon={<SendIcon />}>
+          Compute
         </Button>
       </Grid>
       <Grid item>
-        <FormControlLabel
-            control={
-              <Switch
-                checked={this.state.checkGen}
-                onChange={this.handleSwitchChange('checkGen')}
-                value="checkGen"
-                color="primary"
-              />
-            }
-          />
-        <TextField variant="outlined" label="Generations" value={this.state.gen} onChange={this.handleGenChange} disabled={!this.state.checkGen}/>
+        {(this.state.calculating) && (<CircularProgress />)}
       </Grid>
     </Grid>
 
     return (
       <Fragment>
         <br/>
-        <Grid container spacing={10} justify="center" alignItems="center">
-          <Grid item>
-            {inputButtons}
-          </Grid>
-          <Grid item>
-            <Grid container spacing={3} direction="column">
-              <Grid item>
-                <Button type="button" variant="contained" color="secondary" onClick={this.onClickComputeHandler} endIcon={<SendIcon />}>
-                  Compute
-                </Button>
-              </Grid>
-              {(this.state.result.length !== 0) && ( 
-              <Grid item>
-                <Button type="button" variant="outlined" color="secondary" onClick={this.onClickDownloadHandler} startIcon={<GetAppIcon />}>
-                  Download Output
-                </Button>
-              </Grid>
-              )}
+        <Tabs
+          value={this.state.tabIndex}
+          onChange={this.handleTabChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Upload File" />
+          <Tab label="Manual Input" />
+        </Tabs>
+        <br/>
+        <Paper variant="outlined">
+          <br/>
+          <Grid container spacing={10} justify="center" alignItems="center">
+            <Grid item>
+              {inputButtons}
+            </Grid>
+            <Grid item>
+              {computeButton}
             </Grid>
           </Grid>
-        </Grid>
+          <br/>
+        </Paper>
         <br/>
+        <Grid container justify="flex-end">
+          {(this.state.result.length !== 0) && ( 
+            <Grid item>
+              <Button type="button" variant="outlined" color="secondary" onClick={this.onClickDownloadHandler} startIcon={<GetAppIcon />}>
+                Download Output
+              </Button>
+            </Grid>
+          )}
+        </Grid>
         {output}
         <Alerts 
           dataMissingFlag = {this.state.dataMissingFlag}
