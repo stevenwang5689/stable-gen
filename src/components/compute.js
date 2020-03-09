@@ -81,7 +81,11 @@ class Compute extends Component {
 
   handleTabChange = (event, newIndex) => {
     this.setState({
-      tabIndex: newIndex
+      tabIndex: newIndex,
+      result: [],
+      inputData: null,
+      inputConstraints: null,
+      gen: 1
     })
   }
 
@@ -193,7 +197,7 @@ class Compute extends Component {
       })
       return( 
         <Fragment>
-          <ExpansionPanel defaultExpanded={true}>
+          {(config.polymers_count !== 0) && (<ExpansionPanel defaultExpanded={true}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
               <Typography> Configuration {index+1} ({config.polymers_count} polymers)</Typography>
             </ExpansionPanelSummary>
@@ -202,7 +206,7 @@ class Compute extends Component {
                 {listOfPolymers}
               </Grid>
             </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanel>)}
         </Fragment>)
     })
 
@@ -283,18 +287,28 @@ class Compute extends Component {
           <Tab label="Manual Input" />
         </Tabs>
         <br/>
-        <Paper variant="outlined">
-          <br/>
-          <Grid container spacing={10} justify="center" alignItems="center">
-            <Grid item>
-              {inputButtons}
+
+        {(this.state.tabIndex === 0) && (
+          <Paper variant="outlined">
+            <br/>
+            <Grid container spacing={10} justify="center" alignItems="center">
+              <Grid item>
+                {inputButtons}
+              </Grid>
+              <Grid item>
+                {computeButton}
+              </Grid>
             </Grid>
-            <Grid item>
-              {computeButton}
-            </Grid>
-          </Grid>
-          <br/>
-        </Paper>
+            <br/>
+          </Paper>
+        )}
+
+        {(this.state.tabIndex === 1) && (
+          <h1>
+            Coming soon...
+          </h1>
+        )}
+
         <br/>
         <Grid container justify="flex-end">
           {(this.state.result.length !== 0) && ( 
