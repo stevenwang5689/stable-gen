@@ -45,7 +45,7 @@ function About() {
   return <Fragment >
 
       <Container maxWidth={"xl"} >
-          <Grid container spacing={2} >
+          <Grid container spacing={2} direction="row" justify="center" alignItems="center">
               <Grid  item >
                   < h1 > About Us </h1>
                   <p>Meet the team that brought you StableGEN!</p>
