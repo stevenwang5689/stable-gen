@@ -22,51 +22,31 @@ import anthony from '../anthony.jpeg'
 
 const useStyles = makeStyles(theme => ({
     root: {
-        display: 'flex',
-        flex: "wrap",
-        minWidth: "100%",
-        flexWrap: 'wrap',
-        align:"space-between",
-        justify: "space-between",
-    },
-    small: {
-        width: theme.spacing(3),
-        height: theme.spacing(3),
+        display: "flex",
+        flexWrap: "wrap",
     },
     large: {
         width: theme.spacing(30),
         height: theme.spacing(30),
     },
-    card: {
-        display: "flex",
-        align: "center",
-        minWidth: '100%',
+    container: {
+        alignContent: "flex-start",
+        alignItems: "center",
+        justify: "center",
+        justifyContent: "center",
+    },
 
-    },
-    avatar: {
-        display: "flex",
-        minWidth: "100%",
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-    media: {
-        height: 300,
-        width: 300,
-    },
 }));
 
 
 function About() {
     const classes = useStyles();
 
-  return <Fragment>
+  return <Fragment >
 
-      <Container maxWidth="xl">
-          <Grid container spacing={0} direction={"column"}>
-              <Grid direction="row">
+      <Container maxWidth={"xl"} >
+          <Grid container spacing={2} >
+              <Grid  item >
                   < h1 > About Us </h1>
                   <p>Meet the team that brought you StableGEN!</p>
                   <p>This online tool has been developed over the course of a school year by our team of seniors at The University of Texas at Austin. Additional feature development is in the works and will be added to this tool as time progresses.</p>
@@ -74,160 +54,153 @@ function About() {
                   <p>Please reach out to any of us if you have feedback about this website: we would love to make any changes that you feel would improve the tool. Hope you enjoy it!</p>
               </Grid>
 
-              <Grid container spacing={2} direction="row">
-                  <Grid item xs={2}>
-                      <Card>
-                          <CardActionArea>
-                              <CardContent>
-                                  <CardMedia>
-                                      <Avatar src={varun} className={classes.large} alt='Varun Prabhu' />
-                                  </CardMedia>
-                                  <Typography gutterBottom variant="h5" component="h2">
-                                      Varun Prabhu
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                      Fullstack Engineer
-                                  </Typography>
-                              </CardContent>
-                          </CardActionArea>
-                          <CardActions>
-                              <IconButton href={"https://www.linkedin.com/in/varun-prabhu-7b674b137/"}>
-                                  <LinkedInIcon/>
-                              </IconButton>
-                              <IconButton href={"https://github.com/varunprabhu/"}>
-                                  <GitHubIcon/>
-                              </IconButton>
-                          </CardActions>
-                      </Card>
-                  </Grid>
+              <Grid container spacing={2} direction="row" justify="center" alignItems="center">
 
-                  <Grid item xs={2}>
-                      <Card>
-                          <CardActionArea>
-                              <CardContent>
-                                  <CardMedia>
-                                      <Avatar src={benson} className={classes.large} alt='Benson Huang' />
-                                  </CardMedia>
-                                  <Typography gutterBottom variant="h5" component="h2">
-                                      Benson Huang
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                      Project Manager/Backend Engineer
-                                  </Typography>
-                              </CardContent>
-                          </CardActionArea>
-                          <CardActions>
-                              <IconButton href={"https://www.linkedin.com/in/benson-huang/"}>
-                                  <LinkedInIcon/>
-                              </IconButton>
-                              <IconButton href={"https://github.com/BensonKHuang/"}>
-                                  <GitHubIcon/>
-                              </IconButton>
-                          </CardActions>
-                      </Card>
-                  </Grid>
+                      <Grid item>
+                          <Card >
+                              <CardActionArea>
+                                  <CardContent>
+                                      <CardMedia >
+                                          <Avatar src={varun} className={classes.large} alt='Varun Prabhu' />
+                                      </CardMedia>
+                                      <Typography gutterBottom variant="h5" component="h2">
+                                          Varun Prabhu
+                                      </Typography>
+                                      <Typography variant="body2" color="textSecondary" component="p">
+                                          Fullstack Engineer
+                                      </Typography>
+                                  </CardContent>
+                              </CardActionArea>
+                              <CardActions>
+                                  <IconButton href={"https://www.linkedin.com/in/varun-prabhu-7b674b137/"}>
+                                      <LinkedInIcon/>
+                                  </IconButton>
+                                  <IconButton href={"https://github.com/varunprabhu/"}>
+                                      <GitHubIcon/>
+                                  </IconButton>
+                              </CardActions>
+                          </Card>
+                      </Grid>
 
-                  <Grid item xs={2}>
-                      <Card>
-                          <CardActionArea>
-                              <CardContent>
-                                  <CardMedia>
-                                      <Avatar src={kyle} className={classes.large} alt='Kyle Zhou' />
-                                  </CardMedia>
-                                  <Typography gutterBottom variant="h5" component="h2">
-                                      Kyle Zhou
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                      Backend Engineer/Deployment
-                                  </Typography>
-                              </CardContent>
-                          </CardActionArea>
-                          <CardActions>
-                              <IconButton href={"https://www.linkedin.com/in/kyle-zhou-9723b9153/"}>
-                                  <LinkedInIcon/>
-                              </IconButton>
-                          </CardActions>
-                      </Card>
-                  </Grid>
+                      <Grid item>
+                          <Card >
+                              <CardActionArea>
+                                  <CardContent>
+                                      <CardMedia >
+                                          <Avatar src={benson} className={classes.large} alt='Benson Huang' />
+                                      </CardMedia>
+                                      <Typography gutterBottom variant="h5" component="h2">
+                                          Benson Huang
+                                      </Typography>
+                                      <Typography variant="body2" color="textSecondary" component="p">
+                                          Project Manager/Backend Engineer
+                                      </Typography>
+                                  </CardContent>
+                              </CardActionArea>
+                              <CardActions>
+                                  <IconButton href={"https://www.linkedin.com/in/benson-huang/"}>
+                                      <LinkedInIcon/>
+                                  </IconButton>
+                                  <IconButton href={"https://github.com/BensonKHuang/"}>
+                                      <GitHubIcon/>
+                                  </IconButton>
+                              </CardActions>
+                          </Card>
+                      </Grid>
 
-                  <Grid item xs={2}>
-                      <Card>
-                          <CardActionArea>
-                              <CardContent>
-                                  <CardMedia>
-                                      <Avatar src={steven} className={classes.large} alt='Steven Wang' />
-                                  </CardMedia>
-                                  <Typography gutterBottom variant="h5" component="h2">
-                                      Steven Wang
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                      Fullstack Engineer
-                                  </Typography>
-                              </CardContent>
-                          </CardActionArea>
-                          <CardActions>
-                              <IconButton href={"https://www.linkedin.com/in/zijian-steven-wang/"}>
-                                  <LinkedInIcon/>
-                              </IconButton>
-                              <IconButton href={"https://github.com/stevenwang5689/"}>
-                                  <GitHubIcon/>
-                              </IconButton>
-                          </CardActions>
-                      </Card>
-                  </Grid>
+                      <Grid item>
+                          <Card>
+                              <CardActionArea>
+                                  <CardContent>
+                                      <CardMedia>
+                                          <Avatar src={kyle} className={classes.large} alt='Kyle Zhou' />
+                                      </CardMedia>
+                                      <Typography gutterBottom variant="h5" component="h2">
+                                          Kyle Zhou
+                                      </Typography>
+                                      <Typography variant="body2" color="textSecondary" component="p">
+                                          Backend Engineer/Deployment
+                                      </Typography>
+                                  </CardContent>
+                              </CardActionArea>
+                              <CardActions>
+                                  <IconButton href={"https://www.linkedin.com/in/kyle-zhou-9723b9153/"}>
+                                      <LinkedInIcon/>
+                                  </IconButton>
+                              </CardActions>
+                          </Card>
+                      </Grid>
 
-                  <Grid item xs={2}>
-                      <Card>
-                          <CardActionArea>
-                              <CardContent>
-                                  <CardMedia>
-                                      <Avatar src={anthony} className={classes.large} alt='Anthony Vento' />
-                                  </CardMedia>
-                                  <Typography gutterBottom variant="h5" component="h2">
-                                      Anthony Vento
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                      Project Manager/Frontend Engineer
-                                  </Typography>
-                              </CardContent>
-                          </CardActionArea>
-                          <CardActions>
-                          </CardActions>
-                      </Card>
-                  </Grid>
+                      <Grid item>
+                          <Card>
+                              <CardActionArea>
+                                  <CardContent>
+                                      <CardMedia>
+                                          <Avatar src={steven} className={classes.large} alt='Steven Wang' />
+                                      </CardMedia>
+                                      <Typography gutterBottom variant="h5" component="h2">
+                                          Steven Wang
+                                      </Typography>
+                                      <Typography variant="body2" color="textSecondary" component="p">
+                                          Fullstack Engineer
+                                      </Typography>
+                                  </CardContent>
+                              </CardActionArea>
+                              <CardActions>
+                                  <IconButton href={"https://www.linkedin.com/in/zijian-steven-wang/"}>
+                                      <LinkedInIcon/>
+                                  </IconButton>
+                                  <IconButton href={"https://github.com/stevenwang5689/"}>
+                                      <GitHubIcon/>
+                                  </IconButton>
+                              </CardActions>
+                          </Card>
+                      </Grid>
 
-                  <Grid item xs={2}>
-                      <Card>
-                          <CardActionArea>
-                              <CardContent>
-                                  <CardMedia>
-                                      <Avatar src={hasan} className={classes.large} alt='Hasan Saleemi' />
-                                  </CardMedia>
-                                  <Typography gutterBottom variant="h5" component="h2">
-                                      Hasan Saleemi
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" component="p">
-                                      Backend Engineer
-                                  </Typography>
-                              </CardContent>
-                          </CardActionArea>
-                          <CardActions>
-                          </CardActions>
-                      </Card>
-                  </Grid>
+
+                      <Grid item>
+                          <Card>
+                              <CardActionArea>
+                                  <CardContent>
+                                      <CardMedia>
+                                          <Avatar src={anthony} className={classes.large} alt='Anthony Vento' />
+                                      </CardMedia>
+                                      <Typography gutterBottom variant="h5" component="h2">
+                                          Anthony Vento
+                                      </Typography>
+                                      <Typography variant="body2" color="textSecondary" component="p">
+                                          Project Manager/Backend Engineer
+                                      </Typography>
+                                  </CardContent>
+                              </CardActionArea>
+                              <CardActions>
+                              </CardActions>
+                          </Card>
+                      </Grid>
+
+                      <Grid item>
+                          <Card>
+                              <CardActionArea>
+                                  <CardContent>
+                                      <CardMedia>
+                                          <Avatar src={hasan} className={classes.large} alt='Hasan Saleemi' />
+                                      </CardMedia>
+                                      <Typography gutterBottom variant="h5" component="h2">
+                                          Hasan Saleemi
+                                      </Typography>
+                                      <Typography variant="body2" color="textSecondary" component="p">
+                                          Backend Engineer
+                                      </Typography>
+                                  </CardContent>
+                              </CardActionArea>
+                              <CardActions>
+                              </CardActions>
+                          </Card>
+                      </Grid>
               </Grid>
-
-
           </Grid>
 
-          <Grid direction="row">
-
-          </Grid>
       </Container>
-
-
-
-
 
   </Fragment>
 }
