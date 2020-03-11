@@ -28,6 +28,7 @@ class Provider extends Component {
     }
 
     onDataChangeHandler = (event) => { 
+        console.log(event.target.files[0])
         this.setState({
           inputData: event.target.files[0]
         })
