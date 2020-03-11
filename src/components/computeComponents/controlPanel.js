@@ -19,7 +19,7 @@ class ControlPanel extends Component {
                                 <TextField variant="outlined" label="Generations" value={context.state.gen} onChange={(event) => context.handleGenChange(event)}/>
                             </Grid>
                             <Grid item>
-                                <Button type="button" variant="contained" color="secondary" onClick={this.onClickComputeHandler} endIcon={<SendIcon />}>
+                                <Button type="button" variant="contained" color="secondary" onClick={() => context.onClickComputeHandler()} endIcon={<SendIcon />}>
                                     Compute
                                 </Button>
                             </Grid>

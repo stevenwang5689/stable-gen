@@ -33,14 +33,17 @@ class Compute extends Component {
                 <Provider>
                     <br />
                     <ControlPanel />
-                    <Grid container spacing={3} justify="space-around" alignItems="stretch">
-                        <Grid item>
-                            <Input />
+                    <div>
+                        <Grid container spacing={2} justify="space-around" alignItems="stretch">
+                            <Grid item xs={12} sm={6}>
+                                <Input />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <Output />
+                            </Grid>
                         </Grid>
-                        <Grid item>
-                            <Output />
-                        </Grid>
-                    </Grid>
+                    </div>
+                    
                 </Provider>
             </Fragment>
         );
