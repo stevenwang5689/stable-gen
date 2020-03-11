@@ -9,13 +9,7 @@ import Container from '@material-ui/core/Container';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 class Input extends Component {
-    state = {
-        dataValue: "value"
-    }
-
-    onDataChange(event) {
-    }
-
+    state = {}
     render() {
         let dataPlaceholderText = 'a* b*\na b\na*\nb*\n';
         return (
@@ -30,21 +24,26 @@ class Input extends Component {
                                             id="data-input-field"
                                             label="TBN Input"
                                             variant="outlined"
-                                            multiline rows={10}
+                                            multiline 
+                                            rows={10}
                                             placeholder={dataPlaceholderText}
-                                            value={context.inputData}
+                                            value={context.state.inputDataText}
+                                            onChange={context.onDataTextChangeHandler}
                                         />
                                     </FormControl>
                                 </Container>
                             </Grid>
                             <Grid container>
                                 <Container>
-                                    <FormControl fullWidth fullHeight>
+                                    <FormControl fullWidth>
                                         <TextField
                                             id="contraints-input-field"
                                             label="Constraints"
                                             variant="outlined"
-                                            multiline rows={10}
+                                            multiline 
+                                            rows={10}
+                                            value={context.state.inputConstraintsText}
+                                            onChange={context.onConstraintsTextChangeHandler}
                                         />
                                     </FormControl>
                                 </Container>
