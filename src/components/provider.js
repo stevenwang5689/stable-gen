@@ -6,18 +6,15 @@ export const MContext = React.createContext();  //exporting context object
 class Provider extends Component {
 
     state = {
-        message: "hello world",
-
         inputData: null,
         inputConstraints: null,
         gen: 1,
-  
-        checkConstraints: false,
-        checkGen: false,
+        minPolymers:1,
   
         // for snackbar alerts
         dataMissingFlag: false,
         inputInvalidFlag: false,
+        noOutputFlag: false,
   
         // for circular progress 
         calculating: false,
@@ -39,25 +36,11 @@ class Provider extends Component {
         })
     }
     
-    handleGenChange = (event) => {
+    handleControlChange = (target, event) => {
         this.setState({
           // only allow integers
-          gen: event.target.value.replace(/\D/, '')
+          [target]: event.target.value.replace(/\D/, '')
         })
-    }
-    
-    handleSwitchChange = (target) => event => {
-        if (target === "checkConstraints") {
-          this.setState({ 
-            [target]: event.target.checked,
-            constraints: null 
-          })
-        } else if (target === "checkGen") {
-          this.setState({ 
-            [target]: event.target.checked,
-            gen:1
-          })
-        }
     }
     
     handleCallback = (target) => {
@@ -69,6 +52,10 @@ class Provider extends Component {
           this.setState({
             inputInvalidFlag: false
           })
+        } else if (target === "noOutputFlag") {
+            this.setState({
+                noOutputFlag: false
+            })
         }
     }
     
@@ -102,7 +89,12 @@ class Provider extends Component {
             dataJson = monomers.map((monomer) => {
               return monomer.split(" ")
             })
-            inputJson = JSON.stringify({monomers: dataJson, constraints: constraintsJson, gen: Number(this.state.gen)})
+            inputJson = JSON.stringify({
+                monomers: dataJson, 
+                constraints: constraintsJson, 
+                gen: Number(this.state.gen),
+                init_k: Number(this.state.minPolymers)
+            })
             // invoke API
             axios.post("http://localhost:5005/", inputJson, {
               headers: {
@@ -114,13 +106,15 @@ class Provider extends Component {
               var jsonResponse = JSON.parse(data.request.response)
               this.setState({
                 result: jsonResponse.configs,
-                calculating: false
+                calculating: false,
+                noOutputFlag: jsonResponse.configs.length === 0
               })
             })
             .catch(error => {
               this.setState({
                 calculating: false
               })
+
               if (error.response.status === 403) {
                 this.setState({
                   inputInvalidFlag: true
@@ -153,9 +147,8 @@ class Provider extends Component {
                     setMessage: (value) => this.setState({message: value}),
                     onDataChangeHandler: (event) => this.onDataChangeHandler(event),
                     onConstraintsChangeHandler: (event) => this.onConstraintsChangeHandler(event),
-                    handleGenChange: (event) => this.handleGenChange(event),
-                    handleSwitchChange: (target) => this.handleSwitchChange(target),
-                    handleCallback: (target) => this.handleCallback(target),
+                    handleControlChange: (target, event) => this.handleControlChange(target, event),
+                    setFlagState: (target) => this.handleCallback(target),
                     onClickComputeHandler: () => this.onClickComputeHandler(),
                     onClickDownloadHandler: () => this.onClickDownloadHandler()
                 }

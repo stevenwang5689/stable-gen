@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import {MContext} from "../provider";
 
+import Result from "./result";
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -27,51 +28,30 @@ class Output extends Component {
     render() { 
         return (
             <Fragment>
-                <Paper style={{maxHeight: 200, overflow: 'auto'}}>
                 <MContext.Consumer>
-                
                     {(context) => (
-                        context.state.result.map((config, index) => {
-                            var listOfPolymers = config.polymers.map((polymers) => {
-                                var monomers = polymers.map(monomer => {
-                                    return(
-                                    <p> {monomer.join(" ")} </p>
-                                    )
-                                });
-                                return(
-                                    <Fragment>
-                                        <Grid item>
-                                            <Card>
-                                                <CardContent>
-                                                    {monomers}
-                                                    <br/>
-                                                </CardContent>
-                                            </Card>
-                                        </Grid>
-                                    </Fragment>
-                                )
-                            })
-                            return( 
-                                <Fragment>
-                                    {(config.polymers_count !== 0) && (
-                                        <ExpansionPanel defaultExpanded={true}>
-                                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                                                <Typography> Configuration {index+1} ({config.polymers_count} polymers)</Typography>
-                                                </ExpansionPanelSummary>
-                                            <ExpansionPanelDetails>
-                                                <Grid container spacing={2}>
-                                                    {listOfPolymers}
-                                                </Grid>
-                                            </ExpansionPanelDetails>
-                                        </ExpansionPanel>
-                                    )}
-                                </Fragment>
-                            )
-                        })
+                        <Grid container direction="column">
+                            {(context.state.result.length !== 0) && ( 
+                            <Grid item>
+                                <Grid container justify="flex-end">
+                                    <Grid item>
+                                        <Button type="button" variant="outlined" color="secondary" onClick={(event) => context.onClickDownloadHandler(event)} startIcon={<GetAppIcon />}>
+                                            Download Output
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            )}
+                            <Grid item>
+                                <Grid container style={{maxHeight: 500, overflow: 'auto'}}>
+                                    <Grid item>
+                                        <Result />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
                     )}
-                
                 </MContext.Consumer>
-                </Paper>
             </Fragment>
          );
     }
