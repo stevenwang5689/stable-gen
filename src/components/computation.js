@@ -22,7 +22,7 @@ import Tab from '@material-ui/core/Tab';
 import axios from 'axios';
 import Alerts from './snackbar';
 
-class Compute extends Component {
+class Computation extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -330,4 +330,4 @@ class Compute extends Component {
   }
 }
 
-export default Compute;
+export default Computation;

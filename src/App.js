@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import './App.css';
 import Help from "./components/help"
 import About from "./components/about"
-import Compute from "./components/compute"
+import Compute from "./components/computeComponents/compute"
 import Error from "./components/error"
 import { Route, Switch, Link, BrowserRouter } from "react-router-dom"
 
