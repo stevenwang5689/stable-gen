@@ -14,14 +14,18 @@ class ControlPanel extends Component {
             <MContext.Consumer>
                 {(context) => (
                     <Fragment>
-                        <Grid container spacing={3} justify="flex-end">
-                            <Grid item>
-                                <TextField variant="outlined" label="Number of Generations" value={context.state.gen} onChange={(event) => context.handleControlChange("gen", event)}/>
+                        <Grid container spacing={3} justify="center">
+                            <Grid item xs={12} sm={6}>
+                                <Grid container spacing={3} justify="center">
+                                    <Grid item>
+                                        <TextField variant="outlined" label="Number of Generations" value={context.state.gen} onChange={(event) => context.handleControlChange("gen", event)}/>
+                                    </Grid>
+                                    <Grid item>
+                                        <TextField variant="outlined" label="Minimum Polymers" value={context.state.minPolymers} onChange={(event) => context.handleControlChange("minPolymers", event)}/>
+                                    </Grid>
+                                </Grid>
                             </Grid>
-                            <Grid item>
-                                <TextField variant="outlined" label="Minimum Polymers" value={context.state.minPolymers} onChange={(event) => context.handleControlChange("minPolymers", event)}/>
-                            </Grid>
-                            <Grid item>
+                            <Grid item xs={12} sm={6}>
                                 <Button type="button" variant="contained" color="secondary" onClick={() => context.onClickComputeHandler()} endIcon={<SendIcon />}>
                                     Compute
                                 </Button>
