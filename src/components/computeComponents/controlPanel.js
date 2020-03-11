@@ -16,7 +16,10 @@ class ControlPanel extends Component {
                     <Fragment>
                         <Grid container spacing={3} justify="flex-end">
                             <Grid item>
-                                <TextField variant="outlined" label="Generations" value={context.state.gen} onChange={(event) => context.handleGenChange(event)}/>
+                                <TextField variant="outlined" label="Number of Generations" value={context.state.gen} onChange={(event) => context.handleControlChange("gen", event)}/>
+                            </Grid>
+                            <Grid item>
+                                <TextField variant="outlined" label="Minimum Polymers" value={context.state.minPolymers} onChange={(event) => context.handleControlChange("minPolymers", event)}/>
                             </Grid>
                             <Grid item>
                                 <Button type="button" variant="contained" color="secondary" onClick={() => context.onClickComputeHandler()} endIcon={<SendIcon />}>

@@ -22,7 +22,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Alerts from '../snackbar';
+import Alerts from './snackbar';
 import ControlPanel from './controlPanel';
 
 class Compute extends Component {
@@ -43,7 +43,7 @@ class Compute extends Component {
                             </Grid>
                         </Grid>
                     </div>
-                    
+                    <Alerts />
                 </Provider>
             </Fragment>
         );
