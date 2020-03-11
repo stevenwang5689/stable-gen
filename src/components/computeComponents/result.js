@@ -42,7 +42,6 @@ class Result extends Component {
                                             <Card>
                                                 <CardContent>
                                                     {monomers}
-                                                    <br/>
                                                 </CardContent>
                                             </Card>
                                         </Grid>

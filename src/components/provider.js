@@ -95,8 +95,8 @@ class Provider extends Component {
     })
 
     // read constraint file
-    if (this.state.inputConstraintsDataText) {
-      var constraints = this.state.inputConstraintsDataText.split("\n")
+    if (this.state.inputConstraintsText) {
+      var constraints = this.state.inputConstraintsText.split("\n")
       constraintsJson = constraints.map((constraint) => {
         return constraint.split(" ")
       })
@@ -123,6 +123,7 @@ class Provider extends Component {
         // handle response
         .then((data) => {
           var jsonResponse = JSON.parse(data.request.response)
+          console.log(jsonResponse.configs)
           this.setState({
             result: jsonResponse.configs,
             calculating: false,
