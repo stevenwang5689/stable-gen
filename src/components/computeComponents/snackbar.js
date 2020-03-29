@@ -20,9 +20,9 @@ class Alerts extends Component {
                             </Alert>
                         </Snackbar>
 
-                        <Snackbar open={context.state.inputInvalidFlag} autoHideDuration={2000} onClose={() => context.setFlagState("inputInvalidFlag")}>
-                            <Alert onClose={() => context.setFlagState("inputInvalidFlag")} severity="error">
-                                Input files have incorrect format!
+                        <Snackbar open={context.state.errorMessage} autoHideDuration={2000} onClose={() => context.setFlagState("errorMessage")}>
+                            <Alert onClose={() => context.setFlagState("errorMessage")} severity="error">
+                                {context.state.errorMessage}
                             </Alert>
                         </Snackbar>
 

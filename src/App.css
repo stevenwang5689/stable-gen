@@ -8,7 +8,6 @@
 }
 
 .Control-panel {
-  background-color: white;
   padding-bottom: 25px;
 }
 
@@ -23,4 +22,12 @@ img:hover{
 .Logo{
   width:300px;
   height:100px;
+}
+
+.Chip-spacing{
+  margin: 5px;
+}
+
+.Output{
+  background-color: #FFF6F3;
 }

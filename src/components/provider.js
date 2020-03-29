@@ -15,7 +15,7 @@ class Provider extends Component {
 
     // for snackbar alerts
     dataMissingFlag: false,
-    inputInvalidFlag: false,
+    errorMessage: null,
     noOutputFlag: false,
 
     // for circular progress 
@@ -74,9 +74,9 @@ class Provider extends Component {
       this.setState({
         dataMissingFlag: false
       })
-    } else if (target === "inputInvalidFlag") {
+    } else if (target === "errorMessage") {
       this.setState({
-        inputInvalidFlag: false
+        errorMessage: null
       })
     } else if (target === "noOutputFlag") {
       this.setState({
@@ -132,14 +132,9 @@ class Provider extends Component {
         })
         .catch(error => {
           this.setState({
-            calculating: false
+            calculating: false,
+            errorMessage: error.response.data
           })
-
-          if (error.response.status === 403) {
-            this.setState({
-              inputInvalidFlag: true
-            })
-          }
         })
     } else {
       this.setState({

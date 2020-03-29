@@ -53,10 +53,10 @@ class ControlPanel extends Component {
                             <Grid item>
                                 <Grid container spacing={3} justify="center">
                                     <Grid item>
-                                        <TextField variant="outlined" label="Number of Generations" value={context.state.gen} onChange={(event) => context.handleControlChange("gen", event)}/>
+                                        <TextField variant="outlined" color="secondary" label="Number of Generations" value={context.state.gen} onChange={(event) => context.handleControlChange("gen", event)}/>
                                     </Grid>
                                     <Grid item>
-                                        <TextField variant="outlined" label="Minimum Polymers" value={context.state.minPolymers} onChange={(event) => context.handleControlChange("minPolymers", event)}/>
+                                        <TextField variant="outlined" color="secondary" label="Minimum Polymers" value={context.state.minPolymers} onChange={(event) => context.handleControlChange("minPolymers", event)}/>
                                     </Grid>
                                 </Grid>
                             </Grid>

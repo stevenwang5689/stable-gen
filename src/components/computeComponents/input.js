@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { MContext } from "../provider";
 
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import Container from '@material-ui/core/Container';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 class Input extends Component {
     state = {}
@@ -33,6 +31,7 @@ class Input extends Component {
                                     </FormControl>
                                 </Container>
                             </Grid>
+                            <br/>
                             <Grid container>
                                 <Container>
                                     <FormControl fullWidth>
