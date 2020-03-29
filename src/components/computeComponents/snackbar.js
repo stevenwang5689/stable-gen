@@ -16,7 +16,7 @@ class Alerts extends Component {
                     <Fragment>
                         <Snackbar open={context.state.dataMissingFlag} autoHideDuration={2000} onClose={() => context.setFlagState("dataMissingFlag")}>
                             <Alert onClose={() => context.setFlagState("dataMissingFlag")} severity="error">
-                                Data file is empty!
+                                Input file is empty!
                             </Alert>
                         </Snackbar>
 
@@ -28,7 +28,7 @@ class Alerts extends Component {
 
                         <Snackbar open={context.state.noOutputFlag} autoHideDuration={2000} onClose={() => context.setFlagState("noOutputFlag")}>
                             <Alert onClose={() => context.setFlagState("noOutputFlag")} severity="error">
-                                No Valid Result.
+                                No result satisifies current condition.
                             </Alert>
                         </Snackbar>
 

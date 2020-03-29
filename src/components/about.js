@@ -13,12 +13,12 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
-import varun from '../varun.jpeg';
-import benson from '../benson.jpeg';
-import steven from '../steven.jpeg';
-import kyle from '../kyle.jpeg';
-import hasan from '../hasan.jpeg';
-import anthony from '../anthony.jpeg'
+import varun from '../images/varun.jpeg';
+import benson from '../images/benson.jpeg';
+import steven from '../images/steven.jpeg';
+import kyle from '../images/kyle.jpeg';
+import hasan from '../images/hasan.jpeg';
+import anthony from '../images/anthony.jpeg';
 
 const useStyles = makeStyles(theme => ({
     root: {

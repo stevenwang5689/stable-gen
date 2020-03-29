@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import {MContext} from "../provider";
 
+import '../../App.css';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -14,8 +16,41 @@ class ControlPanel extends Component {
             <MContext.Consumer>
                 {(context) => (
                     <Fragment>
-                        <Grid container spacing={3} justify="center">
-                            <Grid item xs={12} sm={6}>
+                        <Grid container spacing={3} justify="space-evenly" alignItems="center" className = "Control-panel">
+                            <Grid item>
+                                <Grid container spacing={3} justify="center">
+                                    <Grid item>
+                                        <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
+                                            Upload TBN Input
+                                        <input
+                                                type="file"
+                                                style={{ display: "none" }}
+                                                onChange={(event) => context.onDataChangeHandler(event)}
+                                            />
+                                        </Button>
+                                    </Grid>
+                                    <Grid item>
+                                        <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
+                                            Upload Constraints
+                                        <input
+                                                type="file"
+                                                style={{ display: "none" }}
+                                                onChange={(event) => context.onConstraintsChangeHandler(event)}
+                                            />
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid item>
+                                <Grid container spacing={3} justify="center">
+                                    <Grid>
+                                        <Button type="button" variant="contained" color="secondary" onClick={() => context.onClickComputeHandler()} endIcon={<SendIcon />}>
+                                            Compute
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid item>
                                 <Grid container spacing={3} justify="center">
                                     <Grid item>
                                         <TextField variant="outlined" label="Number of Generations" value={context.state.gen} onChange={(event) => context.handleControlChange("gen", event)}/>
@@ -24,11 +59,6 @@ class ControlPanel extends Component {
                                         <TextField variant="outlined" label="Minimum Polymers" value={context.state.minPolymers} onChange={(event) => context.handleControlChange("minPolymers", event)}/>
                                     </Grid>
                                 </Grid>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Button type="button" variant="contained" color="secondary" onClick={() => context.onClickComputeHandler()} endIcon={<SendIcon />}>
-                                    Compute
-                                </Button>
                             </Grid>
                         </Grid>
                     </Fragment>

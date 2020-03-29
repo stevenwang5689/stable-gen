@@ -11,8 +11,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Grid from '@material-ui/core/Grid';
+
+import logo from './images/logo.png';
+ 
+const LogoToNavigate = ({ history }) => (
+    <img src={logo} onClick={() => history.push('/')} className= "Logo"/>
+);
   
-    
+const Logo = () => (
+    <Route path="/" render={(props) => <LogoToNavigate {...props} />} />
+)    
+
 function App() {
 
     return (
@@ -21,21 +31,30 @@ function App() {
             <Route
                 path = "/"
                 render = {({ location }) => (
-                    <Fragment>
-                        <h2> StableGEN</h2>
-                        <Tabs value = {location.pathname} centered variant="fullWidth">
-                            <Tab label = "Compute" value = "/" component = {Link} to = '/' />
-                            <Tab label = "Help" value = "/help" component = {Link} to = '/help' />
-                            <Tab label = "About" value = "/about" component = {Link} to = '/about' />
-                        </Tabs>
-                        
-                        <Switch>
-                            <Route path = '/help' component={Help} />
-                            <Route path = '/about' component={About} />
-                            <Route path = '/' component={Compute} />
-                            <Route component={Error} />
-                        </Switch>
-                    </Fragment>
+                    <Grid container direction="column">
+                        <Grid item>
+                            <Grid container justify="space-between" alignItems="center" className = "App-header">
+                                <Grid item>
+                                    <Logo/>
+                                </Grid>
+                                <Grid item>
+                                    <Tabs value = {location.pathname} >
+                                        <Tab label = "Help" value = "/help" component = {Link} to = '/help' />
+                                        <Tab label = "About" value = "/about" component = {Link} to = '/about' />
+                                    </Tabs>
+                                </Grid>
+                            </Grid>
+                        <Grid/>
+                        <Grid item>
+                            <Switch>
+                                <Route path = '/help' component={Help} />
+                                <Route path = '/about' component={About} />
+                                <Route path = '/' component={Compute} />
+                                <Route component={Error} />
+                            </Switch>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 )}
             />
             </div>

@@ -49,29 +49,6 @@ class Input extends Component {
                                 </Container>
                             </Grid>
                         </Grid>
-
-                        <Grid container spacing={3} direction="column" justify='space-around' alignItems="stretch" fullHeight>
-                            <Grid item>
-                                <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
-                                    Upload Data
-                                <input
-                                        type="file"
-                                        style={{ display: "none" }}
-                                        onChange={(event) => context.onDataChangeHandler(event)}
-                                    />
-                                </Button>
-                            </Grid>
-                            <Grid item>
-                                <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
-                                    Upload Constraints
-                                <input
-                                        type="file"
-                                        style={{ display: "none" }}
-                                        onChange={(event) => context.onConstraintsChangeHandler(event)}
-                                    />
-                                </Button>
-                            </Grid>
-                        </Grid>
                     </Fragment>
                 )}
             </MContext.Consumer>
