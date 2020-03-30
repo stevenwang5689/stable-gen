@@ -12,6 +12,9 @@ import Typography from '@material-ui/core/Typography';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import varun from '../images/varun.jpeg';
 import benson from '../images/benson.jpeg';
@@ -35,6 +38,13 @@ const useStyles = makeStyles(theme => ({
         justify: "center",
         justifyContent: "center",
     },
+    title: {
+        margin: theme.spacing(4, 0, 2),
+    },
+    lists: {
+
+        padding: "5px"
+    }
 
 }));
 
@@ -46,17 +56,72 @@ function About() {
 
       <Container maxWidth={"xl"} >
           <Grid container spacing={2} direction="row" justify="center" alignItems="center">
-              <Grid  item >
-                  < h1 > About Us </h1>
-                  <p>Meet the team that brought you StableGEN!</p>
-                  <p>This online tool has been developed over the course of a school year by our team of seniors at The University of Texas at Austin. Additional feature development is in the works and will be added to this tool as time progresses.</p>
-                  <p>Special thanks to our faculty mentor Dr. Soloveichik and his graduate assistant Keenan Breik. Without them, this tool would not have been possible!</p>
-                  <p>Please reach out to any of us if you have feedback about this website: we would love to make any changes that you feel would improve the tool. Hope you enjoy it!</p>
+
+              <Grid container spacing={2} direction="row" justify="center" alignItems="flex-start" className={classes.lists}>
+                  <Grid  item >
+                      <h2>About</h2>
+                      <p>Stablegen is an online tool that allows users to be able to calculate stable states of chemical
+                          systems with user specified inputs and constraints, along with visualize these output configurations</p>
+                      <p>Please reach out the team if you have any feedback about this website: we would love to make any changes that you feel would improve the tool. Hope you enjoy it!</p>
+                  </Grid>
               </Grid>
 
-              <Grid container spacing={2} direction="row" justify="center" alignItems="center">
 
-                      <Grid item>
+              <Grid container spacing={2} direction="row" justify="center" alignItems="flex-start" className={classes.lists}>
+
+                  <Grid item xs={12} md={4}>
+                      <Typography variant="h6" className={classes.title}>
+                          Acknowledgements
+                      </Typography>
+                      <div>
+                          <List>
+                              <div>
+                                  <ListItem>
+                                      <ListItemText
+                                          primary="Dr. Soloveichik"
+                                          secondary="Faculty Mentor"
+                                      />
+                                  </ListItem>
+
+                                  <ListItem>
+                                      <ListItemText
+                                          primary="Keenan Breik"
+                                          secondary="Graduate Research Assistant"
+                                      />
+                                  </ListItem>
+
+                                  <ListItem>
+                                      <ListItemText
+                                          primary="University of Texas at Austin Senior Design"
+                                          secondary="Group H15"
+                                      />
+                                  </ListItem>
+                              </div>
+
+                          </List>
+                      </div>
+                  </Grid>
+
+                  <Grid item xs={12} md={4}>
+                      <Typography variant="h6" className={classes.title}>
+                          References
+                      </Typography>
+
+                      <div>
+                          <ListItem>
+                              <ListItemText
+                                  primary="Insert link to paper here"
+
+                              />
+                          </ListItem>
+                      </div>
+
+                  </Grid>
+              </Grid>
+
+              <Grid container spacing={2} direction="row" justify="center" alignItems="center" className={classes.lists}>
+
+                      <Grid item xs={8} sm={6} md={4} lg={2}>
                           <Card >
                               <CardActionArea>
                                   <CardContent>
@@ -82,7 +147,7 @@ function About() {
                           </Card>
                       </Grid>
 
-                      <Grid item>
+                      <Grid item xs={8} sm={6} md={4} lg={2}>
                           <Card >
                               <CardActionArea>
                                   <CardContent>
@@ -108,7 +173,7 @@ function About() {
                           </Card>
                       </Grid>
 
-                      <Grid item>
+                      <Grid item xs={8} sm={6} md={4} lg={2}>
                           <Card>
                               <CardActionArea>
                                   <CardContent>
@@ -131,7 +196,7 @@ function About() {
                           </Card>
                       </Grid>
 
-                      <Grid item>
+                      <Grid item xs={8} sm={6} md={4} lg={2}>
                           <Card>
                               <CardActionArea>
                                   <CardContent>
@@ -158,7 +223,7 @@ function About() {
                       </Grid>
 
 
-                      <Grid item>
+                      <Grid item xs={8} sm={6} md={4} lg={2}>
                           <Card>
                               <CardActionArea>
                                   <CardContent>
@@ -174,11 +239,14 @@ function About() {
                                   </CardContent>
                               </CardActionArea>
                               <CardActions>
+                                  <IconButton href={"https://github.com/vento99/"}>
+                                      <GitHubIcon/>
+                                  </IconButton>
                               </CardActions>
                           </Card>
                       </Grid>
 
-                      <Grid item>
+                      <Grid item xs={8} sm={6} md={4} lg={2}>
                           <Card>
                               <CardActionArea>
                                   <CardContent>
@@ -194,6 +262,9 @@ function About() {
                                   </CardContent>
                               </CardActionArea>
                               <CardActions>
+                                  <IconButton href={"https://github.com/hasansaleemi/"}>
+                                      <GitHubIcon/>
+                                  </IconButton>
                               </CardActions>
                           </Card>
                       </Grid>
