@@ -31,3 +31,19 @@ img:hover{
 .Output{
   background-color: #FFF6F3;
 }
+
+.App-header {
+  max-height: 10vh;
+}
+
+.inputbox textarea {
+  min-height: calc(50vh - 180px);
+  max-height: calc(50vh - 180px);
+}
+
+.syntaxHighlight {
+  min-height: calc(50vh - 180px);
+  max-height: calc(50vh - 180px);
+  padding: 18.5px 14px;
+  overflow: auto;
+}

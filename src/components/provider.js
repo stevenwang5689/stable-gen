@@ -115,7 +115,7 @@ class Provider extends Component {
         init_k: Number(this.state.minPolymers)
       })
       // invoke API
-      axios.post("http://localhost:5005/", inputJson, {
+      axios.post("http://198.23.133.106:5005/", inputJson, {
         headers: {
           'Content-Type': 'application/json'
         }

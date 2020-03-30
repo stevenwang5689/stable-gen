@@ -3,50 +3,112 @@ import { MContext } from "../provider";
 
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
 
 class Input extends Component {
-    state = {}
+    constructor() {
+        super()
+
+        this.state = {
+            syntaxHighlighting: true,
+            hoverColor: "grey.400"
+        }
+
+        this.handleTextAreaFocus = this.handleTextAreaFocus.bind(this);
+        this.handleTextAreaBlur = this.handleTextAreaBlur.bind(this);
+    }
+
+    handleTextAreaFocus() {
+        this.setState((_, __) => {
+            return { syntaxHighlighting: false };
+        });
+    }
+
+    handleTextAreaBlur() {
+        this.setState((_, __) => {
+            return {
+                syntaxHighlighting: true,
+                hoverColor: "grey.400",
+            };
+        });
+    }
+
+    renderSyntaxHighlight(context) {
+        let highlightedMonomers = context.state.inputDataText.trim().split('\n').map((monomer) => {
+            return <Chip
+                className="Chip-spacing"
+                variant="outlined"
+                color="secondary"
+                label={monomer}
+            />
+        })
+        return (
+            <Box
+                className='syntaxHighlight'
+                border={1}
+                textAlign='left'
+                color='grey.600'
+                borderRadius={5}
+                borderColor={this.state.hoverColor}
+                onMouseEnter={() => {
+                    this.setState({ hoverColor: "black" })
+                }}
+                onMouseLeave={() => {
+                    this.setState({ hoverColor: "grey.400" })
+                }}
+                onClick={this.handleTextAreaFocus}>
+                <Typography> {"TBN input"}</Typography>
+                {highlightedMonomers}
+            </Box>
+        );
+    }
+
+    renderTBNTextField(context) {
+        let placeholder = 'a* b*\na b\na*\nb*\n'
+        let showTextField = !this.state.syntaxHighlighting || context.state.inputDataText.trim() == ""
+        return showTextField ?
+            (<TextField
+                id="data-input-field"
+                className="inputbox"
+                label="TBN Input"
+                variant="outlined"
+                multiline
+                fullWidth
+                placeholder={placeholder}
+                rowsMax={1}
+                value={context.state.inputDataText}
+                onChange={context.onDataTextChangeHandler}
+                onFocus={this.handleTextAreaFocus}
+                onBlur={this.handleTextAreaBlur}
+                autoFocus={true}
+            />) : this.renderSyntaxHighlight(context)
+    }
+
+    renderConstraintsTextField(context) {
+        return <TextField
+            id="contraints-input-field"
+            className="inputbox"
+            label="Constraints"
+            variant="outlined"
+            multiline
+            rowsMax={1}
+            fullWidth
+            value={context.state.inputConstraintsText}
+            onChange={context.onConstraintsTextChangeHandler}
+        />
+    }
+
     render() {
-        let dataPlaceholderText = 'a* b*\na b\na*\nb*\n';
         return (
             <MContext.Consumer>
                 {(context) => (
                     <Fragment>
                         <Grid container direction="column" justify="space-around" alignItems="stretch">
-                            <Grid container>
-                                <Container>
-                                    <FormControl fullWidth>
-                                        <TextField
-                                            id="data-input-field"
-                                            label="TBN Input"
-                                            variant="outlined"
-                                            multiline 
-                                            rows={10}
-                                            placeholder={dataPlaceholderText}
-                                            value={context.state.inputDataText}
-                                            onChange={context.onDataTextChangeHandler}
-                                        />
-                                    </FormControl>
-                                </Container>
-                            </Grid>
-                            <br/>
-                            <Grid container>
-                                <Container>
-                                    <FormControl fullWidth>
-                                        <TextField
-                                            id="contraints-input-field"
-                                            label="Constraints"
-                                            variant="outlined"
-                                            multiline 
-                                            rows={10}
-                                            value={context.state.inputConstraintsText}
-                                            onChange={context.onConstraintsTextChangeHandler}
-                                        />
-                                    </FormControl>
-                                </Container>
-                            </Grid>
+                            {this.renderTBNTextField(context)}
+                            <br />
+                            {this.renderConstraintsTextField(context)}
                         </Grid>
                     </Fragment>
                 )}
