@@ -1,0 +1,86 @@
+.content-heading {
+  width: 100%;
+  font-size: 36px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.content-heading2 {
+  width: 100%;
+  font-size: 26px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.content-body {
+  width: 100%;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.content-div {
+  display: flex;
+  align-items: center;
+}
+
+.content-figure {
+  display: table;
+  width: 1px;
+  float: right;
+}
+
+.content-image {
+  float: right;
+}
+
+.content-image-scaled {
+  float: right;
+  width: 450px;
+  height: auto;
+}
+
+.content-caption {
+  caption-side: bottom;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar {
+  max-width: 300px;
+  height: 80vh;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #093145;
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-item-content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 11px;
+}
+
+.dividerStyle {
+  margin: "3px";
+  background-color: #093145;
+}
+
+.sidebar-item-text {
+  width: 100%;
+  font-size: 18px;
+  color: #ffffff;
+  font-family: "Georgia", Times, serif;
+}
+
+.sidebar-arrow {
+  font-size: 1.2;
+  font-weight: bold;
+}
