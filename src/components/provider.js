@@ -17,13 +17,15 @@ class Provider extends Component {
     dataMissingFlag: false,
     errorMessage: null,
     noOutputFlag: false,
+    completeFlag: false,
 
     // for circular progress 
     calculating: false,
 
-    tabIndex: 0,
-
-    result: []
+    // output
+    result: [],
+    entropy: 0,
+    count: 0,
   }
 
   onDataChangeHandler = (event) => {
@@ -81,6 +83,10 @@ class Provider extends Component {
     } else if (target === "noOutputFlag") {
       this.setState({
         noOutputFlag: false
+      }) 
+    } else if (target === "completeFlag") {
+      this.setState({
+        completeFlag: false
       })
     }
   }
@@ -126,14 +132,17 @@ class Provider extends Component {
           console.log(jsonResponse.configs)
           this.setState({
             result: jsonResponse.configs,
+            entropy: jsonResponse.entropy,
+            count: jsonResponse.count,
             calculating: false,
-            noOutputFlag: jsonResponse.configs.length === 0
+            noOutputFlag: jsonResponse.configs.length === 0,
+            completeFlag: true,
           })
         })
         .catch(error => {
           this.setState({
             calculating: false,
-            errorMessage: error.response.data
+            errorMessage: error.response.data.error.message
           })
         })
     } else {
