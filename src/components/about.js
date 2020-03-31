@@ -29,8 +29,8 @@ const useStyles = makeStyles(theme => ({
         flexWrap: "wrap",
     },
     large: {
-        width: theme.spacing(30),
-        height: theme.spacing(30),
+        width: theme.spacing(15),
+        height: theme.spacing(15),
     },
     container: {
         alignContent: "flex-start",
@@ -60,9 +60,10 @@ function About() {
               <Grid container spacing={2} direction="row" justify="center" alignItems="flex-start" className={classes.lists}>
                   <Grid  item >
                       <h2>About</h2>
-                      <p>Stablegen is an online tool that allows users to be able to calculate stable states of chemical
-                          systems with user specified inputs and constraints, along with visualize these output configurations</p>
-                      <p>Please reach out the team if you have any feedback about this website: we would love to make any changes that you feel would improve the tool. Hope you enjoy it!</p>
+                      <p>Stablegen is an online tool that allows users to calculate and visualize stable states
+                          of chemical systems with user specified inputs and constraints.</p>
+                      <p>Please reach out to the team if you have any feedback about this website: we would love to make
+                          any changes that you feel would improve the tool. Hope you enjoy it!</p>
                   </Grid>
               </Grid>
 
@@ -119,14 +120,18 @@ function About() {
                   </Grid>
               </Grid>
 
-              <Grid container spacing={2} direction="row" justify="center" alignItems="center" className={classes.lists}>
+              <Grid container spacing={2} xs={11} direction="row" justify="center" alignItems="center" className={classes.lists}>
 
                       <Grid item xs={8} sm={6} md={4} lg={2}>
                           <Card >
                               <CardActionArea>
                                   <CardContent>
                                       <CardMedia >
-                                          <Avatar src={varun} className={classes.large} alt='Varun Prabhu' />
+                                          <Grid container direction="row" justify="center">
+                                              <Grid item>
+                                                  <Avatar src={varun} className={classes.large} alt='Varun Prabhu' />
+                                              </Grid>
+                                          </Grid>
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Varun Prabhu
@@ -152,7 +157,11 @@ function About() {
                               <CardActionArea>
                                   <CardContent>
                                       <CardMedia >
-                                          <Avatar src={benson} className={classes.large} alt='Benson Huang' />
+                                          <Grid container direction="row" justify="center">
+                                              <Grid item>
+                                                  <Avatar src={benson} className={classes.large} alt='Benson Huang' />
+                                              </Grid>
+                                          </Grid>
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Benson Huang
@@ -178,7 +187,13 @@ function About() {
                               <CardActionArea>
                                   <CardContent>
                                       <CardMedia>
-                                          <Avatar src={kyle} className={classes.large} alt='Kyle Zhou' />
+                                          <Grid container direction="row" justify="center">
+                                              <Grid item>
+
+                                                  <Avatar src={kyle} className={classes.large} alt='Kyle Zhou' />
+                                              </Grid>
+                                          </Grid>
+
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Kyle Zhou
@@ -201,7 +216,13 @@ function About() {
                               <CardActionArea>
                                   <CardContent>
                                       <CardMedia>
-                                          <Avatar src={steven} className={classes.large} alt='Steven Wang' />
+                                          <Grid container direction="row" justify="center">
+                                              <Grid item>
+                                                  <Avatar src={steven} className={classes.large} alt='Steven Wang' />
+
+                                              </Grid>
+                                          </Grid>
+
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Steven Wang
@@ -228,7 +249,13 @@ function About() {
                               <CardActionArea>
                                   <CardContent>
                                       <CardMedia>
-                                          <Avatar src={anthony} className={classes.large} alt='Anthony Vento' />
+                                          <Grid container direction="row" justify="center">
+                                              <Grid item>
+                                                  <Avatar src={anthony} className={classes.large} alt='Anthony Vento' />
+
+                                              </Grid>
+                                          </Grid>
+
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Anthony Vento
@@ -251,7 +278,13 @@ function About() {
                               <CardActionArea>
                                   <CardContent>
                                       <CardMedia>
-                                          <Avatar src={hasan} className={classes.large} alt='Hasan Saleemi' />
+                                          <Grid container direction="row" justify="center">
+                                              <Grid item>
+
+                                                  <Avatar src={hasan} className={classes.large} alt='Hasan Saleemi' />
+                                              </Grid>
+                                          </Grid>
+
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Hasan Saleemi
