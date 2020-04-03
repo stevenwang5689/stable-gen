@@ -5,6 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Sidebar from "./sidebar.js";
 import Content from "./content.js";
 import Grid from "@material-ui/core/Grid";
+import styles from "./styles.css";
 
 function onClick(e, item) {
   window.alert(JSON.stringify(item, null, 2));
@@ -58,12 +59,12 @@ class Help extends Component {
   render() {
     return (
       <Fragment>
-        <div>
+        <div className="overall-div">
           <Grid container spacing={2} justify="center" alignItems="stretch">
-            <Grid item xs={3} sm={2}>
+            <Grid item xs={2}>
               <Sidebar items={this.sidebarItems} />
             </Grid>
-            <Grid item xs={9} sm={6}>
+            <Grid item xs={9}>
               <Content ref={this.contentElement} />
             </Grid>
           </Grid>

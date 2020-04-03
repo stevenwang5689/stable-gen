@@ -17,6 +17,7 @@ class Content extends Component {
     this.myFormatRef = React.createRef();
     this.myConstraintRef = React.createRef();
     this.myGenRef = React.createRef();
+    this.myPolyRef = React.createRef();
     this.myTRef = React.createRef();
     this.myNTRef = React.createRef();
     this.myFRef = React.createRef();
@@ -82,7 +83,13 @@ class Content extends Component {
   render() {
     return (
       <fragment>
-        <Container style={{ maxHeight: 800, overflow: "auto" }}>
+        <Container
+          style={{
+            maxHeight: 800,
+            overflowX: "hidden",
+            overflowY: "scroll"
+          }}
+        >
           <h1 className="content-heading" ref={this.myAboutRef}>
             About the Problem
           </h1>
@@ -223,7 +230,9 @@ class Content extends Component {
             Specifying TOGETHER attempts to force the specified monomers to bind
             into a polymer:
           </p>
-          <p className="content-body">&emsp;{"TOGETHER {m1} {m2} {m3} ..."}</p>
+          <p className="content-highlight">
+            &emsp;{"TOGETHER {m1} {m2} {m3} ..."}
+          </p>
           <h2 className="content-heading2" ref={this.myNTRef}>
             Not Together
           </h2>
@@ -231,7 +240,7 @@ class Content extends Component {
             Specifying NOTTOGETHER prevents two monomers from being in the same
             polymer:
           </p>
-          <p className="content-body">&emsp;{"NOTTOGETHER {m1} {m2}"}</p>
+          <p className="content-highlight">&emsp;{"NOTTOGETHER {m1} {m2}"}</p>
           <h2 className="content-heading2" ref={this.myFRef}>
             Free
           </h2>
@@ -239,7 +248,7 @@ class Content extends Component {
             Specifying FREE attempts to force the specified monomer to not bind
             to any other monomer:
           </p>
-          <p className="content-body">&emsp;{"FREE {m1}"}</p>
+          <p className="content-highlight">&emsp;{"FREE {m1}"}</p>
           <h2 className="content-heading2" ref={this.myNFRef}>
             Not Free
           </h2>
@@ -247,7 +256,7 @@ class Content extends Component {
             Specifying NOTFREE forces specified monomer to bind to any other
             monomer
           </p>
-          <p className="content-body">&emsp;{"NOTFREE {m1}"}</p>
+          <p className="content-highlight">&emsp;{"NOTFREE {m1}"}</p>
           <h2 className="content-heading2" ref={this.myPRef}>
             Paired
           </h2>
@@ -255,7 +264,7 @@ class Content extends Component {
             Specifying PAIRED attempts to force two binding sites to bind
             together:
           </p>
-          <p className="content-body">&emsp;{"PAIRED {b1} {b2}"}</p>
+          <p className="content-highlight">&emsp;{"PAIRED {b1} {b2}"}</p>
           <h2 className="content-heading2" ref={this.myNPRef}>
             Not Paired
           </h2>
@@ -263,7 +272,7 @@ class Content extends Component {
             Specifying NOTPAIRED prevents two binding sites from binding
             together:
           </p>
-          <p className="content-body">&emsp;{"NOTPAIRED {b1} {b2}"}</p>
+          <p className="content-highlight">&emsp;{"NOTPAIRED {b1} {b2}"}</p>
           <h2 className="content-heading2" ref={this.myAPRef}>
             Any Paired
           </h2>
@@ -271,7 +280,7 @@ class Content extends Component {
             Specifying ANYPAIRED forces a binding site to bind to some other
             binding site:
           </p>
-          <p className="content-body">&emsp;{"ANYPAIRED {b1}"}</p>
+          <p className="content-highlight">&emsp;{"ANYPAIRED {b1}"}</p>
           <h2 className="content-heading2" ref={this.myNAPRef}>
             Not Any Paired
           </h2>
@@ -279,7 +288,7 @@ class Content extends Component {
             Specifying NOTANYPAIRED attempts to force the specified binding site
             to not bind to any other binding site:
           </p>
-          <p className="content-body">&emsp;{"NOTANYPAIRED {b1}"}</p>
+          <p className="content-highlight">&emsp;{"NOTANYPAIRED {b1}"}</p>
           <br />
           <h1 className="content-heading" ref={this.myGenRef}>
             Number Generations

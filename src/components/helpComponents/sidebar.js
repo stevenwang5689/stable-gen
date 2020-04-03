@@ -54,7 +54,7 @@ function SidebarItem({ item, curPadding = 0, ...rest }) {
           <List disablePadding dense>
             {items.map((subItem, index) => (
               <React.Fragment key={subItem.name}>
-                <SidebarItem item={subItem} curPadding={10} />
+                <SidebarItem item={subItem} curPadding={20} />
               </React.Fragment>
             ))}
           </List>
