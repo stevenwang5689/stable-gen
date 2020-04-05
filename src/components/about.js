@@ -113,7 +113,7 @@ function About() {
                               <ListItemText
                                   primary="Breik K., et. al, “Computing properties of stable configurations of thermodynamic
                                             binding networks,” Theoretical Computer Science, vol. 785, pp. 17–29, Sept. 2019."
-                                  secondary={"https://arxiv.org/pdf/1709.08731.pdf"}
+                                  secondary={"https://arxiv.org/abs/1709.08731v4"}
                               />
                           </ListItem>
 
