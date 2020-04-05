@@ -6,6 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 class Input extends Component {
     constructor() {
@@ -100,6 +102,28 @@ class Input extends Component {
         />
     }
 
+    renderTBNInputUploadButton(context) {
+        return <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
+            Upload TBN Input
+            <input
+                type="file"
+                style={{ display: "none" }}
+                onChange={(event) => context.onDataChangeHandler(event)}
+            />
+        </Button>
+    }
+
+    renderTBNConstraintsUploadButton(context) {
+        return <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
+            Upload Constraints
+            <input
+                type="file"
+                style={{ display: "none" }}
+                onChange={(event) => context.onConstraintsChangeHandler(event)}
+            />
+        </Button>
+    }
+
     render() {
         return (
             <MContext.Consumer>
@@ -107,8 +131,10 @@ class Input extends Component {
                     <Fragment>
                         <Grid container direction="column" justify="space-around" alignItems="stretch">
                             {this.renderTBNTextField(context)}
+                            {this.renderTBNInputUploadButton(context)}
                             <br />
                             {this.renderConstraintsTextField(context)}
+                            {this.renderTBNConstraintsUploadButton(context)}
                         </Grid>
                     </Fragment>
                 )}

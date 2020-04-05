@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import {MContext} from "../provider";
 
 import '../../App.css';
-import { makeStyles } from '@material-ui/core/styles';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+
+
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -24,7 +24,6 @@ class ControlPanel extends Component {
                         <Grid container spacing={3} justify="space-evenly" alignItems="center" className = "Control-panel">
                             <Grid item>
                                 <Grid container spacing={3} justify="center">
-
                                     <Grid item>
                                         <FormControl >
                                             <NativeSelect
@@ -41,26 +40,6 @@ class ControlPanel extends Component {
                                             <FormHelperText>Select an Example Input to try it out!</FormHelperText>
                                         </FormControl>
 
-                                    </Grid>
-                                    <Grid item>
-                                        <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
-                                            Upload TBN Input
-                                        <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                onChange={(event) => context.onDataChangeHandler(event)}
-                                            />
-                                        </Button>
-                                    </Grid>
-                                    <Grid item>
-                                        <Button variant="contained" component="label" color="primary" startIcon={<CloudUploadIcon />}>
-                                            Upload Constraints
-                                        <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                onChange={(event) => context.onConstraintsChangeHandler(event)}
-                                            />
-                                        </Button>
                                     </Grid>
                                 </Grid>
                             </Grid>
