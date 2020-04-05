@@ -3,12 +3,12 @@ import {MContext} from "../provider";
 
 import '../../App.css';
 import Result from "./result";
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import GetAppIcon from '@material-ui/icons/GetApp';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 class Output extends Component {
     state = {  }
@@ -32,9 +32,10 @@ class Output extends Component {
                             <Grid item>
                                 <Grid container justify="flex-end">
                                     <Grid item>
-                                        <Button type="button" variant="outlined" color="secondary" onClick={(event) => context.onClickDownloadHandler(event)} startIcon={<GetAppIcon />}>
-                                            Download Output
-                                        </Button>
+                                        <FormControlLabel
+                                            control={<Switch checked={context.state.toggleView} onChange={() => context.handleToggle()} />}
+                                            label={context.state.toggleView ? "Chip View" : "Plain View"}
+                                        />
                                     </Grid>
                                 </Grid>
                             </Grid>

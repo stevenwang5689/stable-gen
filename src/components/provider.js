@@ -21,11 +21,9 @@ class Provider extends Component {
     noOutputFlag: false,
     completeFlag: false,
 
-    // for circular progress 
-    calculating: false,
-
     // to display output
     displayFlag: false,
+    toggleView: true,
 
     // output
     result: [],
@@ -184,21 +182,12 @@ class Provider extends Component {
     }
   }
 
-  onClickDownloadHandler = () => {
-    const element = document.createElement("a");
-    const file = new Blob([JSON.stringify(this.state.result)], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = "output.txt";
-    document.body.appendChild(element); // Required for this to work in FireFox
-    element.click();
-  }
-
   render() {
     return (
       <MContext.Provider value={
         {
           state: this.state,
-          setMessage: (value) => this.setState({ message: value }),
+          handleToggle: () => this.setState({ toggleView: !this.state.toggleView }),
           onDataChangeHandler: (event) => this.onDataChangeHandler(event),
           onDataTextChangeHandler: (event) => this.onDataTextChangeHandler(event),
           onConstraintsChangeHandler: (event) => this.onConstraintsChangeHandler(event),
@@ -206,8 +195,7 @@ class Provider extends Component {
           handleControlChange: (target, event) => this.handleControlChange(target, event),
           setFlagState: (target) => this.handleCallback(target),
           onClickComputeHandler: () => this.onClickComputeHandler(),
-          onClickDownloadHandler: () => this.onClickDownloadHandler(),
-            onExampleChangeHandler: (event) => this.onExampleChangeHandler(event)
+          onExampleChangeHandler: (event) => this.onExampleChangeHandler(event)
         }
       }>
         {this.props.children}
