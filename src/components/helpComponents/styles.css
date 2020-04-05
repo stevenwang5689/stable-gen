@@ -9,19 +9,20 @@
   width: 100%;
   text-align: left;
   line-height: 1.5;
-  font-size: 17px;
+  font-size: 16px;
   font-family: "Helvetica", "Roboto", "Arial";
 }
 
 .content-heading {
   width: 100%;
-  font-size: 36px;
+  font-size: 30px;
   font-family: "Segoe UI", "Roboto", "Helvetica", "Arial";
 }
 
 .content-heading2 {
   width: 100%;
-  font-size: 26px;
+  font-size: 22px;
+  color: #5a5659;
   font-family: "Segoe UI", "Roboto", "Helvetica", "Arial";
 }
 
@@ -29,7 +30,7 @@
   width: 100%;
   text-align: left;
   line-height: 1.5;
-  font-size: 22px;
+  font-size: 16px;
   color: #787276;
   font-family: "Helvetica", "Roboto", "Arial";
 }
@@ -57,7 +58,7 @@
 
 .content-caption {
   caption-side: bottom;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -68,14 +69,19 @@
 }
 
 .content-main {
-  padding: 0;
   height: 87vh;
-  max-width: 100%;
-  width: 100%;
+  max-width: 95%;
+  width: 95%;
   flex: 1;
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+.hr-content { 
+  display: block;
+  content: " ";
+  border-bottom: 1px solid lightgrey;
+} 
 
 .sidebar {
   max-width: 100%;
@@ -102,7 +108,7 @@
 
 .sidebar-item-text {
   width: 100%;
-  font-size: 18px;
+  font-size: 14px;
   color: #808588;
   font-family: "Roboto", "Helvetica", "Arial";
 }
