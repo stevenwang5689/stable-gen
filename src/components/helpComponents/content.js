@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Container from "@material-ui/core/Container";
-import styles from "./styles.css";
 import tbn from "../../images/TBN.jpeg";
 import tbnExample from "../../images/TBNExample.jpeg";
 import inputExample1 from "../../images/InputExample1.jpeg";
 import inputExample2 from "../../images/InputExample2.jpeg";
+import "./styles.css";
 
 class Content extends Component {
   state = {};

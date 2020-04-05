@@ -1,15 +1,8 @@
 import React, { Component, Fragment } from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import Sidebar from "./sidebar.js";
 import Content from "./content.js";
 import Grid from "@material-ui/core/Grid";
-import styles from "./styles.css";
-
-function onClick(e, item) {
-  window.alert(JSON.stringify(item, null, 2));
-}
+import "./styles.css";
 
 class Help extends Component {
   constructor(props) {
