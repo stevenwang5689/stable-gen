@@ -111,8 +111,16 @@ function About() {
                       <div>
                           <ListItem>
                               <ListItemText
-                                  primary="Insert link to paper here"
+                                  primary="Breik K., et. al, “Computing properties of stable configurations of thermodynamic
+                                            binding networks,” Theoretical Computer Science, vol. 785, pp. 17–29, Sept. 2019."
+                                  secondary={"https://arxiv.org/pdf/1709.08731.pdf"}
+                              />
+                          </ListItem>
 
+                          <ListItem>
+                              <ListItemText
+                                  primary="Dr. David Soloveichik's website"
+                                  secondary="http://users.ece.utexas.edu/~soloveichik/"
                               />
                           </ListItem>
                       </div>
