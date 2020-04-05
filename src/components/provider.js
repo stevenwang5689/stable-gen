@@ -87,7 +87,7 @@ class Provider extends Component {
     } else if (target === "noOutputFlag") {
       this.setState({
         noOutputFlag: false
-      }) 
+      })
     } else if (target === "completeFlag") {
       this.setState({
         completeFlag: false

@@ -44,7 +44,12 @@ class ControlPanel extends Component {
                             <Grid item>
                                 <Grid container spacing={3} justify="center">
                                     <Grid>
-                                        <Button type="button" variant="contained" color="secondary" onClick={() => context.onClickComputeHandler()} endIcon={<SendIcon />}>
+                                        <Button type="button" 
+                                                variant="contained" 
+                                                color="secondary"
+                                                disabled={context.state.calculating} 
+                                                onClick={() => context.onClickComputeHandler()} 
+                                                endIcon={<SendIcon />}>
                                             Compute
                                         </Button>
                                     </Grid>
