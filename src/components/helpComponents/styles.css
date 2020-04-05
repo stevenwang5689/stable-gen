@@ -67,9 +67,19 @@
   overflow-y: hidden;
 }
 
+.content-main {
+  padding: 0;
+  height: 90vh;
+  max-width: 100%;
+  width: 100%;
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .sidebar {
   max-width: 100%;
-  height: 80vh;
+  height: 90vh;
   overflow: auto;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
