@@ -1,0 +1,13 @@
+#This system represents an and gate with 2 inputs. (a b) is input 1 and (c d) is input 2.
+#The constraints for this system require that the output (e f) is free.
+#Reaching a stable configuration is only possible if both input 1 and input 2 exist in the system.
+#Try un-commenting them to see.
+a b c d e
+a* b* c* d*
+b* c* d* e*
+d e f
+#a b >input1
+b c
+#c d >input2
+e f >output
+e* f*

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { trackPromise } from 'react-promise-tracker';
 
+
 export const MContext = React.createContext();  //exporting context object
 
 class Provider extends Component {
@@ -32,6 +33,24 @@ class Provider extends Component {
     count: 0,
   }
 
+  onExampleChangeHandler = (event) => {
+      const exampleName = event.target.value;
+
+      const inputPath = process.env.PUBLIC_URL + "/example_inputs/" + exampleName + "/input.txt";
+      const constraintsPath = process.env.PUBLIC_URL + "/example_inputs/" + exampleName + "/constraints.txt";
+
+      fetch(inputPath)
+          .then(res => res.text())
+          .then(text => {
+            console.log(text)
+            this.setState({inputDataText: text})
+          });
+
+      fetch(constraintsPath)
+          .then(res => res.text())
+          .then(text => this.setState({inputConstraintsText: text}));
+
+  }
   onDataChangeHandler = (event) => {
     const dataFileReader = new FileReader()
     const inputFile = event.target.files[0];
@@ -187,7 +206,8 @@ class Provider extends Component {
           handleControlChange: (target, event) => this.handleControlChange(target, event),
           setFlagState: (target) => this.handleCallback(target),
           onClickComputeHandler: () => this.onClickComputeHandler(),
-          onClickDownloadHandler: () => this.onClickDownloadHandler()
+          onClickDownloadHandler: () => this.onClickDownloadHandler(),
+            onExampleChangeHandler: (event) => this.onExampleChangeHandler(event)
         }
       }>
         {this.props.children}
