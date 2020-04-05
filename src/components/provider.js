@@ -147,9 +147,14 @@ class Provider extends Component {
             })
           })
           .catch(error => {
+            // Will not have status if timed out or other network error
+            var errMessage = "Request timed out! Please reference documentation on how to run problem locally.";
+            if (error.response) {
+              errMessage = error.response.data.error.message
+            }
             this.setState({
               calculating: false,
-              errorMessage: error.response.data.error.message
+              errorMessage: errMessage
             })
           })
       );

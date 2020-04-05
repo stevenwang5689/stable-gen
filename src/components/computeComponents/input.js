@@ -67,7 +67,7 @@ class Input extends Component {
 
     renderTBNTextField(context) {
         let placeholder = 'a* b*\na b\na*\nb*\n'
-        let showTextField = !this.state.syntaxHighlighting || context.state.inputDataText.trim() == ""
+        let showTextField = !this.state.syntaxHighlighting || context.state.inputDataText.trim() === ""
         return showTextField ?
             (<TextField
                 id="data-input-field"

@@ -8,7 +8,7 @@ export const Spinner = (props) => {
     return (
         promiseInProgress && (
             <div className="spinner">
-                <Loader type="MutatingDots" color= "#f50057" height="100" width="100" />
+                <Loader type="MutatingDots" color= "#f50057" height = {100} width={100} />
             </div>
         )
     );

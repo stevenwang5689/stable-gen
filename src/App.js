@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./App.css";
 import Help from "./components/helpComponents/help";
 import About from "./components/about";
@@ -6,8 +6,6 @@ import Compute from "./components/computeComponents/compute";
 import Error from "./components/error";
 import { Route, Switch, Link, BrowserRouter } from "react-router-dom";
 
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Grid from "@material-ui/core/Grid";
@@ -15,7 +13,7 @@ import Grid from "@material-ui/core/Grid";
 import logo from "./images/logo.png";
 
 const LogoToNavigate = ({ history }) => (
-  <img src={logo} onClick={() => history.push("/")} className="Logo" />
+  <img src={logo} alt="StableGen" onClick={() => history.push("/")} className="Logo" />
 );
 
 const Logo = () => (
