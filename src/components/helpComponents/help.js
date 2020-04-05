@@ -53,11 +53,11 @@ class Help extends Component {
     return (
       <Fragment>
         <div className="overall-div">
-          <Grid container spacing={2} justify="center" alignItems="stretch">
-            <Grid item xs={2}>
+          <Grid container spacing={1} justify="center" alignItems="stretch">
+            <Grid item xs={12} sm={2}>
               <Sidebar items={this.sidebarItems} />
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={12} sm={10}>
               <Content ref={this.contentElement} />
             </Grid>
           </Grid>

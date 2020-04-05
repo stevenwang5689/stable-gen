@@ -69,10 +69,9 @@
 }
 
 .content-main {
-  padding: 0;
   height: 87vh;
-  max-width: 100%;
-  width: 100%;
+  max-width: 95%;
+  width: 95%;
   flex: 1;
   overflow-x: hidden;
   overflow-y: scroll;

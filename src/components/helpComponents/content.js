@@ -82,7 +82,7 @@ class Content extends Component {
 
   render() {
     return (
-      <Container fluid className="content-main">
+      <Container fluid maxWidth="false" className="content-main">
         <h1 className="content-heading" ref={this.myAboutRef}>
           About the Problem
         </h1>
