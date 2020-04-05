@@ -7,6 +7,7 @@ import '../../App.css';
 import Grid from '@material-ui/core/Grid';
 import Alerts from './snackbar';
 import ControlPanel from './controlPanel';
+import { Spinner } from './spinner';
 
 class Compute extends Component {
     state = {  }
@@ -22,6 +23,7 @@ class Compute extends Component {
                                 <Input />
                             </Grid>
                             <Grid item xs={12} sm={6}>
+                                <Spinner />
                                 <Output />
                             </Grid>
                         </Grid>

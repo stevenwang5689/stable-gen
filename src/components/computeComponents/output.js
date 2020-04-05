@@ -17,13 +17,14 @@ class Output extends Component {
             <Fragment>
                 <MContext.Consumer>
                     {(context) => (
+                        (context.state.displayFlag === true) && (
                         <Grid container spacing={3} direction="column">
                             {(context.state.entropy !== 0) && (
                             <Grid item>
                                 <Card>
                                     <CardContent className="Output">
                                         <Typography variant="subtitle1"> Unconstrained Entropy: {context.state.entropy} </Typography> 
-                                        <Typography variant="subtitle1"> Configuration Count: {context.state.count} </Typography> 
+                                        <Typography variant="subtitle1"> Number of Generations: {context.state.count} </Typography> 
                                     </CardContent>
                                 </Card>
                             </Grid>)}
@@ -46,6 +47,7 @@ class Output extends Component {
                                 </Grid>
                             </Grid>
                         </Grid>
+                        )
                     )}
                 </MContext.Consumer>
             </Fragment>

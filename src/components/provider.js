@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { trackPromise } from 'react-promise-tracker';
 
 export const MContext = React.createContext();  //exporting context object
 
@@ -21,6 +22,9 @@ class Provider extends Component {
 
     // for circular progress 
     calculating: false,
+
+    // to display output
+    displayFlag: false,
 
     // output
     result: [],
@@ -97,7 +101,8 @@ class Provider extends Component {
     var inputJson
 
     this.setState({
-      calculating: true
+      calculating: true,
+      displayFlag: false
     })
 
     // read constraint file
@@ -121,30 +126,33 @@ class Provider extends Component {
         init_k: Number(this.state.minPolymers)
       })
       // invoke API
-      axios.post("http://198.23.133.106:5005/", inputJson, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        // handle response
-        .then((data) => {
-          var jsonResponse = JSON.parse(data.request.response)
-          console.log(jsonResponse.configs)
-          this.setState({
-            result: jsonResponse.configs,
-            entropy: jsonResponse.entropy,
-            count: jsonResponse.count,
-            calculating: false,
-            noOutputFlag: jsonResponse.configs.length === 0,
-            completeFlag: true,
-          })
+      trackPromise(
+        axios.post("http://198.23.133.106:5005/", inputJson, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
         })
-        .catch(error => {
-          this.setState({
-            calculating: false,
-            errorMessage: error.response.data.error.message
+          // handle response
+          .then((data) => {
+            var jsonResponse = JSON.parse(data.request.response)
+            console.log(jsonResponse.configs)
+            this.setState({
+              result: jsonResponse.configs,
+              entropy: jsonResponse.entropy,
+              count: jsonResponse.count,
+              calculating: false,
+              noOutputFlag: jsonResponse.configs.length === 0,
+              completeFlag: true,
+              displayFlag: true
+            })
           })
-        })
+          .catch(error => {
+            this.setState({
+              calculating: false,
+              errorMessage: error.response.data.error.message
+            })
+          })
+      );
     } else {
       this.setState({
         dataMissingFlag: true

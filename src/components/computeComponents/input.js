@@ -59,7 +59,7 @@ class Input extends Component {
                     this.setState({ hoverColor: "grey.400" })
                 }}
                 onClick={this.handleTextAreaFocus}>
-                <Typography> {"TBN input"}</Typography>
+                <Typography> {"TBN Input"}</Typography>
                 {highlightedMonomers}
             </Box>
         );
