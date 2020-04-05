@@ -11,6 +11,17 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+
+const HtmlTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: "#f5f5f9",
+    color: "rgba(0, 0, 0, 0.87)",
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: "1px solid #dadde9"
+  }
+}))(Tooltip);
 
 class Input extends Component {
   constructor() {
@@ -122,8 +133,15 @@ class Input extends Component {
     return (
       <div>
         <Tooltip
-          title="For information on input format, please see Help page."
+          title={
+            <Fragment>
+              For information on input format, please see{" "}
+              <a href="help">Help</a> page.
+            </Fragment>
+          }
+          arrow
           placement="left"
+          interactive
         >
           <IconButton aria-label="delete">
             <HelpIcon />
@@ -150,8 +168,15 @@ class Input extends Component {
     return (
       <div>
         <Tooltip
-          title="For information on constraints format, please see Help page."
+          title={
+            <Fragment>
+              For information on constraints format, please see{" "}
+              <a href="help">Help</a> page.
+            </Fragment>
+          }
+          arrow
           placement="left"
+          interactive
         >
           <IconButton aria-label="delete">
             <HelpIcon />
