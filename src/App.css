@@ -13,6 +13,7 @@
 
 .Content {
   padding: 0px 25px;
+  max-height: 75vh;
 }
 
 img:hover{
