@@ -2,6 +2,12 @@ import React, { Component, Fragment } from "react";
 import Sidebar from "./sidebar.js";
 import Content from "./content.js";
 import Grid from "@material-ui/core/Grid";
+import InfoIcon from "@material-ui/icons/Info";
+import TuneIcon from "@material-ui/icons/Tune";
+import ViewListIcon from "@material-ui/icons/ViewList";
+import SpeakerNotesIcon from "@material-ui/icons/SpeakerNotes";
+import BubbleChartIcon from "@material-ui/icons/BubbleChart";
+import SettingsIcon from "@material-ui/icons/Settings";
 import "./styles.css";
 
 class Help extends Component {
@@ -14,14 +20,31 @@ class Help extends Component {
       {
         name: "about",
         label: "About the Problem",
+        Icon: InfoIcon,
         onClick: this.onClickSidebar
       },
-      { name: "tbn", label: "What is a TBN?", onClick: this.onClickSidebar },
-      { name: "ex", label: "TBN Example", onClick: this.onClickSidebar },
-      { name: "format", label: "Input Format", onClick: this.onClickSidebar },
+      {
+        name: "tbn",
+        label: "What is a TBN?",
+        Icon: SpeakerNotesIcon,
+        onClick: this.onClickSidebar
+      },
+      {
+        name: "ex",
+        label: "TBN Example",
+        Icon: BubbleChartIcon,
+        onClick: this.onClickSidebar
+      },
+      {
+        name: "format",
+        label: "Input Format",
+        Icon: ViewListIcon,
+        onClick: this.onClickSidebar
+      },
       {
         name: "constraints",
         label: "Constraints",
+        Icon: SettingsIcon,
         items: [
           { name: "together", label: "Together", onClick: this.onClickSidebar },
           { name: "nt", label: "Not Together", onClick: this.onClickSidebar },
@@ -34,6 +57,7 @@ class Help extends Component {
         ]
       },
       {
+<<<<<<< Updated upstream
         name: "gen",
         label: "Number Generations",
         onClick: this.onClickSidebar
@@ -42,6 +66,23 @@ class Help extends Component {
         name: "polymer",
         label: "Minimum Polymers",
         onClick: this.onClickSidebar
+=======
+        name: "additional",
+        label: "Addiditional Options",
+        Icon: TuneIcon,
+        items: [
+          {
+            name: "gen",
+            label: "Number Generations",
+            onClick: this.onClickSidebar
+          },
+          {
+            name: "polymer",
+            label: "Minumum Polymers",
+            onClick: this.onClickSidebar
+          }
+        ]
+>>>>>>> Stashed changes
       }
     ];
   }
@@ -57,7 +98,7 @@ class Help extends Component {
             <Grid item xs={12} sm={2}>
               <Sidebar items={this.sidebarItems} />
             </Grid>
-            <Grid item xs={12} sm={10}>
+            <Grid item xs={12} sm={9}>
               <Content ref={this.contentElement} />
             </Grid>
           </Grid>

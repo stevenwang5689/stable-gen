@@ -96,7 +96,7 @@ class Content extends Component {
           "CAD" for monomers. The representation of binding sites, monomers, and
           polymers that we use is called a Thermodynamic Binding Network.
         </p>
-        <hr className="hr-content"/>
+        <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myTBNRef}>
           What is a TBN?
         </h1>
@@ -128,15 +128,15 @@ class Content extends Component {
             </li>
             <li>
               The TBN Problem tends towards a state of maxumum <b>entropy</b>,
-              when the monomers are arranged in a way that maximizes the number of
-              bonds and the number of separate polymers formed. This is known as a
-              <b> stable-state configuration</b>. A configuration that maximizes
-              that number of bonds but <i>not</i> the number of separate polymers
-              is known as a <b>saturated configuration</b>.
+              when the monomers are arranged in a way that maximizes the number
+              of bonds and the number of separate polymers formed. This is known
+              as a<b> stable-state configuration</b>. A configuration that
+              maximizes that number of bonds but <i>not</i> the number of
+              separate polymers is known as a <b>saturated configuration</b>.
             </li>
           </ol>
         </p>
-        <hr className="hr-content"/>
+        <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myExRef}>
           TBN Example
         </h1>
@@ -164,15 +164,15 @@ class Content extends Component {
             </figcaption>
           </figure>
         </div>
-        <hr className="hr-content"/>
+        <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myFormatRef}>
           Input Format
         </h1>
         <div className="content-div">
           <p className="content-body">
-            In the input, each line represents a monomer and each space-delineated
-            token represents a binding site. Therefore, if the input is as shown
-            in Figure 3, there are four monomers:
+            In the input, each line represents a monomer and each
+            space-delineated token represents a binding site. Therefore, if the
+            input is as shown in Figure 3, there are four monomers:
             <ul>
               <li>Monomer 1 has two binding sites: a* and b*</li>
               <li>Monomer 2 has two binding sites: a and b</li>
@@ -183,7 +183,7 @@ class Content extends Component {
           <figure className="content-figure" vertical-align="middle">
             <img
               className="content-image"
-              src={inputExample1}
+              src={inputExample2}
               alt="InputEx1"
               vertical-align="middle"
             />
@@ -194,21 +194,22 @@ class Content extends Component {
         </div>
         <div className="content-div">
           <p className="content-body">
-            There is also an option to label the inputs to be used in constraints.
-            For example, in Figure 4 on the right
+            There is also an option to label the inputs to be used in
+            constraints. For example, in Figure 4 on the right
             <ul>
               <li>Monomer 1 has two binding sites: a* (labeled b1) and b*</li>
               <li>
-                Monomer 2 (labeled m1) has two binding sites: a and b (labeled b2)
+                Monomer 2 (labeled m1) has two binding sites: a and b (labeled
+                b2)
               </li>
               <li>Monomer 3 (labeled m2) has one binding site: a</li>
               <li>Monomer 4 has one binding site: b</li>
             </ul>
-          </p> 
+          </p>
           <figure className="content-figure" vertical-align="middle">
             <img
               className="content-image"
-              src={inputExample2}
+              src={inputExample1}
               alt="InputEx2"
               vertical-align="middle"
             />
@@ -217,7 +218,7 @@ class Content extends Component {
             </figcaption>
           </figure>
         </div>
-        <hr className="hr-content"/>
+        <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myConstraintRef}>
           Constraints
         </h1>
@@ -286,7 +287,7 @@ class Content extends Component {
           to not bind to any other binding site:
         </p>
         <p className="content-highlight">&emsp;{"NOTANYPAIRED {b1}"}</p>
-        <hr className="hr-content"/>
+        <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myGenRef}>
           Number Generations
         </h1>
@@ -294,7 +295,7 @@ class Content extends Component {
           The number of generations box will attempt to generate n stable
           configurations with the specified constraints if it is possible.
         </p>
-        <hr className="hr-content"/>
+        <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myPolyRef}>
           Minimum Polymers
         </h1>
