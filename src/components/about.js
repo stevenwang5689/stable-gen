@@ -128,6 +128,15 @@ function About() {
                   </Grid>
               </Grid>
 
+              <Grid container spacing={2} xs={12} direction="row" justify="center" alignItems="center">
+                  <Grid item>
+                      <Typography variant={"h6"}>
+                          Team Members
+                      </Typography>
+                  </Grid>
+
+              </Grid>
+
               <Grid container spacing={2} xs={11} direction="row" justify="center" alignItems="center" className={classes.lists}>
 
                       <Grid item xs={8} sm={6} md={4} lg={2}>

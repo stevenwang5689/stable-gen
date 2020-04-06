@@ -299,9 +299,9 @@ class Content extends Component {
           Minimum Polymers
         </h1>
         <p className="content-body">
-          If you are certain that there will need be a certain number of
-          polymers, specifcying the minumum number of polymers will greatly
-          speed up calculations
+          If you are certain that there will be at least a certain number of
+          polymers, specifying the minimum number of polymers will greatly
+          speed up calculations.
         </p>
       </Container>
     );

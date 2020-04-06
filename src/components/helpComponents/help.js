@@ -40,7 +40,7 @@ class Help extends Component {
       },
       {
         name: "polymer",
-        label: "Minumum Polymers",
+        label: "Minimum Polymers",
         onClick: this.onClickSidebar
       }
     ];
