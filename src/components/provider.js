@@ -192,6 +192,7 @@ class Provider extends Component {
       );
     } else {
       this.setState({
+        calculating: false,
         dataMissingFlag: true
       })
     }
