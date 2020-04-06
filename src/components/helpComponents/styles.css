@@ -10,17 +10,20 @@
   text-align: left;
   line-height: 1.5;
   font-size: 16px;
+  color: #5a5659;
   font-family: "Helvetica", "Roboto", "Arial";
 }
 
 .content-heading {
   width: 100%;
   font-size: 30px;
+  color: #5a5659;
   font-family: "Segoe UI", "Roboto", "Helvetica", "Arial";
 }
 
 .content-heading2 {
   width: 100%;
+  text-align: left;
   font-size: 22px;
   color: #5a5659;
   font-family: "Segoe UI", "Roboto", "Helvetica", "Arial";

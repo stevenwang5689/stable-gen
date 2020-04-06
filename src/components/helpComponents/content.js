@@ -288,21 +288,21 @@ class Content extends Component {
         </p>
         <p className="content-highlight">&emsp;{"NOTANYPAIRED {b1}"}</p>
         <hr className="hr-content" />
-        <h1 className="content-heading" ref={this.myGenRef}>
+        <h1 className="content-heading">Additional Options</h1>
+        <h2 className="content-heading2" ref={this.myGenRef}>
           Number Generations
-        </h1>
+        </h2>
         <p className="content-body">
           The number of generations box will attempt to generate n stable
           configurations with the specified constraints if it is possible.
         </p>
-        <hr className="hr-content" />
-        <h1 className="content-heading" ref={this.myPolyRef}>
+        <h2 className="content-heading2" ref={this.myPolyRef}>
           Minimum Polymers
-        </h1>
+        </h2>
         <p className="content-body">
           If you are certain that there will be at least a certain number of
-          polymers, specifying the minimum number of polymers will greatly
-          speed up calculations.
+          polymers, specifying the minimum number of polymers will greatly speed
+          up calculations.
         </p>
       </Container>
     );
