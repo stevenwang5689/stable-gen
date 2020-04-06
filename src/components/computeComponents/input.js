@@ -8,20 +8,22 @@ import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import DeleteForever from "@material-ui/icons/DeleteForever"
 import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
+import '../../App.css';
 
-const HtmlTooltip = withStyles(theme => ({
+const HtmlTooltip = withStyles({
   tooltip: {
     backgroundColor: "#f5f5f9",
     color: "rgba(0, 0, 0, 0.87)",
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
+    maxWidth: "none",
+    fontSize: 16,
     border: "1px solid #dadde9"
   }
-}))(Tooltip);
+})(Tooltip);
 
 class Input extends Component {
   constructor() {
@@ -132,34 +134,47 @@ class Input extends Component {
   renderTBNInputUploadButton(context) {
     return (
       <div>
-        <Tooltip
-          title={
-            <Fragment>
-              For information on input format, please see{" "}
-              <a href="help">Help</a> page.
-            </Fragment>
-          }
-          arrow
-          placement="left"
-          interactive
-        >
-          <IconButton aria-label="delete">
-            <HelpIcon />
-          </IconButton>
-        </Tooltip>
-        <Button
-          variant="contained"
-          component="label"
-          color="primary"
-          startIcon={<CloudUploadIcon />}
-        >
-          Upload TBN Input
-          <input
-            type="file"
-            style={{ display: "none" }}
-            onChange={event => context.onDataChangeHandler(event)}
-          />
-        </Button>
+        <span className="help-button">
+          <HtmlTooltip
+            title={
+              <Fragment>
+                For information on input format, please see{" "}
+                <a href="help">Help</a> page.
+              </Fragment>
+            }
+            arrow
+            placement="top"
+            interactive
+          >
+            <IconButton aria-label="delete">
+              <HelpIcon />
+            </IconButton>
+          </HtmlTooltip>
+          <Button
+            variant="contained"
+            component="label"
+            color="primary"
+            startIcon={<CloudUploadIcon />}
+          >
+            Upload TBN Input
+            <input
+              type="file"
+              style={{ display: "none" }}
+              onChange={event => context.onDataChangeHandler(event)}
+            />
+          </Button>
+        </span>
+        <span className="clear-button">
+          <Button
+            variant="contained"
+            component="label"
+            color="disabled"
+            startIcon={<DeleteForever />}
+            onClick={() => context.onClearDataHandler()}
+          >
+            Clear
+            </Button>
+        </span>
       </div>
     );
   }
@@ -167,7 +182,8 @@ class Input extends Component {
   renderTBNConstraintsUploadButton(context) {
     return (
       <div>
-        <Tooltip
+        <span className="help-button">
+          <HtmlTooltip
           title={
             <Fragment>
               For information on constraints format, please see{" "}
@@ -175,13 +191,13 @@ class Input extends Component {
             </Fragment>
           }
           arrow
-          placement="left"
+          placement="top"
           interactive
         >
           <IconButton aria-label="delete">
             <HelpIcon />
           </IconButton>
-        </Tooltip>
+          </HtmlTooltip>
         <Button
           variant="contained"
           component="label"
@@ -195,6 +211,18 @@ class Input extends Component {
             onChange={event => context.onConstraintsChangeHandler(event)}
           />
         </Button>
+        </span>
+        <span className="clear-button">
+          <Button
+            variant="contained"
+            component="label"
+            color="disabled"
+            startIcon={<DeleteForever />}
+            onClick={() => context.onClearConstraintsHandler()}
+          >
+            Clear
+          </Button>
+        </span>
       </div>
     );
   }

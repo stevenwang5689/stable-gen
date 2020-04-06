@@ -37,13 +37,23 @@ img:hover{
 }
 
 .inputbox textarea {
-  min-height: calc(50vh - 180px);
-  max-height: calc(50vh - 180px);
+  min-height: calc(45vh - 180px);
+  max-height: calc(45vh - 180px);
 }
 
 .syntaxHighlight {
-  min-height: calc(50vh - 180px);
-  max-height: calc(50vh - 180px);
+  min-height: calc(45vh - 180px);
+  max-height: calc(45vh - 180px);
   padding: 18.5px 14px;
   overflow: auto;
+}
+
+.help-button {
+  float: left;
+}
+
+.clear-button {
+  float: right;
+  padding-top: 6px;
+  padding-right: 12px;
 }

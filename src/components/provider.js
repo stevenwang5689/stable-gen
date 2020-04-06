@@ -85,6 +85,21 @@ class Provider extends Component {
     })
   }
 
+  onClearDataHandler = () => {
+    console.log("Hello");
+    this.setState({
+      inputData: null,
+      inputDataText: ""
+    })
+  }
+
+  onClearConstraintsHandler = () => {
+    this.setState({
+      inputConstraints: null,
+      inputConstraintsText: ""
+    })
+  }
+
   handleControlChange = (target, event) => {
     this.setState({
       // only allow integers
@@ -195,7 +210,9 @@ class Provider extends Component {
           handleControlChange: (target, event) => this.handleControlChange(target, event),
           setFlagState: (target) => this.handleCallback(target),
           onClickComputeHandler: () => this.onClickComputeHandler(),
-          onExampleChangeHandler: (event) => this.onExampleChangeHandler(event)
+          onExampleChangeHandler: (event) => this.onExampleChangeHandler(event),
+          onClearDataHandler: () => this.onClearDataHandler(),
+          onClearConstraintsHandler: () => this.onClearConstraintsHandler(),
         }
       }>
         {this.props.children}
