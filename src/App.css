@@ -8,12 +8,12 @@
 }
 
 .Control-panel {
-  padding-bottom: 25px;
+  padding-bottom: 14px;
 }
 
 .Content {
   padding: 0px 25px;
-  max-height: 75vh;
+  max-height: 70vh;
 }
 
 img:hover{
