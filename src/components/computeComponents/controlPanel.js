@@ -11,7 +11,14 @@ import SendIcon from '@material-ui/icons/Send';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import { withStyles } from "@material-ui/core/styles";
 
+
+const ComputeButton = withStyles({
+    root: {
+        // backgroundColor: "#D00000", // Comment to modify compute button
+    }
+})(Button);
 
 class ControlPanel extends Component {
 
@@ -44,7 +51,7 @@ class ControlPanel extends Component {
                                 </Grid>
                             </Grid>
                             <Grid item xs={6}>
-                                <Grid container spacing={3} justify="center">
+                                <Grid container spacing={3} justify="center" alignItems="center">
                                     <Grid item>
                                         <TextField 
                                             variant="outlined" 
@@ -67,14 +74,14 @@ class ControlPanel extends Component {
                                             />
                                     </Grid>
                                     <Grid item>
-                                        <Button type="button" 
+                                        <ComputeButton type="button" 
                                                 variant="contained" 
                                                 color="secondary"
                                                 disabled={context.state.calculating} 
                                                 onClick={() => context.onClickComputeHandler()} 
                                                 endIcon={<SendIcon />}>
                                             Compute
-                                        </Button>
+                                        </ComputeButton>
                                     </Grid>
                                 </Grid>
                             </Grid>

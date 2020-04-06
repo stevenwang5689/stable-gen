@@ -23,8 +23,8 @@ const Logo = () => (
 
 const ColorPaper = withStyles({
   root: {
-    color: "white",
-    backgroundColor: "#27a6b3"
+    color: "black",
+    backgroundColor: "#FAFAFA"
   }
 })(Paper);
 
@@ -44,7 +44,7 @@ function App() {
                 </Grid>
                 <Grid item sm={12} md={7} >
                   <ColorPaper elevation={3} square>
-                    <Tabs variant="fullWidth" indicatorColor="secondary" value={location.pathname}>
+                    <Tabs variant="fullWidth" indicatorColor="primary" value={location.pathname}>
                       <Tab label="Compute" value="/" component={Link} to="/" />
                       <Tab label="Help" value="/help" component={Link} to="/help" />
                       <Tab label="About" value="/about" component={Link} to="/about" />
