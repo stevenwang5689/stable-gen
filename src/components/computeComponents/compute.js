@@ -21,8 +21,8 @@ class Compute extends Component {
                                 <Input />
                             </Grid>
                             <Grid item xs={12} sm={6}>
-                                <Spinner />
                                 <ControlPanel/>
+                                <Spinner />
                                 <Output />
                             </Grid>
                         </Grid>

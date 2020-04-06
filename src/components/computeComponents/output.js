@@ -41,7 +41,7 @@ class Output extends Component {
                             </Grid>
                             )}
                             <Grid item>
-                                <Grid container style={{maxHeight: 500, overflow: 'auto'}}>
+                                <Grid container style={{maxHeight: 600, overflow: 'auto'}}>
                                     <Grid item sm={12}>
                                         <Result />
                                     </Grid>

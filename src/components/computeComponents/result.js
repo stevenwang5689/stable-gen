@@ -131,17 +131,17 @@ class Result extends Component {
                                                         <Typography> Configuration {index+1} ({config.polymers_count} polymers)</Typography>
                                                     </Grid>
                                                     <Grid item>
-                                                            <Grid container spacing={2} justify="flex-end">
-                                                                <Grid item>
-                                                                    <IconButton size="small" color="secondary" onClick={(e) => this.onClickCopy(config.polymers, e)}>
-                                                                        <FileCopyIcon/>    
-                                                                    </IconButton>
-                                                                </Grid>
-                                                                <Grid item>
-                                                                    <IconButton size="small" color="secondary" onClick={(e) => this.onClickDownload(config.polymers, e)}>
-                                                                        <GetAppIcon/>
-                                                                    </IconButton>
-                                                                </Grid>
+                                                        <Grid container spacing={2} justify="flex-end">
+                                                            <Grid item>
+                                                                <IconButton size="small" color="secondary" onClick={(e) => this.onClickCopy(config.polymers, e)}>
+                                                                    <FileCopyIcon/>    
+                                                                </IconButton>
+                                                            </Grid>
+                                                            <Grid item>
+                                                                <IconButton size="small" color="secondary" onClick={(e) => this.onClickDownload(config.polymers, e)}>
+                                                                    <GetAppIcon/>
+                                                                </IconButton>
+                                                            </Grid>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
