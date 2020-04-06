@@ -235,7 +235,7 @@ class Input extends Component {
 
   removeComment(line) {
     let regex = /#.*/
-    return line.replace(regex, "")
+    return line.replace(regex, "").trim()
   }
 
   render() {
