@@ -28,8 +28,8 @@ class ControlPanel extends Component {
             <MContext.Consumer>
                 {(context) => (
                     <Fragment>
-                        <Grid container spacing={3} justify="center" className = "Control-panel">
-                            <Grid item>
+                        <Grid container spacing={3} justify="center" alignItems="center" className = "Control-panel">
+                            <Grid item md={12} lg={3}>
                                 <FormControl>
                                     <NativeSelect
                                         color="secondary"
@@ -46,7 +46,7 @@ class ControlPanel extends Component {
                                     <FormHelperText>Select an Example Input to try it out!</FormHelperText>
                                 </FormControl>
                             </Grid>
-                            <Grid item>
+                            <Grid item sm={12} md={6} lg={3}>
                                 <TextField 
                                     variant="outlined" 
                                     color="secondary" 
@@ -57,7 +57,7 @@ class ControlPanel extends Component {
                                     onBlur={() => context.onGenBlur()}
                                 />
                             </Grid>
-                            <Grid item>
+                            <Grid item sm={12} md={6} lg={3}>
                                 <TextField 
                                     variant="outlined" 
                                     color="secondary" 
@@ -67,7 +67,7 @@ class ControlPanel extends Component {
                                     onChange={(event) => context.handleControlChange("minPolymers", event)}
                                     />
                             </Grid>
-                            <Grid item>
+                            <Grid item md={12} lg={3}>
                                 <ComputeButton type="button" 
                                         variant="contained" 
                                         color="secondary"
