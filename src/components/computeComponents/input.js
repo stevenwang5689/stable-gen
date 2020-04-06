@@ -4,7 +4,6 @@ import { MContext } from "../provider";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
-import Badge from "@material-ui/core/Badge";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
@@ -13,7 +12,6 @@ import DeleteForever from "@material-ui/icons/DeleteForever"
 import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
-import Grow from "@material-ui/core/Grow";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import '../../App.css';
@@ -27,6 +25,19 @@ const HtmlTooltip = withStyles({
     border: "1px solid #dadde9"
   }
 })(Tooltip);
+
+const UploadButton = withStyles({
+  root: {
+    backgroundColor: "#3F88C5",
+  }
+})(Button);
+
+
+const ClearButton = withStyles({
+  root: {
+    // backgroundColor: "#EAD6C9", // Uncomment to modify Clear Button color
+  }
+})(Button);
 
 class Input extends Component {
   constructor() {
@@ -61,13 +72,17 @@ class Input extends Component {
       .trim()
       .split("\n")
       .map(line => {
-        line = this.removeComment(line)
-        if (line != "") {
+        line = line.trim()
+        this.removeComment(line)
+        if (this.isComment(line)) {
+            return <p>{line}</p>;
+        } else{
+            line = this.removeComment(line)
             return (
                 <Chip
                     className="Chip-spacing"
                     variant={line.indexOf('>') > -1 ? "default" : "outlined"}
-                    color="secondary"
+                    color="primary"
                     label={line}
                 />
             );
@@ -145,7 +160,7 @@ class Input extends Component {
             title={
               <Fragment>
                 For information on input format, please see{" "}
-                <a href="help">Help</a> page.
+                <a href="/help#input-format">Help</a> page.
               </Fragment>
             }
             arrow
@@ -156,7 +171,7 @@ class Input extends Component {
               <HelpIcon />
             </IconButton>
           </HtmlTooltip>
-          <Button
+          <UploadButton
             variant="contained"
             component="label"
             color="primary"
@@ -168,10 +183,10 @@ class Input extends Component {
               style={{ display: "none" }}
               onChange={event => context.onDataChangeHandler(event)}
             />
-          </Button>
+          </UploadButton>
         </span>
         <span className="clear-button">
-          <Button
+          <ClearButton
             variant="contained"
             component="label"
             color="disabled"
@@ -179,7 +194,7 @@ class Input extends Component {
             onClick={() => context.onClearDataHandler()}
           >
             Clear
-            </Button>
+            </ClearButton>
         </span>
       </div>
     );
@@ -193,7 +208,7 @@ class Input extends Component {
           title={
             <Fragment>
               For information on constraints format, please see{" "}
-              <a href="help">Help</a> page.
+              <a href="/help#constraints-format">Help</a> page.
             </Fragment>
           }
           arrow
@@ -204,7 +219,7 @@ class Input extends Component {
             <HelpIcon />
           </IconButton>
           </HtmlTooltip>
-        <Button
+          <UploadButton
           variant="contained"
           component="label"
           color="primary"
@@ -216,10 +231,10 @@ class Input extends Component {
             style={{ display: "none" }}
             onChange={event => context.onConstraintsChangeHandler(event)}
           />
-        </Button>
+          </UploadButton>
         </span>
         <span className="clear-button">
-          <Button
+          <ClearButton
             variant="contained"
             component="label"
             color="disabled"
@@ -227,10 +242,14 @@ class Input extends Component {
             onClick={() => context.onClearConstraintsHandler()}
           >
             Clear
-          </Button>
+          </ClearButton>
         </span>
       </div>
     );
+  }
+
+  isComment(line) {
+    return (line.charAt(0) === '#')
   }
 
   removeComment(line) {

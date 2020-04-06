@@ -1,19 +1,20 @@
+
 .App {
   text-align: center;
 }
 
 .App-header {
   max-height: 10vh;
-  padding: 0px 25px;
+  padding: 0px 25px 100px 25px;
 }
 
 .Control-panel {
-  padding-bottom: 25px;
+  padding-bottom: 14px;
 }
 
 .Content {
   padding: 0px 25px;
-  max-height: 75vh;
+  max-height: 70vh;
 }
 
 img:hover{
@@ -34,13 +35,13 @@ img:hover{
 }
 
 .inputbox textarea {
-  min-height: calc(45vh - 180px);
-  max-height: calc(45vh - 180px);
+  min-height: calc(50vh - 180px);
+  max-height: calc(50vh - 180px);
 }
 
 .syntaxHighlight {
-  min-height: calc(45vh - 180px);
-  max-height: calc(45vh - 180px);
+  min-height: calc(50vh - 180px);
+  max-height: calc(50vh - 180px);
   padding: 18.5px 14px;
   overflow: auto;
 }

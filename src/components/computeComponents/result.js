@@ -17,6 +17,7 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import IconButton from '@material-ui/core/IconButton';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -40,7 +41,8 @@ class Result extends Component {
         }
     }
 
-    onClickCopy = (polymers) => {
+    onClickCopy = (polymers, e) => {
+        e.stopPropagation();
         var listOfPolymers = polymers.map(polymer => {
             var monomers = polymer.map(monomer => {
                 return monomer.join(" ")
@@ -62,7 +64,8 @@ class Result extends Component {
         })
     }
 
-    onClickDownload = (polymers) => {
+    onClickDownload = (polymers, e) => {
+        e.stopPropagation();
         var listOfPolymers = polymers.map(polymer => {
             var monomers = polymer.map(monomer => {
                 return monomer.join(" ")
@@ -121,26 +124,31 @@ class Result extends Component {
                             return( 
                                 <Fragment>
                                     {(config.polymers_count !== 0) && (                                 
-                                        <ExpansionPanel defaultExpanded={true}>
+                                        <ExpansionPanel defaultExpanded={true}>                                      
                                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                                                <Typography> Configuration {index+1} ({config.polymers_count} polymers)</Typography>
-                                            </ExpansionPanelSummary>
-                                            <ExpansionPanelDetails>
-                                                <Grid container spacing={2} direction="column">
+                                                <Grid container justify="space-between">
+                                                    <Grid item>
+                                                        <Typography> Configuration {index+1} ({config.polymers_count} polymers)</Typography>
+                                                    </Grid>
                                                     <Grid item>
                                                         <Grid container spacing={2} justify="flex-end">
                                                             <Grid item>
-                                                                <Button type="button" size="small" variant="outlined" color="secondary" onClick={() => this.onClickCopy(config.polymers)}  startIcon={<FileCopyIcon/>}>
-                                                                    Copy
-                                                                </Button>
+                                                                <IconButton size="small" color="secondary" onClick={(e) => this.onClickCopy(config.polymers, e)}>
+                                                                    <FileCopyIcon/>    
+                                                                </IconButton>
                                                             </Grid>
                                                             <Grid item>
-                                                                <Button type="button" size="small" variant="outlined" color="secondary" onClick={() => this.onClickDownload(config.polymers)}   startIcon={<GetAppIcon/>}>
-                                                                    Download
-                                                                </Button>
+                                                                <IconButton size="small" color="secondary" onClick={(e) => this.onClickDownload(config.polymers, e)}>
+                                                                    <GetAppIcon/>
+                                                                </IconButton>
                                                             </Grid>
                                                         </Grid>
                                                     </Grid>
+                                                </Grid>
+                                            </ExpansionPanelSummary>
+                                            <ExpansionPanelDetails>
+                                                <Grid container spacing={2} direction="column">
+                                                    
                                                     <Grid item>
                                                         <Grid container spacing={2}>
                                                             {listOfPolymers}

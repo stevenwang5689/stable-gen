@@ -11,7 +11,7 @@ import "./styles.css";
 
 function SidebarItem({ item, curPadding = 0, ...rest }) {
   const [collapsed, setCollapsed] = React.useState(true);
-  const { label, items, onClick: onClickProperty } = item;
+  const { label, items, Icon, onClick: onClickProperty } = item;
 
   function onClick(e) {
     if (Array.isArray(items)) {
@@ -45,6 +45,7 @@ function SidebarItem({ item, curPadding = 0, ...rest }) {
           style={{ paddingLeft: curPadding }}
           className="sidebar-item-content"
         >
+          {Icon && <Icon className="sidebar-icon" fontSize="small" />}
           <div className="sidebar-item-text">{label}</div>
         </div>
         {expandIcon}
@@ -71,7 +72,7 @@ function Sidebar({ items, depthStep, depth }) {
         {items.map((sidebarItem, index) => (
           <Fragment key={sidebarItem.name}>
             <SidebarItem item={sidebarItem} />
-            <Divider light style={{ margin: "3px" }} />
+            {/* <Divider light style={{ margin: "3px" }} /> */}
           </Fragment>
         ))}
       </List>
