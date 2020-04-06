@@ -147,7 +147,7 @@ class Input extends Component {
             title={
               <Fragment>
                 For information on input format, please see{" "}
-                <a href="help">Help</a> page.
+                <a href="/help#input-format">Help</a> page.
               </Fragment>
             }
             arrow
@@ -195,7 +195,7 @@ class Input extends Component {
           title={
             <Fragment>
               For information on constraints format, please see{" "}
-              <a href="help">Help</a> page.
+              <a href="/help#constraints-format">Help</a> page.
             </Fragment>
           }
           arrow

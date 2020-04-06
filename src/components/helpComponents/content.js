@@ -165,7 +165,7 @@ class Content extends Component {
           </figure>
         </div>
         <hr className="hr-content" />
-        <h1 className="content-heading" ref={this.myFormatRef}>
+        <h1 className="content-heading" id="input-format" ref={this.myFormatRef}>
           Input Format
         </h1>
         <div className="content-div">
@@ -219,7 +219,7 @@ class Content extends Component {
           </figure>
         </div>
         <hr className="hr-content" />
-        <h1 className="content-heading" ref={this.myConstraintRef}>
+        <h1 className="content-heading" id="constraints-format" ref={this.myConstraintRef}>
           Constraints
         </h1>
         <h2 className="content-heading2" ref={this.myTRef}>

@@ -36,11 +36,13 @@ function App() {
           path="/"
           render={({ location }) => (
             <Grid container direction="column">
-              <Grid container item alignItems="center">
-                <Grid item sm={12} md={4}>
+              <Grid container item alignItems="center" justify="space-evenly">
+                <Grid item sm={12} md={4} >
+                  <div>
                     <Logo />
+                  </div>
                 </Grid>
-                <Grid item sm={12} md={7}>
+                <Grid item sm={12} md={7} >
                   <ColorPaper elevation={3} square>
                     <Tabs variant="fullWidth" indicatorColor="secondary" value={location.pathname}>
                       <Tab label="Compute" value="/" component={Link} to="/" />
