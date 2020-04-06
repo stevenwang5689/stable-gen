@@ -32,6 +32,7 @@ class ControlPanel extends Component {
                             <Grid item>
                                 <FormControl>
                                     <NativeSelect
+                                        color="secondary"
                                         name="example"
                                         onChange={(event) => context.onExampleChangeHandler(event)}
                                     >
