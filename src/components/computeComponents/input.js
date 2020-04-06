@@ -61,7 +61,8 @@ class Input extends Component {
       .trim()
       .split("\n")
       .map(line => {
-        if (line = this.removeComment(line)) {
+        line = this.removeComment(line)
+        if (line != "") {
             return (
                 <Chip
                     className="Chip-spacing"
