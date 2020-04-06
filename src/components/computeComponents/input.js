@@ -4,7 +4,6 @@ import { MContext } from "../provider";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
-import Badge from "@material-ui/core/Badge";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
@@ -13,7 +12,6 @@ import DeleteForever from "@material-ui/icons/DeleteForever"
 import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
-import Grow from "@material-ui/core/Grow";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import '../../App.css';
@@ -61,8 +59,12 @@ class Input extends Component {
       .trim()
       .split("\n")
       .map(line => {
-        line = this.removeComment(line)
-        if (line != "") {
+        line = line.trim()
+        this.removeComment(line)
+        if (this.isComment(line)) {
+            return <p>{line}</p>;
+        } else{
+            line = this.removeComment(line)
             return (
                 <Chip
                     className="Chip-spacing"
@@ -231,6 +233,10 @@ class Input extends Component {
         </span>
       </div>
     );
+  }
+
+  isComment(line) {
+    return (line.charAt(0) === '#')
   }
 
   removeComment(line) {
