@@ -57,16 +57,6 @@ class Help extends Component {
         ]
       },
       {
-<<<<<<< Updated upstream
-        name: "gen",
-        label: "Number Generations",
-        onClick: this.onClickSidebar
-      },
-      {
-        name: "polymer",
-        label: "Minimum Polymers",
-        onClick: this.onClickSidebar
-=======
         name: "additional",
         label: "Addiditional Options",
         Icon: TuneIcon,
@@ -82,7 +72,6 @@ class Help extends Component {
             onClick: this.onClickSidebar
           }
         ]
->>>>>>> Stashed changes
       }
     ];
   }
