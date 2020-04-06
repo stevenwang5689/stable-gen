@@ -15,8 +15,30 @@ import Button from '@material-ui/core/Button';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 class Result extends Component {
-    state = { }
+    state = { 
+        copiedFlag: false,
+        downloadedFlag: false,
+    }
+
+    setFlagState = (target) => {
+        if (target === "copiedFlag") {
+          this.setState({
+            copiedFlag: false
+          })
+        } else if (target === "downloadedFlag") {
+        this.setState({
+            downloadedFlag: false
+        })
+        }
+    }
 
     onClickCopy = (polymers) => {
         var listOfPolymers = polymers.map(polymer => {
@@ -34,6 +56,10 @@ class Result extends Component {
         input.select();
         document.execCommand('copy');
         document.body.removeChild(input);
+
+        this.setState({
+            copiedFlag: true
+        })
     }
 
     onClickDownload = (polymers) => {
@@ -52,6 +78,10 @@ class Result extends Component {
         element.download = "output.txt";
         document.body.appendChild(element); // Required for this to work in FireFox
         element.click();
+
+        this.setState({
+            downloadedFlag: true
+        })
     }
 
     render() { 
@@ -121,6 +151,17 @@ class Result extends Component {
                                             </ExpansionPanelDetails>
                                         </ExpansionPanel>
                                     )}
+
+                                    <Snackbar open={this.state.copiedFlag} autoHideDuration={2000} onClose={() => this.setFlagState("copiedFlag")}>
+                                        <Alert onClose={() => context.setFlagState("copiedFlag")} severity="success">
+                                            Copied output to clipboard
+                                        </Alert>
+                                    </Snackbar>
+                                    <Snackbar open={this.state.downloadedFlag} autoHideDuration={2000} onClose={() => this.setFlagState("downloadedFlag")}>
+                                        <Alert onClose={() => context.setFlagState("downloadedFlag")} severity="success">
+                                            Downloaded output as textfile
+                                        </Alert>
+                                    </Snackbar>
                                 </Fragment>
                             )
                         })

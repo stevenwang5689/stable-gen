@@ -9,6 +9,7 @@ import { Route, Switch, Link, BrowserRouter } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Grid from "@material-ui/core/Grid";
+import AppBar from '@material-ui/core/AppBar';
 
 import logo from "./images/logo.png";
 
@@ -29,41 +30,26 @@ function App() {
           render={({ location }) => (
             <Grid container direction="column">
               <Grid item>
-                <Grid
-                  container
-                  justify="space-between"
-                  alignItems="center"
-                  className="App-header"
-                >
+                <Grid container justify="space-between" alignItems="center" className="App-header">
                   <Grid item>
                     <Logo />
                   </Grid>
                   <Grid item>
                     <Tabs value={location.pathname}>
-                      <Tab
-                        label="Help"
-                        value="/help"
-                        component={Link}
-                        to="/help"
-                      />
-                      <Tab
-                        label="About"
-                        value="/about"
-                        component={Link}
-                        to="/about"
-                      />
+                      <Tab label="Help" value="/help" component={Link} to="/help" />
+                      <Tab label="About" value="/about" component={Link} to="/about" />
                     </Tabs>
                   </Grid>
                 </Grid>
-                <Grid />
-                <Grid item>
-                  <Switch>
-                    <Route path="/help" component={Help} />
-                    <Route path="/about" component={About} />
-                    <Route path="/" component={Compute} />
-                    <Route component={Error} />
-                  </Switch>
-                </Grid>
+              <Grid />
+              <Grid item>
+                <Switch>
+                  <Route path="/help" component={Help} />
+                  <Route path="/about" component={About} />
+                  <Route path="/" component={Compute} />
+                  <Route component={Error} />
+                </Switch>
+              </Grid>
               </Grid>
             </Grid>
           )}
