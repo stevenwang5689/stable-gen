@@ -12,6 +12,10 @@
   padding-bottom: 14px;
 }
 
+#control {
+  margin: unset;
+}
+
 .Content {
   padding: 0px 25px;
   max-height: 70vh;
@@ -34,16 +38,27 @@ img:hover{
   background-color: #FFF6F3;
 }
 
-.inputbox textarea {
-  min-height: calc(50vh - 180px);
-  max-height: calc(50vh - 180px);
-}
-
 .syntaxHighlight {
-  min-height: calc(50vh - 180px);
-  max-height: calc(50vh - 180px);
+  min-height: calc(50vh - 130px);
+  max-height: calc(50vh - 130px);
   padding: 18.5px 14px;
   overflow: auto;
+}
+
+.tbn-inputbox textarea {
+  min-height: calc(50vh - 130px);
+  max-height: calc(50vh - 130px);
+}
+
+.constraints-inputbox textarea {
+  min-height: calc(30vh - 130px);
+  max-height: calc(30vh - 130px);
+}
+
+.example-dropdown {
+  max-width: 50%;
+  max-height: 10vh;
+  margin: 10px;
 }
 
 .help-button {

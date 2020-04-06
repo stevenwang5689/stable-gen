@@ -12,6 +12,9 @@ import DeleteForever from "@material-ui/icons/DeleteForever"
 import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
+import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import NativeSelect from "@material-ui/core/NativeSelect";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import '../../App.css';
@@ -75,17 +78,19 @@ class Input extends Component {
         line = line.trim()
         this.removeComment(line)
         if (this.isComment(line)) {
-            return <p>{line}</p>;
-        } else{
-            line = this.removeComment(line)
+          return <p>{line}</p>;
+        } else {
+          line = this.removeComment(line).trim()
+          if (line) {
             return (
-                <Chip
-                    className="Chip-spacing"
-                    variant={line.indexOf('>') > -1 ? "default" : "outlined"}
-                    color="primary"
-                    label={line}
-                />
+              <Chip
+                className="Chip-spacing"
+                variant={line.indexOf('>') > -1 ? "default" : "outlined"}
+                color="primary"
+                label={line}
+              />
             );
+          }
         }
       });
     return (
@@ -118,7 +123,7 @@ class Input extends Component {
     return showTextField ? (
       <TextField
         id="data-input-field"
-        className="inputbox"
+        className="tbn-inputbox"
         label="TBN Input"
         variant="outlined"
         multiline
@@ -132,15 +137,15 @@ class Input extends Component {
         autoFocus={true}
       />
     ) : (
-      this.renderSyntaxHighlight(context)
-    );
+        this.renderSyntaxHighlight(context)
+      );
   }
 
   renderConstraintsTextField(context) {
     return (
       <TextField
         id="contraints-input-field"
-        className="inputbox"
+        className="constraints-inputbox"
         label="Constraints"
         variant="outlined"
         multiline
@@ -205,32 +210,32 @@ class Input extends Component {
       <div>
         <span className="help-button">
           <HtmlTooltip
-          title={
-            <Fragment>
-              For information on constraints format, please see{" "}
-              <a href="/help#constraints-format">Help</a> page.
+            title={
+              <Fragment>
+                For information on constraints format, please see{" "}
+                <a href="/help#constraints-format">Help</a> page.
             </Fragment>
-          }
-          arrow
-          placement="top"
-          interactive
-        >
-          <IconButton aria-label="delete">
-            <HelpIcon />
-          </IconButton>
+            }
+            arrow
+            placement="top"
+            interactive
+          >
+            <IconButton aria-label="delete">
+              <HelpIcon />
+            </IconButton>
           </HtmlTooltip>
           <UploadButton
-          variant="contained"
-          component="label"
-          color="primary"
-          startIcon={<CloudUploadIcon />}
-        >
-          Upload Constraints
+            variant="contained"
+            component="label"
+            color="primary"
+            startIcon={<CloudUploadIcon />}
+          >
+            Upload Constraints
           <input
-            type="file"
-            style={{ display: "none" }}
-            onChange={event => context.onConstraintsChangeHandler(event)}
-          />
+              type="file"
+              style={{ display: "none" }}
+              onChange={event => context.onConstraintsChangeHandler(event)}
+            />
           </UploadButton>
         </span>
         <span className="clear-button">
@@ -248,12 +253,30 @@ class Input extends Component {
     );
   }
 
+  renderExampleDropdown(context) {
+    return <FormControl >
+      <NativeSelect
+        name="example"
+        className="example-dropdown"
+        onChange={(event) => context.onExampleChangeHandler(event)}
+      >
+        <option value="" disabled selected>
+          Example Inputs
+        </option>
+        <option value={"and_gate_2_input"}>2 Input And Gate</option>
+        <option value={"and_gate_3_input"}>3 Input And Gate</option>
+
+      </NativeSelect>
+      {/* <FormHelperText>Select an Example Input to try it out!</FormHelperText> */}
+    </FormControl>
+  }
+
   isComment(line) {
     return (line.charAt(0) === '#')
   }
 
   removeComment(line) {
-    let regex = /#.*/
+    let regex = /(#.*)/
     return line.replace(regex, "").trim()
   }
 
@@ -268,6 +291,7 @@ class Input extends Component {
               justify="space-around"
               alignItems="stretch"
             >
+              {this.renderExampleDropdown(context)}
               {this.renderTBNTextField(context)}
               {this.renderTBNInputUploadButton(context)}
               <br />

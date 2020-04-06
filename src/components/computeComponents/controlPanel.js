@@ -28,7 +28,7 @@ class ControlPanel extends Component {
             <MContext.Consumer>
                 {(context) => (
                     <Fragment>
-                        <Grid container spacing={3} justify="center" alignItems="center">
+                        <Grid id="control" container spacing={3} justify="center" alignItems="center">
                             <Grid item>
                                 <TextField 
                                     variant="outlined" 
