@@ -35,8 +35,8 @@ img:hover{
 }
 
 .inputbox textarea {
-  min-height: calc(45vh - 180px);
-  max-height: calc(45vh - 180px);
+  min-height: calc(50vh - 180px);
+  max-height: calc(50vh - 180px);
 }
 
 .syntaxHighlight {
