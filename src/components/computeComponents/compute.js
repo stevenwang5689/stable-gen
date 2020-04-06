@@ -15,8 +15,6 @@ class Compute extends Component {
         return ( 
             <Fragment>
                 <Provider>
-                    <br />
-                    <ControlPanel/>
                     <div>
                         <Grid container spacing={2} justify="space-around" alignItems="stretch" className="Content">
                             <Grid item xs={12} sm={6}>
@@ -24,6 +22,7 @@ class Compute extends Component {
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <Spinner />
+                                <ControlPanel/>
                                 <Output />
                             </Grid>
                         </Grid>
