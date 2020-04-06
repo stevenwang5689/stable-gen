@@ -184,7 +184,7 @@ function About() {
                                           Benson Huang
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
-                                          Project Manager/Backend Engineer
+                                          PM/Backend Engineer
                                       </Typography>
                                   </CardContent>
                               </CardActionArea>
@@ -206,23 +206,24 @@ function About() {
                                       <CardMedia>
                                           <Grid container direction="row" justify="center">
                                               <Grid item>
-
                                                   <Avatar src={kyle} className={classes.large} alt='Kyle Zhou' />
                                               </Grid>
                                           </Grid>
-
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Kyle Zhou
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
-                                          Backend Engineer/Deployment
+                                          UI/UX Designer
                                       </Typography>
                                   </CardContent>
                               </CardActionArea>
                               <CardActions>
                                   <IconButton href={"https://www.linkedin.com/in/kyle-zhou-9723b9153/"}>
                                       <LinkedInIcon/>
+                                  </IconButton>
+                                  <IconButton href={"https://github.com/INameMyMethodsExactlyWhatTheyDo"}>
+                                      <GitHubIcon/>
                                   </IconButton>
                               </CardActions>
                           </Card>
@@ -236,10 +237,8 @@ function About() {
                                           <Grid container direction="row" justify="center">
                                               <Grid item>
                                                   <Avatar src={steven} className={classes.large} alt='Steven Wang' />
-
                                               </Grid>
                                           </Grid>
-
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Steven Wang
@@ -269,16 +268,14 @@ function About() {
                                           <Grid container direction="row" justify="center">
                                               <Grid item>
                                                   <Avatar src={anthony} className={classes.large} alt='Anthony Vento' />
-
                                               </Grid>
                                           </Grid>
-
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Anthony Vento
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
-                                          Project Manager/Backend Engineer
+                                          PM/Researcher
                                       </Typography>
                                   </CardContent>
                               </CardActionArea>
@@ -297,11 +294,9 @@ function About() {
                                       <CardMedia>
                                           <Grid container direction="row" justify="center">
                                               <Grid item>
-
                                                   <Avatar src={hasan} className={classes.large} alt='Hasan Saleemi' />
                                               </Grid>
                                           </Grid>
-
                                       </CardMedia>
                                       <Typography gutterBottom variant="h5" component="h2">
                                           Hasan Saleemi
@@ -312,6 +307,9 @@ function About() {
                                   </CardContent>
                               </CardActionArea>
                               <CardActions>
+                                  <IconButton href={"https://www.linkedin.com/in/hasan-saleemi"}>
+                                      <LinkedInIcon/>
+                                  </IconButton>
                                   <IconButton href={"https://github.com/hasansaleemi/"}>
                                       <GitHubIcon/>
                                   </IconButton>
