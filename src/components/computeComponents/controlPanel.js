@@ -60,10 +60,25 @@ class ControlPanel extends Component {
                             <Grid item>
                                 <Grid container spacing={3} justify="center">
                                     <Grid item>
-                                        <TextField variant="outlined" color="secondary" label="Number of Generations" required defaultValue={1} value={context.state.gen===null ? 1:context.state.gen} onChange={(event) => context.handleControlChange("gen", event)}/>
+                                        <TextField 
+                                            variant="outlined" 
+                                            color="secondary" 
+                                            label="Number of Generations" 
+                                            required defaultValue={1} 
+                                            value={context.state.gen===null ? 1:context.state.gen} 
+                                            onChange={(event) => context.handleControlChange("gen", event)}
+                                            onBlur={() => context.onGenBlur()}
+                                            />
                                     </Grid>
                                     <Grid item>
-                                        <TextField variant="outlined" color="secondary" label="Minimum Polymers" defaultValue={1} value={context.state.minPolymers===null ? 1:context.state.minPolymers} onChange={(event) => context.handleControlChange("minPolymers", event)}/>
+                                        <TextField 
+                                            variant="outlined" 
+                                            color="secondary" 
+                                            label="Minimum Polymers" 
+                                            defaultValue={1} 
+                                            value={context.state.minPolymers===null ? 1:context.state.minPolymers} 
+                                            onChange={(event) => context.handleControlChange("minPolymers", event)}
+                                            />
                                     </Grid>
                                 </Grid>
                             </Grid>

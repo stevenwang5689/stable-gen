@@ -102,6 +102,14 @@ class Provider extends Component {
     })
   }
 
+  onGenBlur = () => {
+    if (this.state.gen <= 0) {
+      this.setState({
+        gen: 1
+      })
+    }
+  }
+
   handleControlChange = (target, event) => {
     this.setState({
       // only allow integers
@@ -210,6 +218,7 @@ class Provider extends Component {
           onDataTextChangeHandler: (event) => this.onDataTextChangeHandler(event),
           onConstraintsChangeHandler: (event) => this.onConstraintsChangeHandler(event),
           onConstraintsTextChangeHandler: (event) => this.onConstraintsTextChangeHandler(event),
+          onGenBlur: (event) => this.onGenBlur(),
           handleControlChange: (target, event) => this.handleControlChange(target, event),
           setFlagState: (target) => this.handleCallback(target),
           onClickComputeHandler: () => this.onClickComputeHandler(),
