@@ -21,6 +21,8 @@ class Provider extends Component {
     noOutputFlag: false,
     completeFlag: false,
 
+    calculating: false,
+
     // to display output
     displayFlag: false,
     toggleView: true,
