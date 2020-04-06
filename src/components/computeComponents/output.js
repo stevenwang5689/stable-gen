@@ -24,7 +24,7 @@ class Output extends Component {
                                 <Card>
                                     <CardContent className="Output">
                                         <Typography variant="subtitle1"> Unconstrained Entropy: {context.state.entropy} </Typography> 
-                                        <Typography variant="subtitle1"> Number of Generations: {context.state.count} </Typography> 
+                                        <Typography variant="subtitle1"> Number of Configurations: {context.state.count} </Typography> 
                                     </CardContent>
                                 </Card>
                             </Grid>)}

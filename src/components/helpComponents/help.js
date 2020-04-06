@@ -63,7 +63,7 @@ class Help extends Component {
         items: [
           {
             name: "gen",
-            label: "Number Generations",
+            label: "Number of Configurations",
             onClick: this.onClickSidebar
           },
           {

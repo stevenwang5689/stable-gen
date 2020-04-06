@@ -290,10 +290,10 @@ class Content extends Component {
         <hr className="hr-content" />
         <h1 className="content-heading">Additional Options</h1>
         <h2 className="content-heading2" ref={this.myGenRef}>
-          Number Generations
+          Number of Configurations
         </h2>
         <p className="content-body">
-          The number of generations box will attempt to generate n stable
+          The number of configurations box will attempt to generate n stable
           configurations with the specified constraints if it is possible.
         </p>
         <h2 className="content-heading2" ref={this.myPolyRef}>

@@ -28,11 +28,10 @@ class ControlPanel extends Component {
             <MContext.Consumer>
                 {(context) => (
                     <Fragment>
-                        <Grid container spacing={3} justify="center" alignItems="center" className = "Control-panel">
-                            <Grid item md={12} lg={3}>
-                                <FormControl>
+                        <Grid container spacing={3} justify="space-evenly" alignItems="center" className = "Control-panel">
+                            <Grid item xs={6}>
+                                <FormControl >
                                     <NativeSelect
-                                        color="secondary"
                                         name="example"
                                         onChange={(event) => context.onExampleChangeHandler(event)}
                                     >
@@ -46,36 +45,40 @@ class ControlPanel extends Component {
                                     <FormHelperText>Select an Example Input to try it out!</FormHelperText>
                                 </FormControl>
                             </Grid>
-                            <Grid item sm={12} md={6} lg={3}>
-                                <TextField 
-                                    variant="outlined" 
-                                    color="secondary" 
-                                    label="Number of Generations" 
-                                    required defaultValue={1} 
-                                    value={context.state.gen===null ? 1:context.state.gen} 
-                                    onChange={(event) => context.handleControlChange("gen", event)}
-                                    onBlur={() => context.onGenBlur()}
-                                />
-                            </Grid>
-                            <Grid item sm={12} md={6} lg={3}>
-                                <TextField 
-                                    variant="outlined" 
-                                    color="secondary" 
-                                    label="Minimum Polymers" 
-                                    defaultValue={1} 
-                                    value={context.state.minPolymers===null ? 1:context.state.minPolymers} 
-                                    onChange={(event) => context.handleControlChange("minPolymers", event)}
-                                    />
-                            </Grid>
-                            <Grid item md={12} lg={3}>
-                                <ComputeButton type="button" 
-                                        variant="contained" 
-                                        color="secondary"
-                                        disabled={context.state.calculating} 
-                                        onClick={() => context.onClickComputeHandler()} 
-                                        endIcon={<SendIcon />}>
-                                    Compute
-                                </ComputeButton>
+                            <Grid item xs={6}>
+                                <Grid container spacing={3} justify="center" alignItems="center">
+                                    <Grid item>
+                                        <TextField 
+                                            variant="outlined" 
+                                            color="secondary" 
+                                            label="Number of Configurations" 
+                                            defaultValue={1} 
+                                            value={context.state.gen===null ? 1:context.state.gen} 
+                                            onChange={(event) => context.handleControlChange("gen", event)}
+                                            onBlur={() => context.onGenBlur()}
+                                            />
+                                    </Grid>
+                                    <Grid item>
+                                        <TextField 
+                                            variant="outlined" 
+                                            color="secondary" 
+                                            label="Minimum Polymers" 
+                                            defaultValue={1} 
+                                            value={context.state.minPolymers===null ? 1:context.state.minPolymers} 
+                                            onChange={(event) => context.handleControlChange("minPolymers", event)}
+                                            />
+                                    </Grid>
+                                    <Grid item>
+                                        <ComputeButton type="button" 
+                                                variant="contained" 
+                                                color="secondary"
+                                                disabled={context.state.calculating} 
+                                                onClick={() => context.onClickComputeHandler()} 
+                                                endIcon={<SendIcon />}>
+                                            Generate
+                                        </ComputeButton>
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Fragment>
