@@ -22,7 +22,7 @@ class ControlPanel extends Component {
                 {(context) => (
                     <Fragment>
                         <Grid container spacing={3} justify="space-evenly" alignItems="center" className = "Control-panel">
-                            <Grid item>
+                            <Grid item xs={6}>
                                 <Grid container spacing={3} justify="center">
                                     <Grid item>
                                         <FormControl >
@@ -43,21 +43,7 @@ class ControlPanel extends Component {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item>
-                                <Grid container spacing={3} justify="center">
-                                    <Grid>
-                                        <Button type="button" 
-                                                variant="contained" 
-                                                color="secondary"
-                                                disabled={context.state.calculating} 
-                                                onClick={() => context.onClickComputeHandler()} 
-                                                endIcon={<SendIcon />}>
-                                            Compute
-                                        </Button>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Grid item>
+                            <Grid item xs={6}>
                                 <Grid container spacing={3} justify="center">
                                     <Grid item>
                                         <TextField 
@@ -79,6 +65,16 @@ class ControlPanel extends Component {
                                             value={context.state.minPolymers===null ? 1:context.state.minPolymers} 
                                             onChange={(event) => context.handleControlChange("minPolymers", event)}
                                             />
+                                    </Grid>
+                                    <Grid item>
+                                        <Button type="button" 
+                                                variant="contained" 
+                                                color="secondary"
+                                                disabled={context.state.calculating} 
+                                                onClick={() => context.onClickComputeHandler()} 
+                                                endIcon={<SendIcon />}>
+                                            Compute
+                                        </Button>
                                     </Grid>
                                 </Grid>
                             </Grid>

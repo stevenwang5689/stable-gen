@@ -69,7 +69,7 @@ class Input extends Component {
                 <Chip
                     className="Chip-spacing"
                     variant={line.indexOf('>') > -1 ? "default" : "outlined"}
-                    color="secondary"
+                    color="primary"
                     label={line}
                 />
             );
