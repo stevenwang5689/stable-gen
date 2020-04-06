@@ -26,6 +26,19 @@ const HtmlTooltip = withStyles({
   }
 })(Tooltip);
 
+const UploadButton = withStyles({
+  root: {
+    backgroundColor: "#3F88C5",
+  }
+})(Button);
+
+
+const ClearButton = withStyles({
+  root: {
+    // backgroundColor: "#EAD6C9", // Uncomment to modify Clear Button color
+  }
+})(Button);
+
 class Input extends Component {
   constructor() {
     super();
@@ -147,7 +160,7 @@ class Input extends Component {
             title={
               <Fragment>
                 For information on input format, please see{" "}
-                <a href="help">Help</a> page.
+                <a href="/help#input-format">Help</a> page.
               </Fragment>
             }
             arrow
@@ -158,7 +171,7 @@ class Input extends Component {
               <HelpIcon />
             </IconButton>
           </HtmlTooltip>
-          <Button
+          <UploadButton
             variant="contained"
             component="label"
             color="primary"
@@ -170,10 +183,10 @@ class Input extends Component {
               style={{ display: "none" }}
               onChange={event => context.onDataChangeHandler(event)}
             />
-          </Button>
+          </UploadButton>
         </span>
         <span className="clear-button">
-          <Button
+          <ClearButton
             variant="contained"
             component="label"
             color="disabled"
@@ -181,7 +194,7 @@ class Input extends Component {
             onClick={() => context.onClearDataHandler()}
           >
             Clear
-            </Button>
+            </ClearButton>
         </span>
       </div>
     );
@@ -195,7 +208,7 @@ class Input extends Component {
           title={
             <Fragment>
               For information on constraints format, please see{" "}
-              <a href="help">Help</a> page.
+              <a href="/help#constraints-format">Help</a> page.
             </Fragment>
           }
           arrow
@@ -206,7 +219,7 @@ class Input extends Component {
             <HelpIcon />
           </IconButton>
           </HtmlTooltip>
-        <Button
+          <UploadButton
           variant="contained"
           component="label"
           color="primary"
@@ -218,10 +231,10 @@ class Input extends Component {
             style={{ display: "none" }}
             onChange={event => context.onConstraintsChangeHandler(event)}
           />
-        </Button>
+          </UploadButton>
         </span>
         <span className="clear-button">
-          <Button
+          <ClearButton
             variant="contained"
             component="label"
             color="disabled"
@@ -229,7 +242,7 @@ class Input extends Component {
             onClick={() => context.onClearConstraintsHandler()}
           >
             Clear
-          </Button>
+          </ClearButton>
         </span>
       </div>
     );
