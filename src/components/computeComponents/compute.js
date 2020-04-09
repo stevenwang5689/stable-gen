@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Provider from "../provider";
 import Input from "./input";
 import Output from "./output";
 
@@ -13,22 +12,20 @@ class Compute extends Component {
     state = {  }
     render() { 
         return ( 
-            <Fragment>
-                <Provider>
-                    <div>
-                        <Grid container spacing={2} justify="space-around" alignItems="stretch" className="Content">
-                            <Grid item xs={12} sm={6}>
-                                <Input />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <ControlPanel/>
-                                <Spinner />
-                                <Output />
-                            </Grid>
+            <Fragment>                
+                <div>
+                    <Grid container spacing={2} justify="space-around" alignItems="stretch" className="Content">
+                        <Grid item xs={12} sm={6}>
+                            <Input />
                         </Grid>
-                    </div>
-                    <Alerts />
-                </Provider>
+                        <Grid item xs={12} sm={6}>
+                            <ControlPanel/>
+                            <Spinner />
+                            <Output />
+                        </Grid>
+                    </Grid>
+                </div>
+                <Alerts />
             </Fragment>
         );
     }

@@ -8,9 +8,6 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import { withStyles } from "@material-ui/core/styles";
 
 
@@ -23,7 +20,6 @@ const ComputeButton = withStyles({
 class ControlPanel extends Component {
 
     render() {
-
         return (
             <MContext.Consumer>
                 {(context) => (
