@@ -18,6 +18,7 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import IconButton from '@material-ui/core/IconButton';
+import { blue } from '@material-ui/core/colors';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -97,12 +98,25 @@ class Result extends Component {
                                 var monomers = polymers.map(monomer => {
                                     var bindingsites = monomer.join(" ")
                                     if (context.state.toggleView) {
+                                        var formatedBindingSites = 
+                                            <span>
+                                                <p>
+                                                    <Chip 
+                                                        className="Chip-spacing"
+                                                        size="small"
+                                                        label = {<strong>{bindingsites.split('>')[1]}</strong>}
+                                                        color="secondary"
+                                                        variant="default"
+                                                    />
+                                                    {bindingsites.split('>')[0]}
+                                                </p>
+                                            </span>
                                         return (                              
                                             <Chip
                                                 className="Chip-spacing"
-                                                variant={bindingsites.indexOf('>') > -1 ? "default" : "outlined"}
+                                                variant="outlined"
                                                 color="secondary" 
-                                                label={bindingsites} 
+                                                label={bindingsites.indexOf('>') > -1 ? formatedBindingSites : bindingsites}
                                             />
                                         )
                                     } else {
