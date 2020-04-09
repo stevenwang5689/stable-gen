@@ -13,7 +13,6 @@ import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import FormControl from "@material-ui/core/FormControl";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import NativeSelect from "@material-ui/core/NativeSelect";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";

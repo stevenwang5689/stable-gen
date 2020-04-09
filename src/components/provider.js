@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { trackPromise } from 'react-promise-tracker';
 
-
 export const MContext = React.createContext();  //exporting context object
 
 class Provider extends Component {

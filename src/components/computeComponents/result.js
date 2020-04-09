@@ -11,14 +11,12 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Chip from '@material-ui/core/Chip';
-import Button from '@material-ui/core/Button';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import IconButton from '@material-ui/core/IconButton';
-import { blue } from '@material-ui/core/colors';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
