@@ -145,7 +145,7 @@ class Input extends Component {
       <TextField
         id="contraints-input-field"
         className="constraints-inputbox"
-        label="Constraints"
+        label="Optional Constraints"
         variant="outlined"
         multiline
         rowsMax={1}
