@@ -70,3 +70,11 @@ img:hover{
   padding-top: 6px;
   padding-right: 12px;
 }
+
+.App .MuiCardContent-root:last-child {
+  padding-bottom: 16px;
+}
+
+.monomer-name {
+  margin-left: -8px;
+}

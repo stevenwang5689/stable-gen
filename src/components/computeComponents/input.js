@@ -16,7 +16,10 @@ import FormControl from "@material-ui/core/FormControl";
 import NativeSelect from "@material-ui/core/NativeSelect";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
+
+import Monomer from './monomer'
 import '../../App.css';
+
 
 const HtmlTooltip = withStyles({
   tooltip: {
@@ -82,11 +85,10 @@ class Input extends Component {
           line = this.removeComment(line).trim()
           if (line) {
             return (
-              <Chip
-                className="Chip-spacing"
-                variant={line.indexOf('>') > -1 ? "default" : "outlined"}
-                color="primary"
-                label={line}
+              <Monomer
+                bindingSites={Monomer.extractBindingSites(line)}
+                monomerName={Monomer.extractMonomerName(line)}
+                color={"primary"}
               />
             );
           }
