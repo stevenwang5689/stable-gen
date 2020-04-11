@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import Container from "@material-ui/core/Container";
 import tbn from "../../images/TBN.jpeg";
 import tbnExample from "../../images/TBNExample.jpeg";
+import tbn1 from "../../images/TBN1.jpeg";
+import tbn2 from "../../images/TBN2.jpeg";
+import tbn3 from "../../images/TBN3.jpeg";
+
 import inputExample1 from "../../images/InputExample1.png";
 import inputExample2 from "../../images/InputExample2.png";
+import logo from "../../images/logo.png";
+
 import "./styles.css";
 
 class Content extends Component {
@@ -83,143 +89,176 @@ class Content extends Component {
   render() {
     return (
       <Container fluid maxWidth="false" className="content-main">
+        <img src={logo} alt="test" className="logo"></img>
         <h1 className="content-heading" ref={this.myAboutRef}>
-          About the Problem
+          Uses of StableGen
         </h1>
         <p className="content-body">
-          <i>StableGen</i> predicts stable configurations of{" "}
-          <b>Thermodynamic Binding Networks (TBN)</b>. Based on the paper by
-          Breik et. al,“Computing properties of stable configurations of
-          thermodynamic binding networks,” <i>StableGen </i>
-          allows users to input monomers as well as constraints to predict the
-          stable configuration which the monomers will bind. This is essentially
-          "CAD" for monomers. The representation of binding sites, monomers, and
-          polymers that we use is called a Thermodynamic Binding Network.
+          <i>StableGen</i> is a tool primarily for synethtic biologists that
+          allows users to:
+          <ul>
+            <li>
+              <span>
+                Find stable configurations of{" "}
+                <b>Thermodynamic Binding Networks (TBN)</b>
+              </span>
+            </li>
+            <li>
+              <span>
+                <b>Visualize</b> the input monomers and output configurations of
+                the system
+              </span>
+            </li>
+            <li>
+              <span>
+                Add <b>constraints</b> to the system to give the user more
+                control over the input monomers
+              </span>
+            </li>
+          </ul>
         </p>
         <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myTBNRef}>
           What is a TBN?
         </h1>
-        <div className="content-div">
-          <p className="content-body">
-            The Thermodynamic Binding Network (TBN) model is an effective way to
-            represent chemical systems in a standardized format for modeling and
-            simulation. A TBN is composed of individual monomers that have one
-            or more binding sites that can bind with the binding sites of other
-            monomers. TBN's have two key properties:
-          </p>
-          <figure className="content-figure" vertical-align="top">
-            <img
-              className="content-image"
-              src={tbn}
-              alt="TBN"
-              vertical-align="middle"
-            />
-            <figcaption className="content-caption">
-              Fig.1 - Thermodynamic Binding Network.
-            </figcaption>
-          </figure>
-        </div>
         <p className="content-body">
-          <ol>
+          A Thermodynamic Binding Network (TBN) model is an effective way to
+          represent chemical systems in a standardized format for modeling and
+          simulation. A TBN is composed of individual monomers that have one or
+          more binding sites that can bind with the binding sites of other
+          monomers. TBN's have <b>two properties</b>:
+          <ul>
             <li>
-              Complementary binding sites across monomers will bind together to
-              form polymers.{" "}
+              <span>
+                Complementary binding sites across monomers will bind together
+                to form polymers.{" "}
+              </span>
             </li>
             <li>
-              The TBN Problem tends towards a state of maxumum <b>entropy</b>,
-              when the monomers are arranged in a way that maximizes the number
-              of bonds and the number of separate polymers formed. This is known
-              as a<b> stable-state configuration</b>. A configuration that
-              maximizes that number of bonds but <i>not</i> the number of
-              separate polymers is known as a <b>saturated configuration</b>.
+              <span>
+                The TBN Problem tends towards a state of maxumum <b>entropy</b>,
+                when the monomers are arranged in a way that maximizes the
+                number of bonds and the number of separate polymers formed. This
+                is known as a<b> stable-state configuration</b>. A configuration
+                that maximizes that number of bonds but <i>not</i> the number of
+                separate polymers is known as a <b>saturated configuration</b>.
+              </span>
             </li>
-          </ol>
+          </ul>
         </p>
         <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myExRef}>
           TBN Example
         </h1>
+        <p className="content-body">
+          The following three images display an example of a TBN and two
+          possible binding configurations: a saturated configuration and a
+          stable configuration.
+        </p>
         <div className="content-div">
-          <p className="content-body">
-            The image on the right shows an example of a TBN, a saturated
-            configuration, and a stable configuration. The original problem
-            consists of four monomers: two monomers with one binding site and
-            two monomers with two binding sites. The situation in the bottom
-            left shows an example of a <b>saturated configuration</b>. The
-            situation in the bottom left shows a
-            <b> stable-state configuration</b>. The entropy of the system is{" "}
-            <b>three</b> as there are three monomers formed.
-          </p>
-          <figure className="content-figure" vertical-align="middle">
-            <img
-              className="content-image-scaled"
-              src={tbnExample}
-              alt="TBNExample"
-              vertical-align="middle"
-            />
-            ;
+          <figure className="content-figure">
+            <img className="content-image-scaled" src={tbn1} alt="TBN1" />
             <figcaption className="content-caption">
-              Fig.2 - Thermodynamic Binding Network Example.
+              The TBN above consists of four monomers: two monomers with one
+              binding site and two monomers with two binding sites.
+            </figcaption>
+          </figure>
+          <figure className="content-figure">
+            <img className="content-image-scaled" src={tbn2} alt="TBN2" />
+            <figcaption className="content-caption">
+              The configuration above shows an example of a{" "}
+              <b>saturated configuration</b> for the TBN because the
+              configuration maximizes the number of bonds formed but not the
+              number of polymers formed.
+            </figcaption>
+          </figure>
+          <figure className="content-figure">
+            <img className="content-image-scaled" src={tbn3} alt="TBN3" />
+            <figcaption className="content-caption">
+              This shows a<b> stable-state configuration</b> because the
+              configuration maximizes the number of bonds and polymers formed.
+              The entropy of the system is <b>three</b> as there are three
+              monomers formed.{" "}
             </figcaption>
           </figure>
         </div>
         <hr className="hr-content" />
-        <h1 className="content-heading" id="input-format" ref={this.myFormatRef}>
+        <h1
+          className="content-heading"
+          id="input-format"
+          ref={this.myFormatRef}
+        >
           Input Format
         </h1>
         <div className="content-div">
           <p className="content-body">
             In the input, each line represents a monomer and each
-            space-delineated token represents a binding site. Therefore, if the
-            input is as shown in Figure 3, there are four monomers:
+            space-delineated token represents a binding site. In the example
+            shown below,
             <ul>
-              <li>Monomer 1 has two binding sites: a* and b*</li>
-              <li>Monomer 2 has two binding sites: a and b</li>
-              <li>Monomer 3 has one binding site: a</li>
-              <li>Monomer 4 has one binding site: b</li>
+              <li>
+                <span>Monomer 1 has two binding sites: a* and b*</span>
+              </li>
+              <li>
+                <span>Monomer 2 has two binding sites: a and b</span>
+              </li>
+              <li>
+                <span>Monomer 3 has one binding site: a</span>
+              </li>
+              <li>
+                <span>Monomer 4 has one binding site: b</span>
+              </li>
             </ul>
           </p>
-          <figure className="content-figure" vertical-align="middle">
-            <img
-              className="content-image"
-              src={inputExample2}
-              alt="InputEx1"
-              vertical-align="middle"
-            />
-            <figcaption className="content-caption">
-              Fig.3 - Input Example.
-            </figcaption>
-          </figure>
+          <p className="content-highlight2">
+            a* b* <br />
+            a b <br />
+            a* <br />
+            b*
+          </p>
         </div>
         <div className="content-div">
           <p className="content-body">
             There is also an option to label the inputs to be used in
-            constraints. For example, in Figure 4 on the right
+            constraints. To label a binding site, use a <b>colon</b>
+            {" (:)"} followed by the binding site label you would like. To label
+            a monomer, use a <b>{"greater than sign"}</b> (>) followed by the
+            monomer label. In the example shown below,
             <ul>
-              <li>Monomer 1 has two binding sites: a* (labeled b1) and b*</li>
               <li>
-                Monomer 2 (labeled m1) has two binding sites: a and b (labeled
-                b2)
+                <span>
+                  Monomer 1 has two binding sites: a* (labeled b1) and b*
+                </span>
               </li>
-              <li>Monomer 3 (labeled m2) has one binding site: a</li>
-              <li>Monomer 4 has one binding site: b</li>
+              <li>
+                <span>
+                  Monomer 2 (labeled m1) has two binding sites: a and b (labeled
+                  b2)
+                </span>
+              </li>
+              <li>
+                <span>Monomer 3 (labeled m2) has one binding site: a</span>
+              </li>
+              <li>
+                <span>Monomer 4 has one binding site: b</span>
+              </li>
             </ul>
           </p>
-          <figure className="content-figure" vertical-align="middle">
-            <img
-              className="content-image"
-              src={inputExample1}
-              alt="InputEx2"
-              vertical-align="middle"
-            />
-            <figcaption className="content-caption">
-              Fig.4 - Input Example.
-            </figcaption>
-          </figure>
+          <p className="content-highlight2">
+            a*:b1 b* <br />
+            a b:b2 >m1
+            <br />
+            a* >m2
+            <br />
+            b*
+          </p>
         </div>
         <hr className="hr-content" />
-        <h1 className="content-heading" id="constraints-format" ref={this.myConstraintRef}>
+        <h1
+          className="content-heading"
+          id="constraints-format"
+          ref={this.myConstraintRef}
+        >
           Constraints
         </h1>
         <h2 className="content-heading2" ref={this.myTRef}>
@@ -288,13 +327,15 @@ class Content extends Component {
         </p>
         <p className="content-highlight">&emsp;{"NOTANYPAIRED {b1}"}</p>
         <hr className="hr-content" />
-        <h1 className="content-heading">Additional Options</h1>
+        <h1 className="content-heading">Advanced Features</h1>
         <h2 className="content-heading2" ref={this.myGenRef}>
           Number of Configurations
         </h2>
         <p className="content-body">
           The number of configurations box will attempt to generate n stable
-          configurations with the specified constraints if it is possible.
+          configurations with the specified constraints if it is possible. If
+          there are less than n stable configurations, then it will begin
+          finding configurtions with n-1 polymers.
         </p>
         <h2 className="content-heading2" ref={this.myPolyRef}>
           Minimum Polymers

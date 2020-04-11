@@ -19,7 +19,7 @@ class Help extends Component {
     this.sidebarItems = [
       {
         name: "about",
-        label: "About the Problem",
+        label: "StableGen Uses",
         Icon: InfoIcon,
         onClick: this.onClickSidebar
       },
@@ -58,7 +58,7 @@ class Help extends Component {
       },
       {
         name: "additional",
-        label: "Addiditional Options",
+        label: "Advanced Features",
         Icon: TuneIcon,
         items: [
           {
@@ -84,7 +84,7 @@ class Help extends Component {
       <Fragment>
         <div className="overall-div">
           <Grid container spacing={1} justify="center" alignItems="stretch">
-            <Grid item xs={12} sm={2}>
+            <Grid item xs={12} sm={2} className="sidebar-grid">
               <Sidebar items={this.sidebarItems} />
             </Grid>
             <Grid item xs={12} sm={9}>

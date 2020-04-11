@@ -14,10 +14,26 @@
   font-family: "Helvetica", "Roboto", "Arial";
 }
 
+.content-highlight2 {
+  background-color: #f6f8fa;
+  padding: 16px;
+  font-size: 85%;
+  line-height: 1.45;
+  border-radius: 3px;
+  overflow: auto;
+  width: 100%;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #5a5659;
+  font-family: "Helvetica", "Roboto", "Arial";
+}
+
 .content-heading {
   width: 100%;
   font-size: 30px;
   color: #5a5659;
+  /* color: #178C93; */
   font-family: "Segoe UI", "Roboto", "Helvetica", "Arial";
 }
 
@@ -39,8 +55,13 @@
 }
 
 .content-div {
+  min-width: 0;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: top;
+  line-height: 1.5;
+  width: 100%;
 }
 
 .content-figure {
@@ -51,18 +72,19 @@
 
 .content-image {
   float: right;
+  width: 100px;
 }
 
 .content-image-scaled {
   float: right;
-  width: 450px;
+  width: 300px;
   height: auto;
 }
 
 .content-caption {
   caption-side: bottom;
+  color: #787276;
   font-size: 14px;
-  font-weight: bold;
 }
 
 .overall-div {
@@ -86,12 +108,14 @@
   border-bottom: 1px solid lightgrey;
 }
 
+.sidebar-grid {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .sidebar {
   padding-right: 20px;
   max-width: 100%;
-  height: 87vh;
   overflow: auto;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-item {
@@ -113,6 +137,7 @@
 
 .sidebar-icon {
   margin-right: 6px;
+  color: #3f51b5;
 }
 
 .sidebar-item-text {
@@ -125,4 +150,29 @@
 .sidebar-arrow {
   font-size: 1.2;
   font-weight: bold;
+}
+
+.logo {
+  max-width: 100%;
+}
+
+li {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #333333;
+}
+
+li span {
+  font-size: 16px;
+  color: #787276;
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+b {
+  color: #3f51b5;
 }
