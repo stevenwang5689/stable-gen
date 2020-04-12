@@ -3,6 +3,7 @@ import {MContext} from "../provider";
 
 import '../../App.css';
 import Result from "./result";
+import Instruction from "./instruction";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -17,7 +18,7 @@ class Output extends Component {
             <Fragment>
                 <MContext.Consumer>
                     {(context) => (
-                        (context.state.displayFlag === true) && (
+                        (context.state.displayFlag === true) ? (
                         <Grid container spacing={3} direction="column">
                             {(context.state.entropy !== 0) && (
                             <Grid item>
@@ -34,7 +35,7 @@ class Output extends Component {
                                     <Grid item>
                                         <FormControlLabel
                                             control={<Switch checked={context.state.toggleView} onChange={() => context.handleToggle()} />}
-                                            label={context.state.toggleView ? "Chip View" : "Plain View"}
+                                            label={<Typography variant="caption" > {context.state.toggleView ? "Chip View" : "Plain View"} </Typography>}
                                         />
                                     </Grid>
                                 </Grid>
@@ -48,7 +49,8 @@ class Output extends Component {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        )
+                        ) :
+                        (!context.state.generated && <Instruction/>)
                     )}
                 </MContext.Consumer>
             </Fragment>

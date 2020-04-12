@@ -25,6 +25,7 @@ class Provider extends Component {
     // to display output
     displayFlag: false,
     toggleView: true,
+    generated: false,
 
     // output
     result: [],
@@ -176,7 +177,6 @@ class Provider extends Component {
           // handle response
           .then((data) => {
             var jsonResponse = JSON.parse(data.request.response)
-            console.log(jsonResponse.configs)
             this.setState({
               result: jsonResponse.configs,
               entropy: jsonResponse.entropy,
@@ -184,7 +184,8 @@ class Provider extends Component {
               calculating: false,
               noOutputFlag: jsonResponse.configs.length === 0,
               completeFlag: true,
-              displayFlag: true
+              displayFlag: true,
+              generated: true,
             })
           })
           .catch(error => {

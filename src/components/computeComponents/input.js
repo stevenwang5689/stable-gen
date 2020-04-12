@@ -165,7 +165,7 @@ class Input extends Component {
           <HtmlTooltip
             title={
               <Fragment>
-                For information on input format, please see{" "}
+                For information on input format, please visit{" "}
                 <a href="/help#input-format">Help</a> page.
               </Fragment>
             }
@@ -213,7 +213,7 @@ class Input extends Component {
           <HtmlTooltip
             title={
               <Fragment>
-                For information on constraints format, please see{" "}
+                For information on constraints format, please visit{" "}
                 <a href="/help#constraints-format">Help</a> page.
             </Fragment>
             }

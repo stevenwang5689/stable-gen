@@ -39,7 +39,7 @@ class ControlPanel extends Component {
                                                     onChange={() => this.setState({checked: !this.state.checked})}
                                                 />
                                             }
-                                            label={<Typography variant="caption">Advanced features</Typography>}
+                                            label={<Typography variant="caption">Advanced Features</Typography>}
                                             labelPlacement="bottom"
                                         />
                                     </Grid>           

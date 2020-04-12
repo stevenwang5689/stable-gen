@@ -10,7 +10,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Chip from '@material-ui/core/Chip';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
@@ -126,7 +125,7 @@ class Result extends Component {
                                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                                                 <Grid container justify="space-between">
                                                     <Grid item>
-                                                        <Typography> Configuration {index+1} ({config.polymers_count} polymers)</Typography>
+                                                        <Typography> Configuration {index+1} ({config.polymers_count} {config.polymers_count === 1 ? "polymer" : "polymers"}) </Typography>
                                                     </Grid>
                                                     <Grid item>
                                                         <Grid container spacing={2} justify="flex-end">
