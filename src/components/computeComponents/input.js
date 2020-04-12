@@ -266,6 +266,7 @@ class Input extends Component {
         </option>
         <option value={"and_gate_2_input"}>2 Input And Gate</option>
         <option value={"and_gate_3_input"}>3 Input And Gate</option>
+        <option value={"or_gate"}>Or Gate</option>
 
       </NativeSelect>
       {/* <FormHelperText>Select an Example Input to try it out!</FormHelperText> */}
