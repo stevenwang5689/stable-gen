@@ -105,13 +105,13 @@ class Content extends Component {
             </li>
             <li>
               <span>
-                <b>Visualize</b> the input monomers and output configurations of
+                <strong>Visualize</strong> input monomers and output configurations of
                 the system
               </span>
             </li>
             <li>
               <span>
-                Add <b>constraints</b> to the system to give the user more
+                <strong> Add constraints</strong> to the system to give the user more
                 control over the input monomers
               </span>
             </li>
@@ -126,17 +126,17 @@ class Content extends Component {
           represent chemical systems in a standardized format for modeling and
           simulation. A TBN is composed of individual monomers that have one or
           more binding sites that can bind with the binding sites of other
-          monomers. TBN's have <b>two properties</b>:
+          monomers. TBNs have <strong>two properties</strong>:
           <ul>
             <li>
               <span>
                 Complementary binding sites across monomers will bind together
-                to form polymers.{" "}
+                to form <b>polymers</b>.{" "}
               </span>
             </li>
             <li>
               <span>
-                The TBN Problem tends towards a state of maxumum <b>entropy</b>,
+                The TBN Problem tends towards a state of <b>maximum entropy</b>,
                 when the monomers are arranged in a way that maximizes the
                 number of bonds and the number of separate polymers formed. This
                 is known as a<b> stable-state configuration</b>. A configuration
@@ -152,14 +152,14 @@ class Content extends Component {
         </h1>
         <p className="content-body">
           The following three images display an example of a TBN and two
-          possible binding configurations: a saturated configuration and a
-          stable configuration.
+          possible binding configurations: a <strong>saturated configuration</strong> and a 
+          <strong> stable configuration</strong>.
         </p>
         <div className="content-div">
           <figure className="content-figure">
             <img className="content-image-scaled" src={tbn1} alt="TBN1" />
             <figcaption className="content-caption">
-              The TBN above consists of four monomers: two monomers with one
+              The TBN above consists of <strong>four monomers</strong>: two monomers with one
               binding site and two monomers with two binding sites.
             </figcaption>
           </figure>
@@ -177,8 +177,8 @@ class Content extends Component {
             <figcaption className="content-caption">
               This shows a<b> stable-state configuration</b> because the
               configuration maximizes the number of bonds and polymers formed.
-              The entropy of the system is <b>three</b> as there are three
-              monomers formed.{" "}
+              The entropy of the system is <strong>three</strong> as there are three
+              polymers formed.{" "}
             </figcaption>
           </figure>
         </div>
@@ -192,8 +192,8 @@ class Content extends Component {
         </h1>
         <div className="content-div">
           <p className="content-body">
-            In the input, each line represents a monomer and each
-            space-delineated token represents a binding site. In the example
+            In the input, each <strong>line</strong> represents a <b>monomer</b> and each
+            <strong> space-delineated token</strong> represents a <b>binding site</b>. In the example
             shown below,
             <ul>
               <li>
@@ -220,10 +220,10 @@ class Content extends Component {
         <div className="content-div">
           <p className="content-body">
             There is also an option to label the inputs to be used in
-            constraints. To label a binding site, use a <b>colon</b>
-            {" (:)"} followed by the binding site label you would like. To label
-            a monomer, use a <b>{"greater than sign"}</b> (>) followed by the
-            monomer label. In the example shown below,
+            constraints. To label a binding site, use a <strong>colon</strong>
+            <b> (:)</b> followed by the <strong> binding site label</strong> you would like. To label
+            a monomer, use a <strong>{"greater than sign"}</strong> <b> (>)</b> followed by the
+            <strong> monomer label</strong>. In the example shown below,
             <ul>
               <li>
                 <span>
@@ -265,7 +265,7 @@ class Content extends Component {
           Together
         </h2>
         <p className="content-body">
-          Specifying TOGETHER attempts to force the specified monomers to bind
+          Specifying <b>TOGETHER</b> attempts to force the specified monomers to bind
           into a polymer:
         </p>
         <p className="content-highlight">
@@ -275,7 +275,7 @@ class Content extends Component {
           Not Together
         </h2>
         <p className="content-body">
-          Specifying NOTTOGETHER prevents two monomers from being in the same
+          Specifying <b>NOTTOGETHER</b> prevents two monomers from being in the same
           polymer:
         </p>
         <p className="content-highlight">&emsp;{"NOTTOGETHER {m1} {m2}"}</p>
@@ -283,7 +283,7 @@ class Content extends Component {
           Free
         </h2>
         <p className="content-body">
-          Specifying FREE attempts to force the specified monomer to not bind to
+          Specifying <b>FREE</b> attempts to force the specified monomer to not bind to
           any other monomer:
         </p>
         <p className="content-highlight">&emsp;{"FREE {m1}"}</p>
@@ -291,7 +291,7 @@ class Content extends Component {
           Not Free
         </h2>
         <p className="content-body">
-          Specifying NOTFREE forces specified monomer to bind to any other
+          Specifying <b>NOTFREE</b> forces specified monomer to bind to any other
           monomer
         </p>
         <p className="content-highlight">&emsp;{"NOTFREE {m1}"}</p>
@@ -299,7 +299,7 @@ class Content extends Component {
           Paired
         </h2>
         <p className="content-body">
-          Specifying PAIRED attempts to force two binding sites to bind
+          Specifying <b>PAIRED</b> attempts to force two binding sites to bind
           together:
         </p>
         <p className="content-highlight">&emsp;{"PAIRED {b1} {b2}"}</p>
@@ -307,14 +307,14 @@ class Content extends Component {
           Not Paired
         </h2>
         <p className="content-body">
-          Specifying NOTPAIRED prevents two binding sites from binding together:
+          Specifying <b>NOTPAIRED</b> prevents two binding sites from binding together:
         </p>
         <p className="content-highlight">&emsp;{"NOTPAIRED {b1} {b2}"}</p>
         <h2 className="content-heading2" ref={this.myAPRef}>
           Any Paired
         </h2>
         <p className="content-body">
-          Specifying ANYPAIRED forces a binding site to bind to some other
+          Specifying <b>ANYPAIRED</b> forces a binding site to bind to some other
           binding site:
         </p>
         <p className="content-highlight">&emsp;{"ANYPAIRED {b1}"}</p>
@@ -322,7 +322,7 @@ class Content extends Component {
           Not Any Paired
         </h2>
         <p className="content-body">
-          Specifying NOTANYPAIRED attempts to force the specified binding site
+          Specifying <b>NOTANYPAIRED</b> attempts to force the specified binding site
           to not bind to any other binding site:
         </p>
         <p className="content-highlight">&emsp;{"NOTANYPAIRED {b1}"}</p>
@@ -332,7 +332,7 @@ class Content extends Component {
           Number of Configurations
         </h2>
         <p className="content-body">
-          The number of configurations box will attempt to generate n stable
+          The <b>number of configurations</b> box will attempt to generate n stable
           configurations with the specified constraints if it is possible. If
           there are less than n stable configurations, then it will begin
           finding configurtions with n-1 polymers.
@@ -342,7 +342,7 @@ class Content extends Component {
         </h2>
         <p className="content-body">
           If you are certain that there will be at least a certain number of
-          polymers, specifying the minimum number of polymers will greatly speed
+          polymers, specifying the <b>minimum number of polymers</b> will greatly speed
           up calculations.
         </p>
       </Container>
