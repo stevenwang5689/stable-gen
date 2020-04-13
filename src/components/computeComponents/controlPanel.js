@@ -9,6 +9,7 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
+import { Card, CardContent, CardActions } from '@material-ui/core';
 import { withStyles } from "@material-ui/core/styles";
 
 
@@ -20,7 +21,6 @@ const ComputeButton = withStyles({
 
 class ControlPanel extends Component {
     state = { 
-        checked: false
     }
 
     render() {
@@ -30,51 +30,55 @@ class ControlPanel extends Component {
                     <Fragment>
                         <Grid id="control" container xs={12} spacing={6} justify="center" alignItems="center">
                             <Grid item>
-                                <Grid container justify="center" alignItems="center">   
-                                    <Grid item>
-                                        <FormControlLabel
-                                            control={
-                                                <Switch 
-                                                    checked={this.state.checked}
-                                                    onChange={() => this.setState({checked: !this.state.checked})}
-                                                />
-                                            }
-                                            label={<Typography variant="caption">Advanced Features</Typography>}
-                                            labelPlacement="bottom"
-                                        />
-                                    </Grid>           
-                                    <Grid item>
-                                        <Grid container spacing={2} direction="column">
+                                <Card>
+                                    <CardContent>                             
+                                        <Grid container justify="center" alignItems="center">   
                                             <Grid item>
-                                                <TextField 
-                                                    type="number"
-                                                    variant="outlined" 
-                                                    size="small"
-                                                    disabled={!this.state.checked}
-                                                    color="secondary" 
-                                                    label="Number of Configurations" 
-                                                    defaultValue={1} 
-                                                    value={context.state.gen===null ? 1:context.state.gen} 
-                                                    onChange={(event) => context.handleControlChange("gen", event)}
-                                                    onBlur={() => context.onGenBlur()}
+                                                <FormControlLabel
+                                                    control={
+                                                        <Switch 
+                                                            checked={context.state.advancedFeatures}
+                                                            onChange={() => context.handleAdvancedFeatures()}
+                                                        />
+                                                    }
+                                                    label={<Typography variant="caption">Advanced Features</Typography>}
+                                                    labelPlacement="bottom"
                                                 />
-                                            </Grid>
+                                            </Grid>           
                                             <Grid item>
-                                                <TextField 
-                                                    type="number"
-                                                    variant="outlined" 
-                                                    size="small"
-                                                    disabled={!this.state.checked}
-                                                    color="secondary" 
-                                                    label="Minimum Polymers" 
-                                                    defaultValue={1} 
-                                                    value={context.state.minPolymers===null ? 1:context.state.minPolymers} 
-                                                    onChange={(event) => context.handleControlChange("minPolymers", event)}
-                                                />
-                                            </Grid>
+                                                <Grid container spacing={2} direction="column">
+                                                    <Grid item>
+                                                        <TextField 
+                                                            type="number"
+                                                            variant="outlined" 
+                                                            size="small"
+                                                            disabled={!context.state.advancedFeatures}
+                                                            color="secondary" 
+                                                            label="Number of Configurations" 
+                                                            defaultValue={1} 
+                                                            value={context.state.gen===null ? 1:context.state.gen} 
+                                                            onChange={(event) => context.handleControlChange("gen", event)}
+                                                            onBlur={() => context.onGenBlur()}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <TextField 
+                                                            type="number"
+                                                            variant="outlined" 
+                                                            size="small"
+                                                            disabled={!context.state.advancedFeatures}
+                                                            color="secondary" 
+                                                            label="Minimum Polymers" 
+                                                            defaultValue={1} 
+                                                            value={context.state.minPolymers===null ? 1:context.state.minPolymers} 
+                                                            onChange={(event) => context.handleControlChange("minPolymers", event)}
+                                                        />
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>     
                                         </Grid>
-                                    </Grid>     
-                                </Grid>
+                                    </CardContent>
+                                </Card>
                             </Grid>
                             <Grid item>
                                 <ComputeButton type="button"

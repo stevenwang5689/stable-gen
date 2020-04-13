@@ -38,6 +38,7 @@ class Provider extends Component {
     displayFlag: false,
     toggleView: true,
     generated: false,
+    advancedFeatures: false,
 
     // output
     result: [],
@@ -129,6 +130,14 @@ class Provider extends Component {
     })
   }
 
+  handleAdvancedFeatures = () => {
+    this.setState({
+      advancedFeatures: !this.state.advancedFeatures,
+      minPolymers: 1,
+      gen: 1,
+    })
+  }
+
   handleCallback = (target) => {
     if (target === "dataMissingFlag") {
       this.setState({
@@ -136,7 +145,8 @@ class Provider extends Component {
       })
     } else if (target === "errorMessage") {
       this.setState({
-        errorMessage: null
+        errorMessage: null,
+        terminatedFlag: false,
       })
     } else if (target === "noOutputFlag") {
       this.setState({
@@ -314,6 +324,7 @@ class Provider extends Component {
           onExampleChangeHandler: (event) => this.onExampleChangeHandler(event),
           onClearDataHandler: () => this.onClearDataHandler(),
           onClearConstraintsHandler: () => this.onClearConstraintsHandler(),
+          handleAdvancedFeatures: () => this.handleAdvancedFeatures(),
         }
       }>
         {this.props.children}

@@ -24,8 +24,16 @@ export const ProgressBar = (props) => {
                 {(context) => (
                     <div className="spinner">
                         <Loader type="MutatingDots" color="#f50057" height={100} width={100} />
-                        <Typography variant="overline" display="block" gutterBottom> Current configuration: <Box display="inline" color={blue} fontWeight="fontWeightBold">{context.state.progress_count} </Box></Typography>
-                        <Typography variant="overline" display="block" gutterBottom> Attempting to find a configuration with <Box display="inline" color={blue} fontWeight="fontWeightBold">{context.state.progress_k}</Box> polymers...</Typography>
+                        {(context.state.progress_count === 0 && context.state.progress_k === 0) ? 
+                        (<span>
+                            <Typography variant="overline" display="block" gutterBottom>
+                                Encoding...
+                            </Typography>
+                        </span>) :
+                        (<span>
+                            <Typography variant="overline" display="block" gutterBottom> Current configuration: <Box display="inline" color={blue} fontWeight="fontWeightBold">{context.state.progress_count} </Box></Typography>
+                            <Typography variant="overline" display="block" gutterBottom> Attempting to find a configuration with <Box display="inline" color={blue} fontWeight="fontWeightBold">{context.state.progress_k}</Box> polymers...</Typography>
+                        </span>)}
                         <br/>
                         <TerminateButton type="button"
                             variant="contained"
