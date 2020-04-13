@@ -38,6 +38,12 @@ class Alerts extends Component {
                             </Alert>
                         </Snackbar>
 
+                        <Snackbar open={context.state.terminatedFlag} autoHideDuration={2000} onClose={() => context.setFlagState("terminatedFlag")}>
+                            <Alert onClose={() => context.setFlagState("terminatedFlag")} severity="info">
+                                Computation has been terminated.
+                            </Alert>
+                        </Snackbar>
+
                     </Fragment>
                 )}
             </MContext.Consumer>

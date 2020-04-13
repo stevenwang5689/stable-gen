@@ -360,7 +360,13 @@ class Content extends Component {
         <p className="content-body">
           If you are certain that there will be at least a certain number of
           polymers, specifying the <b>minimum number of polymers</b> will
-          greatly speed up calculations.
+          greatly speed up calculations for inputs with a lot of monomers. This
+          is because the current algorithms works by finding stable
+          configurations with 1 polymer, 2 polymer, ... until failure.
+          Specifying minimum polymer will make it start searching at the number
+          inputted and increase upward until failure. If you would like to learn
+          more about how the algorithm works, please see the paper in the about
+          page.
         </p>
       </Container>
     );
