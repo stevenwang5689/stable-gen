@@ -156,20 +156,20 @@
   max-width: 100%;
 }
 
-li {
+li-content {
   font-size: 20px;
   font-weight: bold;
   line-height: 1.5;
   color: #333333;
 }
 
-li span {
+li-span-content {
   font-size: 16px;
   color: #787276;
   font-weight: normal;
 }
 
-ul {
+ul-content {
   list-style-type: circle;
 }
 

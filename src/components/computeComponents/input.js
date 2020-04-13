@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import DeleteForever from "@material-ui/icons/DeleteForever"
+import DeleteForever from "@material-ui/icons/DeleteForever";
 import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -17,9 +17,8 @@ import NativeSelect from "@material-ui/core/NativeSelect";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
-import Monomer from './monomer'
-import '../../App.css';
-
+import Monomer from "./monomer";
+import "../../App.css";
 
 const HtmlTooltip = withStyles({
   tooltip: {
@@ -33,10 +32,9 @@ const HtmlTooltip = withStyles({
 
 const UploadButton = withStyles({
   root: {
-    backgroundColor: "#3F88C5",
+    backgroundColor: "#3F88C5"
   }
 })(Button);
-
 
 const ClearButton = withStyles({
   root: {
@@ -77,12 +75,12 @@ class Input extends Component {
       .trim()
       .split("\n")
       .map(line => {
-        line = line.trim()
-        this.removeComment(line)
+        line = line.trim();
+        this.removeComment(line);
         if (this.isComment(line)) {
           return <p>{line}</p>;
         } else {
-          line = this.removeComment(line).trim()
+          line = this.removeComment(line).trim();
           if (line) {
             return (
               <Monomer
@@ -138,8 +136,8 @@ class Input extends Component {
         autoFocus={true}
       />
     ) : (
-        this.renderSyntaxHighlight(context)
-      );
+      this.renderSyntaxHighlight(context)
+    );
   }
 
   renderConstraintsTextField(context) {
@@ -165,7 +163,20 @@ class Input extends Component {
           <HtmlTooltip
             title={
               <Fragment>
-                For information on input format, please visit{" "}
+                Input Format:
+                <ul>
+                  <li> Each line in the input represents a monomer</li>
+                  <li>
+                    {" "}
+                    Each space-delineated token represents a binding site
+                  </li>
+                </ul>
+                If you want to use constraints (optional):
+                <ul>
+                  <li>To label a monomer, use a greater than sign (>)</li>
+                  <li>To label a binding site, use a colon (:)</li>
+                </ul>
+                For more information on input format, please visit{" "}
                 <a href="/help#input-format">Help</a> page.
               </Fragment>
             }
@@ -200,7 +211,7 @@ class Input extends Component {
             onClick={() => context.onClearDataHandler()}
           >
             Clear
-            </ClearButton>
+          </ClearButton>
         </span>
       </div>
     );
@@ -213,9 +224,20 @@ class Input extends Component {
           <HtmlTooltip
             title={
               <Fragment>
-                For information on constraints format, please visit{" "}
+                Possible Constraints:
+                <ul>
+                  <li>{"TOGETHER {m1} {m2} {m3} ..."}</li>
+                  <li>{"NOTTOGETHER {m1} {m2}"}</li>
+                  <li>{"FREE {m1}"}</li>
+                  <li>{"NOTFREE {m1}"}</li>
+                  <li>{"PAIRED {b1} {b2}"}</li>
+                  <li>{"NOTPAIRED {b1} {b2}"}</li>
+                  <li>{"ANYPAIRED {b1}"}</li>
+                  <li>{"NOTANYPAIRED {b1}"}</li>
+                </ul>
+                For more information on constraints, please visit{" "}
                 <a href="/help#constraints-format">Help</a> page.
-            </Fragment>
+              </Fragment>
             }
             arrow
             placement="top"
@@ -232,7 +254,7 @@ class Input extends Component {
             startIcon={<CloudUploadIcon />}
           >
             Upload Constraints
-          <input
+            <input
               type="file"
               style={{ display: "none" }}
               onChange={event => context.onConstraintsChangeHandler(event)}
@@ -276,12 +298,12 @@ class Input extends Component {
   }
 
   isComment(line) {
-    return (line.charAt(0) === '#')
+    return line.charAt(0) === "#";
   }
 
   removeComment(line) {
-    let regex = /(#.*)/
-    return line.replace(regex, "").trim()
+    let regex = /(#.*)/;
+    return line.replace(regex, "").trim();
   }
 
   render() {
