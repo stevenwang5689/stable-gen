@@ -32,7 +32,7 @@ class Monomer extends React.Component {
             className="Chip-spacing"
             variant="outlined"
             color={this.props.color}
-            label={this.highlightBindingSiteName(this.props.bindingSites)}
+            label={this.props.bindingSites}
         />
     }
 
