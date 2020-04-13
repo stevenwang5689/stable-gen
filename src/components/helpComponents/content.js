@@ -96,23 +96,23 @@ class Content extends Component {
         <p className="content-body">
           <i>StableGen</i> is a tool primarily for synethtic biologists that
           allows users to:
-          <ul>
-            <li>
-              <span>
+          <ul className="ul-content">
+            <li className="li-content">
+              <span className="li-span-content">
                 Find stable configurations of{" "}
                 <b>Thermodynamic Binding Networks (TBN)</b>
               </span>
             </li>
-            <li>
-              <span>
-                <strong>Visualize</strong> input monomers and output configurations of
-                the system
+            <li className="li-content">
+              <span className="li-span-content">
+                <strong>Visualize</strong> input monomers and output
+                configurations of the system
               </span>
             </li>
-            <li>
-              <span>
-                <strong> Add constraints</strong> to the system to give the user more
-                control over the input monomers
+            <li className="li-content">
+              <span className="li-span-content">
+                <strong> Add constraints</strong> to the system to give the user
+                more control over the input monomers
               </span>
             </li>
           </ul>
@@ -127,15 +127,15 @@ class Content extends Component {
           simulation. A TBN is composed of individual monomers that have one or
           more binding sites that can bind with the binding sites of other
           monomers. TBNs have <strong>two properties</strong>:
-          <ul>
-            <li>
-              <span>
+          <ul className="ul-content">
+            <li className="li-content">
+              <span className="li-span-content">
                 Complementary binding sites across monomers will bind together
                 to form <b>polymers</b>.{" "}
               </span>
             </li>
-            <li>
-              <span>
+            <li className="li-content">
+              <span className="li-span-content">
                 The TBN Problem tends towards a state of <b>maximum entropy</b>,
                 when the monomers are arranged in a way that maximizes the
                 number of bonds and the number of separate polymers formed. This
@@ -152,15 +152,17 @@ class Content extends Component {
         </h1>
         <p className="content-body">
           The following three images display an example of a TBN and two
-          possible binding configurations: a <strong>saturated configuration</strong> and a 
+          possible binding configurations: a{" "}
+          <strong>saturated configuration</strong> and a
           <strong> stable configuration</strong>.
         </p>
         <div className="content-div">
           <figure className="content-figure">
             <img className="content-image-scaled" src={tbn1} alt="TBN1" />
             <figcaption className="content-caption">
-              The TBN above consists of <strong>four monomers</strong>: two monomers with one
-              binding site and two monomers with two binding sites.
+              The TBN above consists of <strong>four monomers</strong>: two
+              monomers with one binding site and two monomers with two binding
+              sites.
             </figcaption>
           </figure>
           <figure className="content-figure">
@@ -177,8 +179,8 @@ class Content extends Component {
             <figcaption className="content-caption">
               This shows a<b> stable-state configuration</b> because the
               configuration maximizes the number of bonds and polymers formed.
-              The entropy of the system is <strong>three</strong> as there are three
-              polymers formed.{" "}
+              The entropy of the system is <strong>three</strong> as there are
+              three polymers formed.{" "}
             </figcaption>
           </figure>
         </div>
@@ -192,21 +194,30 @@ class Content extends Component {
         </h1>
         <div className="content-div">
           <p className="content-body">
-            In the input, each <strong>line</strong> represents a <b>monomer</b> and each
-            <strong> space-delineated token</strong> represents a <b>binding site</b>. In the example
-            shown below,
-            <ul>
-              <li>
-                <span>Monomer 1 has two binding sites: a* and b*</span>
+            In the input, each <strong>line</strong> represents a <b>monomer</b>{" "}
+            and each
+            <strong> space-delineated token</strong> represents a{" "}
+            <b>binding site</b>. In the example shown below,
+            <ul className="ul-content">
+              <li className="li-content">
+                <span className="li-span-content">
+                  Monomer 1 has two binding sites: a* and b*
+                </span>
               </li>
-              <li>
-                <span>Monomer 2 has two binding sites: a and b</span>
+              <li className="li-content">
+                <span className="li-span-content">
+                  Monomer 2 has two binding sites: a and b
+                </span>
               </li>
-              <li>
-                <span>Monomer 3 has one binding site: a</span>
+              <li className="li-content">
+                <span className="li-span-content">
+                  Monomer 3 has one binding site: a
+                </span>
               </li>
-              <li>
-                <span>Monomer 4 has one binding site: b</span>
+              <li className="li-content">
+                <span className="li-span-content">
+                  Monomer 4 has one binding site: b
+                </span>
               </li>
             </ul>
           </p>
@@ -221,26 +232,31 @@ class Content extends Component {
           <p className="content-body">
             There is also an option to label the inputs to be used in
             constraints. To label a binding site, use a <strong>colon</strong>
-            <b> (:)</b> followed by the <strong> binding site label</strong> you would like. To label
-            a monomer, use a <strong>{"greater than sign"}</strong> <b> (>)</b> followed by the
+            <b> (:)</b> followed by the <strong> binding site label</strong> you
+            would like. To label a monomer, use a{" "}
+            <strong>{"greater than sign"}</strong> <b> (>)</b> followed by the
             <strong> monomer label</strong>. In the example shown below,
-            <ul>
-              <li>
-                <span>
+            <ul className="ul-content">
+              <li className="li-content">
+                <span className="li-span-content">
                   Monomer 1 has two binding sites: a* (labeled b1) and b*
                 </span>
               </li>
-              <li>
-                <span>
+              <li className="li-content">
+                <span className="li-span-content">
                   Monomer 2 (labeled m1) has two binding sites: a and b (labeled
                   b2)
                 </span>
               </li>
-              <li>
-                <span>Monomer 3 (labeled m2) has one binding site: a</span>
+              <li className="li-content">
+                <span className="li-span-content">
+                  Monomer 3 (labeled m2) has one binding site: a
+                </span>
               </li>
-              <li>
-                <span>Monomer 4 has one binding site: b</span>
+              <li className="li-content">
+                <span className="li-span-content">
+                  Monomer 4 has one binding site: b
+                </span>
               </li>
             </ul>
           </p>
@@ -265,8 +281,8 @@ class Content extends Component {
           Together
         </h2>
         <p className="content-body">
-          Specifying <b>TOGETHER</b> attempts to force the specified monomers to bind
-          into a polymer:
+          Specifying <b>TOGETHER</b> attempts to force the specified monomers to
+          bind into a polymer:
         </p>
         <p className="content-highlight">
           &emsp;{"TOGETHER {m1} {m2} {m3} ..."}
@@ -275,24 +291,24 @@ class Content extends Component {
           Not Together
         </h2>
         <p className="content-body">
-          Specifying <b>NOTTOGETHER</b> prevents two monomers from being in the same
-          polymer:
+          Specifying <b>NOTTOGETHER</b> prevents two monomers from being in the
+          same polymer:
         </p>
         <p className="content-highlight">&emsp;{"NOTTOGETHER {m1} {m2}"}</p>
         <h2 className="content-heading2" ref={this.myFRef}>
           Free
         </h2>
         <p className="content-body">
-          Specifying <b>FREE</b> attempts to force the specified monomer to not bind to
-          any other monomer:
+          Specifying <b>FREE</b> attempts to force the specified monomer to not
+          bind to any other monomer:
         </p>
         <p className="content-highlight">&emsp;{"FREE {m1}"}</p>
         <h2 className="content-heading2" ref={this.myNFRef}>
           Not Free
         </h2>
         <p className="content-body">
-          Specifying <b>NOTFREE</b> forces specified monomer to bind to any other
-          monomer
+          Specifying <b>NOTFREE</b> forces specified monomer to bind to any
+          other monomer
         </p>
         <p className="content-highlight">&emsp;{"NOTFREE {m1}"}</p>
         <h2 className="content-heading2" ref={this.myPRef}>
@@ -307,23 +323,24 @@ class Content extends Component {
           Not Paired
         </h2>
         <p className="content-body">
-          Specifying <b>NOTPAIRED</b> prevents two binding sites from binding together:
+          Specifying <b>NOTPAIRED</b> prevents two binding sites from binding
+          together:
         </p>
         <p className="content-highlight">&emsp;{"NOTPAIRED {b1} {b2}"}</p>
         <h2 className="content-heading2" ref={this.myAPRef}>
           Any Paired
         </h2>
         <p className="content-body">
-          Specifying <b>ANYPAIRED</b> forces a binding site to bind to some other
-          binding site:
+          Specifying <b>ANYPAIRED</b> forces a binding site to bind to some
+          other binding site:
         </p>
         <p className="content-highlight">&emsp;{"ANYPAIRED {b1}"}</p>
         <h2 className="content-heading2" ref={this.myNAPRef}>
           Not Any Paired
         </h2>
         <p className="content-body">
-          Specifying <b>NOTANYPAIRED</b> attempts to force the specified binding site
-          to not bind to any other binding site:
+          Specifying <b>NOTANYPAIRED</b> attempts to force the specified binding
+          site to not bind to any other binding site:
         </p>
         <p className="content-highlight">&emsp;{"NOTANYPAIRED {b1}"}</p>
         <hr className="hr-content" />
@@ -332,18 +349,18 @@ class Content extends Component {
           Number of Configurations
         </h2>
         <p className="content-body">
-          The <b>number of configurations</b> box will attempt to generate n stable
-          configurations with the specified constraints if it is possible. If
-          there are less than n stable configurations, then it will begin
-          finding configurtions with n-1 polymers.
+          The <b>number of configurations</b> box will attempt to generate n
+          stable configurations with the specified constraints if it is
+          possible. If there are less than n stable configurations, then it will
+          begin finding configurtions with n-1 polymers.
         </p>
         <h2 className="content-heading2" ref={this.myPolyRef}>
           Minimum Polymers
         </h2>
         <p className="content-body">
           If you are certain that there will be at least a certain number of
-          polymers, specifying the <b>minimum number of polymers</b> will greatly speed
-          up calculations.
+          polymers, specifying the <b>minimum number of polymers</b> will
+          greatly speed up calculations.
         </p>
       </Container>
     );
