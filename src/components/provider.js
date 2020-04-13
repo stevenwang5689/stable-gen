@@ -4,8 +4,8 @@ import { trackPromise } from 'react-promise-tracker';
 
 export const MContext = React.createContext();  //exporting context object
 
-// const API_URL = "http://198.23.133.106:5005";
-const API_URL = "http://localhost:5005";
+const API_URL = "http://198.23.133.106:5005";
+// const API_URL = "http://localhost:5005";
 const API_TASK = API_URL + "/task";
 const API_STATUS = API_URL + "/status/";
 const API_TERM = API_URL + "/terminate/";
