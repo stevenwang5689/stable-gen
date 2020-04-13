@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import { Card, CardContent, CardActions, Button, Typography, Grid, Box } from '@material-ui/core';
+import { Card, CardContent, CardActions, Button, Typography, Grid, Box, Step, Stepper, StepLabel, StepConnector } from '@material-ui/core';
 import '../../App.css';
 import { blue } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom';
+import { withStyles } from "@material-ui/core/styles";
+
+const ColoredStepper = withStyles({
+    root: {
+        backgroundColor: "#FFF6F3",
+        margin: 0,
+        padding: 0,
+    }
+})(Stepper);
 
 class Instruction extends Component {
     state = {  }
@@ -27,27 +36,41 @@ class Instruction extends Component {
                                     a tool to compute stable configurations of Thermodynamic Binding Networks (TBN). 
                                 </Box>                       
                             </Typography>
-                            
-                            <br/>
-                            <Typography gutterBottom variant="body1" align="left">
+                            <Typography variant="body2" align="left" style={{ paddingTop: 1}}>
                                 <Box fontWeight="fontWeightBold" m={1}>
                                     Instructions: 
                                 </Box>
-                                <Box fontWeight="fontWeightMedium" m={1}>
-                                    1. Type or upload your input under <Box display="inline" color={blue} fontWeight="fontWeightBold"> TBN Input </Box> text box.
-                                </Box>
-                                <Box fontWeight="fontWeightMedium" m={1}>
-                                    2. <Box display="inline" fontStyle="italic">(Optional)</Box> Type or upload any additional constraints under <Box display="inline" color={blue} fontWeight="fontWeightBold"> Optional Constriants </Box> text box.
-                                </Box>
-                                <Box fontWeight="fontWeightMedium" m={1}>
-                                    3. <Box display="inline" fontStyle="italic">(Optional)</Box> Turn on <Box display="inline" color={blue} fontWeight="fontWeightBold"> Advanced Features </Box> toggle to specify number of configurations / minimum polymers.
-                                </Box>
-                                <Box fontWeight="fontWeightMedium" m={1}>
-                                    4. Click <Box display="inline" color={blue} fontWeight="fontWeightBold"> Generate </Box> button to compute the stable configurations of your input.
-                                </Box>
+                                 <ColoredStepper orientation="vertical" connector={<StepConnector style={{ padding: '0', height: '0', visibility:'hidden'}}/>}>
+                                    <Step key={1} active = {true}>
+                                        <StepLabel>
+                                            <Box fontWeight="fontWeightMedium" m={1}>
+                                                Type or upload your input under <Box display="inline" color={blue} fontWeight="fontWeightBold"> TBN Input </Box> text box.
+                                            </Box>
+                                        </StepLabel>
+                                    </Step>
+                                    <Step key={2} active = {true}>
+                                        <StepLabel>
+                                            <Box fontWeight="fontWeightMedium" m={1}>
+                                                <Box display="inline" fontStyle="italic">(Optional)</Box> Type or upload any additional constraints under <Box display="inline" color={blue} fontWeight="fontWeightBold"> Optional Constriants </Box> text box.
+                                            </Box>                           
+                                        </StepLabel>
+                                    </Step>
+                                    <Step key={3} active = {true}>
+                                        <StepLabel>
+                                            <Box fontWeight="fontWeightMedium" m={1}>
+                                                <Box display="inline" fontStyle="italic">(Optional)</Box> Turn on <Box display="inline" color={blue} fontWeight="fontWeightBold"> Advanced Features </Box> toggle to specify number of configurations / minimum polymers.
+                                            </Box>
+                                        </StepLabel>
+                                    </Step>
+                                    <Step key={4} active = {true}>
+                                        <StepLabel>
+                                            <Box fontWeight="fontWeightMedium" m={1}>
+                                                Click <Box display="inline" color={blue} fontWeight="fontWeightBold"> Generate </Box> button to compute the stable configurations of your input.
+                                            </Box>
+                                        </StepLabel>
+                                    </Step>
+                                </ColoredStepper>
                             </Typography>
-                            
-                            <br/>
                         </CardContent>
                         <CardActions>
                             <Grid container justify="flex-end">

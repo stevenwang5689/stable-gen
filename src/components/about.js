@@ -60,7 +60,7 @@ function About() {
               <Grid container spacing={2} direction="row" justify="center" alignItems="flex-start" className={classes.lists}>
                   <Grid  item >
                       <h2>About</h2>
-                      <p>Stablegen is an online tool that allows users to calculate and visualize stable states
+                      <p>StableGen is an online tool that allows users to calculate and visualize stable states
                           of chemical systems with user specified inputs and constraints.</p>
                       <p>Please reach out to the team if you have any feedback about this website: we would love to make
                           any changes that you feel would improve the tool. Hope you enjoy it!</p>
