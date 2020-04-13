@@ -50,7 +50,7 @@ class Output extends Component {
                             </Grid>
                         </Grid>
                         ) :
-                        (!context.state.generated && <Instruction/>)
+                        (!context.state.generated && !context.state.calculating && <Instruction/>)
                     )}
                 </MContext.Consumer>
             </Fragment>

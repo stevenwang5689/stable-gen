@@ -25,6 +25,7 @@ class Provider extends Component {
     errorMessage: null,
     noOutputFlag: false,
     completeFlag: false,
+    terminatedFlag: false,
 
     // for API calls
     task_id: "",
@@ -144,6 +145,10 @@ class Provider extends Component {
     } else if (target === "completeFlag") {
       this.setState({
         completeFlag: false
+      })
+    } else if (target === "terminatedFlag") {
+      this.setState({
+        terminatedFlag: false
       })
     }
   }
@@ -278,7 +283,8 @@ class Provider extends Component {
       .then((data) => {
         var jsonResponse = JSON.parse(data.request.response);
         this.setState({
-          disable_terminate: true
+          disable_terminate: true,
+          terminatedFlag: true,
         })
       })
       .catch(error => {

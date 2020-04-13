@@ -9,19 +9,12 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from "@material-ui/core/styles";
 
 
 const ComputeButton = withStyles({
     root: {
         // backgroundColor: "#D00000", // Comment to modify compute button
-    }
-})(Button);
-
-const TerminateButton = withStyles({
-    root: {
-        backgroundColor: "#a9a9a9", // Comment to modify compute button
     }
 })(Button);
 
@@ -84,27 +77,15 @@ class ControlPanel extends Component {
                                 </Grid>
                             </Grid>
                             <Grid item>
-                                {!context.state.calculating ? 
-                                    <ComputeButton type="button"
-                                        size="large"
-                                        variant="contained"
-                                        color="secondary"
-                                        disabled={context.state.calculating}
-                                        onClick={() => context.onClickComputeHandler()}
-                                        endIcon={<SendIcon />}>
-                                        Generate
-                                    </ComputeButton> :
-
-                                    <TerminateButton type="button"
-                                        size="large"
-                                        variant="contained"
-                                        color="secondary"
-                                        disabled={context.state.disable_terminate || context.state.task_id === ""}
-                                        onClick={() => context.onClickTerminateHandler()}
-                                        endIcon={<DeleteIcon />}>
-                                        Terminate
-                                    </TerminateButton>
-                                }
+                                <ComputeButton type="button"
+                                    size="large"
+                                    variant="contained"
+                                    color="secondary"
+                                    disabled={context.state.calculating}
+                                    onClick={() => context.onClickComputeHandler()}
+                                    endIcon={<SendIcon />}>
+                                    Generate
+                                </ComputeButton>
                                 
                             </Grid>
                         </Grid>
