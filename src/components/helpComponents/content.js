@@ -112,7 +112,7 @@ class Content extends Component {
             <li className="li-content">
               <span className="li-span-content">
                 <strong> Add constraints</strong> to the system to give the user
-                more control over the input monomers
+                more control over the input
               </span>
             </li>
           </ul>
@@ -362,11 +362,18 @@ class Content extends Component {
           polymers, specifying the <b>minimum number of polymers</b> will
           greatly speed up calculations for inputs with a lot of monomers. This
           is because the current algorithms works by finding stable
-          configurations with 1 polymer, 2 polymer, ... until failure.
+          configurations with 1 polymer, 2 polymers, etc. until failure.
           Specifying minimum polymer will make it start searching at the number
           inputted and increase upward until failure. If you would like to learn
           more about how the algorithm works, please see the paper in the about
           page.
+        </p>
+        <p className="content-body">
+          If the algorithm is unable to find a stable configuration in{" "}
+          <strong>90 seconds</strong> the server will <strong>timeout</strong>.
+          If this occurs, We recommend running the server locally using docker
+          or directly cloning the project from our GitHub repository. You can
+          find a link to our GitHub Repository in the About Page.
         </p>
       </Container>
     );
