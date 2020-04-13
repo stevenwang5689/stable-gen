@@ -1,0 +1,26 @@
+#This system represents an or gate with 2 and gates feeding into it as its input.
+#(a b) is input 1, (c d) is input 2, (g h) is input 3, (i j) is input4.
+#In logic, this system represents "Stable configuration found == true iff (input1 && input2) || (input3 && input4)"
+#The constraints for this system require that the output (e f) is free.
+#Reaching a stable configuration is only possible if both input 1 and input 2 exist in the system.
+#Try un-commenting them to see.
+
+a b c d e
+a* b* c* d*
+b* c* d* e*
+d e f
+#a b >input1
+b c
+#c d >input2
+e f
+e* f*
+
+g h i j e
+g* h* i* j*
+h* i* j* e*
+j e f
+#g h >input3
+h i
+#i j >input4
+e f >output
+e* f*
