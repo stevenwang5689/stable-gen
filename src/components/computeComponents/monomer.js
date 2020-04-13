@@ -24,7 +24,12 @@ class Monomer extends React.Component {
 
     //replace site:site-name -> site(sitename)
     highlightBindingSiteName(line) {
-        return line.replace(/:(\w+)/, '($1)')
+        var name = "";
+        if (line.includes(':')) {
+            name = line.replace(/.*:/, '');
+        }
+        var bsite = line.replace(/:(\w+)/, '')
+        return <span>{bsite}<strong>:{name}</strong></span>
     }
 
     renderMonomer() {
@@ -32,7 +37,7 @@ class Monomer extends React.Component {
             className="Chip-spacing"
             variant="outlined"
             color={this.props.color}
-            label={this.props.bindingSites}
+            label={this.highlightBindingSiteName(this.props.bindingSites)}
         />
     }
 
