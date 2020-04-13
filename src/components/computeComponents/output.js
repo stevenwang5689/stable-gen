@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Switch from '@material-ui/core/Switch';
+import Box from '@material-ui/core/Box';
+import { blue } from '@material-ui/core/colors';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 class Output extends Component {
@@ -19,13 +21,13 @@ class Output extends Component {
                 <MContext.Consumer>
                     {(context) => (
                         (context.state.displayFlag === true) ? (
-                        <Grid container spacing={3} direction="column">
+                        <Grid container spacing={2} direction="column">
                             {(context.state.entropy !== 0) && (
                             <Grid item>
                                 <Card>
                                     <CardContent className="Output">
-                                        <Typography variant="subtitle1"> Unconstrained Entropy: {context.state.entropy} </Typography> 
-                                        <Typography variant="subtitle1"> Number of Configurations: {context.state.count} </Typography> 
+                                        <Typography variant="overline" display="block"> Unconstrained Entropy: <Box display="inline" color={blue} fontWeight="fontWeightBold">{context.state.entropy}</Box> </Typography> 
+                                        <Typography variant="overline"> Number of Configurations: <Box display="inline" color={blue} fontWeight="fontWeightBold">{context.state.count}</Box> </Typography> 
                                     </CardContent>
                                 </Card>
                             </Grid>)}
@@ -42,7 +44,7 @@ class Output extends Component {
                             </Grid>
                             )}
                             <Grid item>
-                                <Grid container style={{maxHeight: 600, overflow: 'auto'}}>
+                                <Grid container style={{maxHeight: '45vh', overflow: 'auto'}}>
                                     <Grid item sm={12}>
                                         <Result />
                                     </Grid>

@@ -9,7 +9,7 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
-import { Card, CardContent, CardActions } from '@material-ui/core';
+import { Card, CardContent } from '@material-ui/core';
 import { withStyles } from "@material-ui/core/styles";
 
 
