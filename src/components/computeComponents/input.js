@@ -277,23 +277,24 @@ class Input extends Component {
   }
 
   renderExampleDropdown(context) {
-    return (
-      <FormControl>
-        <NativeSelect
-          name="example"
-          className="example-dropdown"
-          onChange={event => context.onExampleChangeHandler(event)}
-        >
-          <option value="" disabled selected>
-            Example Inputs
-          </option>
-          <option value={"and_gate_2_input"}>2 Input And Gate</option>
-          <option value={"and_gate_3_input"}>3 Input And Gate</option>
-          <option value={"or_gate"}>Or Gate</option>
-        </NativeSelect>
-        {/* <FormHelperText>Select an Example Input to try it out!</FormHelperText> */}
-      </FormControl>
-    );
+    return <FormControl >
+      <NativeSelect
+        name="example"
+        className="example-dropdown"
+        onChange={(event) => context.onExampleChangeHandler(event)}
+      >
+        <option value="" disabled selected>
+          Example Inputs
+        </option>
+        <option value={"and_gate_2_input"}>2 Input And Gate</option>
+        <option value={"and_gate_3_input"}>3 Input And Gate</option>
+        <option value={"or_gate"}>Or Gate</option>
+        <option value={"sum_of_products"}>Sum Of Products</option>
+
+
+      </NativeSelect>
+      {/* <FormHelperText>Select an Example Input to try it out!</FormHelperText> */}
+    </FormControl>
   }
 
   isComment(line) {
