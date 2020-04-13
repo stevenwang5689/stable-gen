@@ -4,6 +4,12 @@ import { trackPromise } from 'react-promise-tracker';
 
 export const MContext = React.createContext();  //exporting context object
 
+// const API_URL = "http://198.23.133.106:5005";
+const API_URL = "http://localhost:5005";
+const API_TASK = API_URL + "/task";
+const API_STATUS = API_URL + "/status/";
+const API_TERM = API_URL + "/terminate/";
+
 class Provider extends Component {
 
   state = {
@@ -20,7 +26,12 @@ class Provider extends Component {
     noOutputFlag: false,
     completeFlag: false,
 
+    // for API calls
+    task_id: "",
+    progress_count: 0,
+    progress_k: 0,
     calculating: false,
+    disable_terminate: true,
 
     // to display output
     displayFlag: false,
@@ -144,7 +155,11 @@ class Provider extends Component {
 
     this.setState({
       calculating: true,
-      displayFlag: false
+      displayFlag: false,
+      disable_terminate: false,
+      progress_count: 0,
+      progress_k: 0,
+      task_id: ""
     })
 
     // read constraint file
@@ -169,31 +184,25 @@ class Provider extends Component {
       })
       // invoke API
       trackPromise(
-        axios.post("http://198.23.133.106:5005/", inputJson, {
+        axios.post(API_TASK, inputJson, {
           headers: {
             'Content-Type': 'application/json'
           }
         })
           // handle response
-          .then((data) => {
+          .then(async (data) => {
             var jsonResponse = JSON.parse(data.request.response)
             this.setState({
-              result: jsonResponse.configs,
-              entropy: jsonResponse.entropy,
-              count: jsonResponse.count,
-              calculating: false,
-              noOutputFlag: jsonResponse.configs.length === 0,
-              completeFlag: true,
-              displayFlag: true,
-              generated: true,
+              task_id: jsonResponse.task_id
             })
+
+            // Long poll while still calculating
+            await this.asyncPollingStatus();
+
           })
           .catch(error => {
-            // Will not have status if timed out or other network error
-            var errMessage = "Request timed out! Please reference documentation on how to run problem locally.";
-            if (error.response) {
-              errMessage = error.response.data.error.message
-            }
+            // Only for network error
+            var errMessage = "Unexpected Server error occurred, please try again.";
             this.setState({
               calculating: false,
               errorMessage: errMessage
@@ -206,6 +215,79 @@ class Provider extends Component {
         dataMissingFlag: true
       })
     }
+  }
+
+  // Asynchronous polling
+  asyncPollingStatus = async () => {
+    while (this.state.calculating) {
+      await new Promise(r => setTimeout(r, 500));
+      this.pollingStatus();
+    }
+  }
+
+  // Long Polling for Status of Task!
+  pollingStatus = () => {
+    axios.get(API_STATUS + this.state.task_id, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      // handle response
+      .then((data) => {
+        var jsonResponse = JSON.parse(data.request.response)
+        
+        if (data.status == 200) {
+          this.setState({
+            result: jsonResponse.configs,
+            entropy: jsonResponse.entropy,
+            count: jsonResponse.count,
+            calculating: false,
+            noOutputFlag: jsonResponse.configs.length === 0,
+            completeFlag: true,
+            displayFlag: true,
+            generated: true,
+          })
+        }
+        else {
+          this.setState({
+            progress_count: jsonResponse.count,
+            progress_k: jsonResponse.k
+          })
+        }
+      })
+      .catch(error => {
+        // Only for network error
+        var errMessage = "Unexpected Server error occurred, please try again.";
+        if (error.response) {
+          errMessage = error.response.data.message
+        }
+        this.setState({
+          calculating: false,
+          errorMessage: errMessage
+        })
+      });
+  }
+
+  onClickTerminateHandler = () => {
+    axios.delete(API_TERM + this.state.task_id, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      // handle response
+      .then((data) => {
+        var jsonResponse = JSON.parse(data.request.response);
+        this.setState({
+          disable_terminate: true
+        })
+      })
+      .catch(error => {
+        // Only for network error
+        var errMessage = "Unexpected Server error occurred, please try again.";
+        if (error.response) {
+          errMessage = error.response.data.message
+        }
+      });
   }
 
   render() {
@@ -222,6 +304,7 @@ class Provider extends Component {
           handleControlChange: (target, event) => this.handleControlChange(target, event),
           setFlagState: (target) => this.handleCallback(target),
           onClickComputeHandler: () => this.onClickComputeHandler(),
+          onClickTerminateHandler: () => this.onClickTerminateHandler(),
           onExampleChangeHandler: (event) => this.onExampleChangeHandler(event),
           onClearDataHandler: () => this.onClearDataHandler(),
           onClearConstraintsHandler: () => this.onClearConstraintsHandler(),
