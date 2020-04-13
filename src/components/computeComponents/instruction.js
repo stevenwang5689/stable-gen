@@ -8,7 +8,7 @@ class Instruction extends Component {
     state = {  }
     render() { 
         return ( 
-            <Grid container>
+            <Grid container justify="center">
                 <Grid item>
                     <Card>
                         <CardContent className="Output">
