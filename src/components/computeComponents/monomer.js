@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import Chip from "@material-ui/core/Chip";
+import Parser from 'html-react-parser';
 
 
 class Monomer extends React.Component {
@@ -22,14 +23,11 @@ class Monomer extends React.Component {
         }
     }
 
-    //replace site:site-name -> site(sitename)
+    //replace site:site-name -> site<strong>:sitename</strong>
     highlightBindingSiteName(line) {
-        var name = "";
-        if (line.includes(':')) {
-            name = line.replace(/.*:/, '');
-        }
-        var bsite = line.replace(/:(\w+)/, '')
-        return <span>{bsite}<strong>:{name}</strong></span>
+        // .replace(/(\w+\*)/g, '<em>$&</em>') // Complement Highlighting?
+        var stringFormat = line.replace(/(:\w+)/g, '<strong>$&</strong>');
+        return <span>{Parser(stringFormat)}</span> 
     }
 
     renderMonomer() {
