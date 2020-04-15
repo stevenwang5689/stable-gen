@@ -80,7 +80,8 @@ function About() {
                                   <ListItem>
                                       <ListItemText
                                           primary="Dr. Soloveichik"
-                                          secondary="Faculty Mentor"
+                                          secondary={"Faculty Mentor: " +
+                                          "http://users.ece.utexas.edu/~soloveichik/"}
                                       />
                                   </ListItem>
 
@@ -116,13 +117,20 @@ function About() {
                                   secondary={"https://arxiv.org/abs/1709.08731v4"}
                               />
                           </ListItem>
+                          <ListItem>
+                              <ListItemText
+                                  primary="Backend Source Code"
+                                  secondary={"https://github.com/BensonKHuang/StableConfigs"}
+                              />
+                          </ListItem>
 
                           <ListItem>
                               <ListItemText
-                                  primary="Dr. David Soloveichik's website"
-                                  secondary="http://users.ece.utexas.edu/~soloveichik/"
+                                  primary="Docker version of Backend Code"
+                                  secondary={"https://hub.docker.com/repository/docker/stevenzwang/stableconfigs"}
                               />
                           </ListItem>
+
                       </div>
 
                   </Grid>
