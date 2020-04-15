@@ -47,6 +47,7 @@ class Provider extends Component {
   }
 
   onExampleChangeHandler = (event) => {
+      if(event.detail !== 0) return;
       const exampleName = event.target.value;
 
       const inputPath = process.env.PUBLIC_URL + "/example_inputs/" + exampleName + "/input.txt";
