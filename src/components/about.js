@@ -135,7 +135,7 @@ function About() {
                           <ListItem>
                               <ListItemText
                                   primary="Docker Version of Backend Code"
-                                  secondary={"https://hub.docker.com/repository/docker/stevenzwang/stableconfigs"}
+                                  secondary={"https://hub.docker.com/r/stevenzwang/stableconfigs"}
                               />
                           </ListItem>
 
