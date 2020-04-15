@@ -80,8 +80,16 @@ function About() {
                                   <ListItem>
                                       <ListItemText
                                           primary="Dr. Soloveichik"
-                                          secondary={"Faculty Mentor: " +
-                                          "http://users.ece.utexas.edu/~soloveichik/"}
+                                          secondary={<div>
+                                                          <div>
+                                                              Faculty Mentor
+                                                          </div>
+                                                          <div>
+                                                              http://users.ece.utexas.edu/~soloveichik/
+                                                          </div>
+                                                     </div>
+                                          }
+
                                       />
                                   </ListItem>
 
@@ -112,21 +120,21 @@ function About() {
                       <div>
                           <ListItem>
                               <ListItemText
-                                  primary="Breik K., et. al, “Computing properties of stable configurations of thermodynamic
-                                            binding networks,” Theoretical Computer Science, vol. 785, pp. 17–29, Sept. 2019."
+                                  primary="Computing properties of stable configurations of thermodynamic binding networks"
                                   secondary={"https://arxiv.org/abs/1709.08731v4"}
                               />
                           </ListItem>
                           <ListItem>
                               <ListItemText
                                   primary="Backend Source Code"
+
                                   secondary={"https://github.com/BensonKHuang/StableConfigs"}
                               />
                           </ListItem>
 
                           <ListItem>
                               <ListItemText
-                                  primary="Docker version of Backend Code"
+                                  primary="Docker Version of Backend Code"
                                   secondary={"https://hub.docker.com/repository/docker/stevenzwang/stableconfigs"}
                               />
                           </ListItem>
