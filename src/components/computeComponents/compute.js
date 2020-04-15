@@ -13,7 +13,7 @@ class Compute extends Component {
     render() { 
         return ( 
             <Fragment>                
-                <div>
+                <div style={{overflowY:"hidden", overflowX:"hidden"}}>
                     <Grid container spacing={2} justify="space-around" alignItems="stretch" className="Content">
                         <Grid item xs={12} sm={6}>
                             <Input />
