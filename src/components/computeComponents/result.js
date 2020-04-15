@@ -17,7 +17,9 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import IconButton from '@material-ui/core/IconButton';
 
-import Monomer from './monomer'
+import Monomer from './monomer';
+import { Box } from '@material-ui/core';
+import { blue } from '@material-ui/core/colors';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -125,7 +127,7 @@ class Result extends Component {
                                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                                                 <Grid container justify="space-between">
                                                     <Grid item>
-                                                        <Typography> Configuration {index+1} ({config.polymers_count} {config.polymers_count === 1 ? "polymer" : "polymers"}) </Typography>
+                                                        <Typography> Configuration {index+1} ({config.polymers_count} {config.polymers_count === 1 ? "polymer" : "polymers"}) {config.polymers_count === context.state.entropy && <Typography variant="button" display="inline"><Box display="inline" color={blue} fontWeight="fontWeightBold"> [Stable] </Box> </Typography>}</Typography>
                                                     </Grid>
                                                     <Grid item>
                                                         <Grid container spacing={2} justify="flex-end">
