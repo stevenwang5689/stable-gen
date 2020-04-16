@@ -65,6 +65,7 @@ class Provider extends Component {
           .then(text => this.setState({inputConstraintsText: text}));
 
   }
+
   onDataChangeHandler = (event) => {
     const dataFileReader = new FileReader()
     const inputFile = event.target.files[0];
