@@ -281,7 +281,7 @@ class Input extends Component {
       <NativeSelect
         name="example"
         className="example-dropdown"
-        onClick={(event) => context.onExampleChangeHandler(event)}
+        onChange={(event) => context.onExampleChangeHandler(event)}
       >
         <option value="" disabled selected>
           Example Inputs
