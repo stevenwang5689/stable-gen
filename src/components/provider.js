@@ -277,6 +277,9 @@ class Provider extends Component {
         var errMessage = "Unexpected Server error occurred, please try again.";
         if (error.response) {
           errMessage = error.response.data.message
+          if (error.response.data.status === "Timeout") {
+            errMessage += "during count= " + this.state.progress_count + ", entropy= " + this.state.progress_k
+          }
         }
         this.setState({
           calculating: false,
