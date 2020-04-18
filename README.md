@@ -38,7 +38,7 @@ To add more examples, simply prepare new input.txt and constraints.txt files, co
 Afterwards, look at `src/components/computeComponents/input.js` and follow the convention in the `renderExampleDropdown()` function.
 
 #### 2. What is an easy way to deploy this app? 
-Simply run `npm run build` to generate the `build` folder. Then run `serve -s build` to serve the application on port :5005. 
+Simply run `npm run build` to generate the `build` folder. Then run `serve -s build` to serve the application on port :5000 by default. 
 
 #### 3. How would I use tmux for deployment?
 Running deployment instance can be on tmux.
