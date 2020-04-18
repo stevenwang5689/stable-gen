@@ -94,7 +94,7 @@ class Content extends Component {
           Uses of StableGen
         </h1>
         <p className="content-body">
-          <i>StableGen</i> is a tool primarily for synethtic biologists that
+          <i>StableGen</i> is a tool primarily for synthetic biologists that
           allows users to:
           <ul className="ul-content">
             <li className="li-content">
@@ -352,7 +352,7 @@ class Content extends Component {
           The <b>number of configurations</b> box will attempt to generate n
           stable configurations with the specified constraints if it is
           possible. If there are less than n stable configurations, then it will
-          begin finding configurtions with n-1 polymers.
+          begin finding configurations with n-1 polymers.
         </p>
         <h2 className="content-heading2" ref={this.myPolyRef}>
           Minimum Polymers
@@ -361,7 +361,7 @@ class Content extends Component {
           If you are certain that there will be at least a certain number of
           polymers, specifying the <b>minimum number of polymers</b> will
           greatly speed up calculations for inputs with a lot of monomers. This
-          is because the current algorithms works by finding stable
+          is because the algorithm works by finding stable
           configurations with 1 polymer, 2 polymers, etc. until failure.
           Specifying minimum polymer will make it start searching at the number
           inputted and increase upward until failure. If you would like to learn
