@@ -27,3 +27,44 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
+### `serve -s build`
+
+Deploys the application on your machine, looking at the appropriate `build` folder.<br />
+
+### FAQ 
+
+#### 1. How do I add more examples?
+To add more examples, simply prepare new input.txt and constraints.txt files, copying them over into the `public/example_inputs` directory.
+Afterwards, look at `src/components/computeComponents/input.js` and follow the convention in the `renderExampleDropdown()` function.
+
+#### 2. What is an easy way to deploy this app? 
+Simply run `npm run build` to generate the `build` folder. Then run `serve -s build` to serve the application on port :5005. 
+
+#### 3. How would I use tmux for deployment?
+Running deployment instance can be on tmux.
+
+**Tmux:** 
+- Check if tmux sessions exist: `tmux ls`
+- Attach to existing tmux session: `tmux a -t stablegen`
+- Create a tmux session: `tmux new -s stablegen`
+- Detach tmux session w/o exiting: `<ctrl+b, then d>`
+
+**Shell Instructions:**
+- Build react app: `npm run build`
+- Serve in background: `serve -s build&`
+- Check job in background: `fg` or `jobs`
+- Put job back in background: `<ctrl+z>`
+
+#### 4. How could I further automate the deployment?
+Consider using supervisord, and adding the program at the bottom of a `supervisord.conf` file + reload:
+
+    [program:stablegen]
+    directory=/absolute/path/to/stable-gen
+    command=/usr/local/bin/serve -s build
+    autostart=true
+
+
+# Citation
+
+#### Authors
+Benson Huang, Varun Prabhu, Hasan Saleemi, Anthony Vento, Steven Wang, Kyle Zhou

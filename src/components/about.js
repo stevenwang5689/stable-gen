@@ -296,6 +296,9 @@ function About() {
                                   </CardContent>
                               </CardActionArea>
                               <CardActions>
+                                  <IconButton href={"https://www.linkedin.com/in/anthony-vento-89079b1a6/"}>
+                                      <LinkedInIcon />
+                                  </IconButton>
                                   <IconButton href={"https://github.com/vento99/"}>
                                       <GitHubIcon/>
                                   </IconButton>
