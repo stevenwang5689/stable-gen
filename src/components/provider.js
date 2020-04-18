@@ -264,7 +264,7 @@ class Provider extends Component {
             generated: true,
           })
         }
-        else {
+        else if (data.status == 202) {
           this.setState({
             progress_count: jsonResponse.count,
             progress_k: jsonResponse.k
