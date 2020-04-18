@@ -14,7 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import FormControl from "@material-ui/core/FormControl";
 import NativeSelect from "@material-ui/core/NativeSelect";
-
+import { Link } from "react-router-dom";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 import Monomer from "./monomer";
@@ -26,20 +26,20 @@ const HtmlTooltip = withStyles({
     color: "rgba(0, 0, 0, 0.87)",
     maxWidth: "none",
     fontSize: 16,
-    border: "1px solid #dadde9"
-  }
+    border: "1px solid #dadde9",
+  },
 })(Tooltip);
 
 const UploadButton = withStyles({
   root: {
-    backgroundColor: "#3F88C5"
-  }
+    backgroundColor: "#3F88C5",
+  },
 })(Button);
 
 const ClearButton = withStyles({
   root: {
     // backgroundColor: "#EAD6C9", // Uncomment to modify Clear Button color
-  }
+  },
 })(Button);
 
 class Input extends Component {
@@ -48,7 +48,7 @@ class Input extends Component {
 
     this.state = {
       syntaxHighlighting: true,
-      hoverColor: "grey.400"
+      hoverColor: "grey.400",
     };
 
     this.handleTextAreaFocus = this.handleTextAreaFocus.bind(this);
@@ -65,7 +65,7 @@ class Input extends Component {
     this.setState((_, __) => {
       return {
         syntaxHighlighting: true,
-        hoverColor: "grey.400"
+        hoverColor: "grey.400",
       };
     });
   }
@@ -74,7 +74,7 @@ class Input extends Component {
     let highlightedMonomers = context.state.inputDataText
       .trim()
       .split("\n")
-      .map(line => {
+      .map((line) => {
         line = line.trim();
         this.removeComment(line);
         if (this.isComment(line)) {
@@ -177,7 +177,7 @@ class Input extends Component {
                   <li>To label a binding site, use a colon (:)</li>
                 </ul>
                 For more information on input format, please visit{" "}
-                <a href="/help#input-format">Help</a> page.
+                <Link to="help#input-format">Help</Link> page.
               </Fragment>
             }
             arrow
@@ -198,7 +198,7 @@ class Input extends Component {
             <input
               type="file"
               style={{ display: "none" }}
-              onChange={event => context.onDataChangeHandler(event)}
+              onChange={(event) => context.onDataChangeHandler(event)}
             />
           </UploadButton>
         </span>
@@ -236,7 +236,7 @@ class Input extends Component {
                   <li>{"NOTANYPAIRED {b1}"}</li>
                 </ul>
                 For more information on constraints, please visit{" "}
-                <a href="/help#constraints-format">Help</a> page.
+                <Link to="/help#constraints-format">Help</Link> page.
               </Fragment>
             }
             arrow
@@ -257,7 +257,7 @@ class Input extends Component {
             <input
               type="file"
               style={{ display: "none" }}
-              onChange={event => context.onConstraintsChangeHandler(event)}
+              onChange={(event) => context.onConstraintsChangeHandler(event)}
             />
           </UploadButton>
         </span>
@@ -277,24 +277,24 @@ class Input extends Component {
   }
 
   renderExampleDropdown(context) {
-    return <FormControl >
-      <NativeSelect
-        name="example"
-        className="example-dropdown"
-        onChange={(event) => context.onExampleChangeHandler(event)}
-      >
-        <option value="" disabled selected>
-          Example Inputs
-        </option>
-        <option value={"and_gate_2_input"}>2 Input And Gate</option>
-        <option value={"and_gate_3_input"}>3 Input And Gate</option>
-        <option value={"or_gate"}>Or Gate</option>
-        <option value={"sum_of_products"}>Sum Of Products</option>
-
-
-      </NativeSelect>
-      {/* <FormHelperText>Select an Example Input to try it out!</FormHelperText> */}
-    </FormControl>
+    return (
+      <FormControl>
+        <NativeSelect
+          name="example"
+          className="example-dropdown"
+          onChange={(event) => context.onExampleChangeHandler(event)}
+        >
+          <option value="" disabled selected>
+            Example Inputs
+          </option>
+          <option value={"and_gate_2_input"}>2 Input And Gate</option>
+          <option value={"and_gate_3_input"}>3 Input And Gate</option>
+          <option value={"or_gate"}>Or Gate</option>
+          <option value={"sum_of_products"}>Sum Of Products</option>
+        </NativeSelect>
+        {/* <FormHelperText>Select an Example Input to try it out!</FormHelperText> */}
+      </FormControl>
+    );
   }
 
   isComment(line) {
@@ -309,7 +309,7 @@ class Input extends Component {
   render() {
     return (
       <MContext.Consumer>
-        {context => (
+        {(context) => (
           <Fragment>
             <Grid
               container

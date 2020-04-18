@@ -34,7 +34,7 @@ class Content extends Component {
     this.myNAPRef = React.createRef();
   }
 
-  scrollTo = item => {
+  scrollTo = (item) => {
     switch (item.name) {
       case "about":
         this.myAboutRef.current.scrollIntoView();
@@ -371,9 +371,12 @@ class Content extends Component {
         <p className="content-body">
           If the algorithm is unable to find a stable configuration in{" "}
           <strong>90 seconds</strong> the server will <strong>timeout</strong>.
-          If this occurs, We recommend running the server locally using docker
-          or directly cloning the project from our GitHub repository. You can
-          find a link to our GitHub Repository in the About Page.
+          If this occurs, there are a two options. First, you can run the server
+          locally using Docker or directly cloning the project from our GitHub
+          repository. You can find a link to our GitHub Repository in the About
+          Page. Alternatively, if you timeout at a polymer count = [x], try to
+          run the computation again with minimum polymers = [x] to reduce
+          earlier computation phases.
         </p>
       </Container>
     );
