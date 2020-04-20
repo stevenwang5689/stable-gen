@@ -94,7 +94,7 @@ class Content extends Component {
           Uses of StableGen
         </h1>
         <p className="content-body">
-          <i>StableGen</i> is a tool primarily for synthetic biologists that
+          <i>StableGen</i> is a tool primarily for synthetic biologists and researchers that
           allows users to:
           <ul className="ul-content">
             <li className="li-content">
@@ -119,7 +119,7 @@ class Content extends Component {
         </p>
         <hr className="hr-content" />
         <h1 className="content-heading" ref={this.myTBNRef}>
-          What is a TBN?
+          What is TBN?
         </h1>
         <p className="content-body">
           A Thermodynamic Binding Network (TBN) model is an effective way to
@@ -371,12 +371,12 @@ class Content extends Component {
         <p className="content-body">
           If the algorithm is unable to find a stable configuration in{" "}
           <strong>90 seconds</strong> the server will <strong>timeout</strong>.
-          If this occurs, there are a two options. First, you can run the server
+          If this occurs, there are two solutions. First, if you timeout at a polymer 
+          count = [x], try to run the computation again with minimum polymers set to [x] 
+          to reduce earlier computation phases. Alternatively, you can run the server
           locally using Docker or directly cloning the project from our GitHub
           repository. You can find a link to our GitHub Repository in the About
-          Page. Alternatively, if you timeout at a polymer count = [x], try to
-          run the computation again with minimum polymers = [x] to reduce
-          earlier computation phases.
+          Page.
         </p>
       </Container>
     );

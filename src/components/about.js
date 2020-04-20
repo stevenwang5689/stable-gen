@@ -54,7 +54,7 @@ function About() {
 
   return <Fragment >
 
-      <Container maxWidth={"xl"} >
+      <Container maxWidth={"xl"} style={{overflowY: "hidden"}}>
           <Grid container spacing={2} direction="row" justify="center" alignItems="center">
 
               <Grid container spacing={2} direction="row" justify="center" alignItems="flex-start" className={classes.lists}>
@@ -166,7 +166,7 @@ function About() {
                                               </Grid>
                                           </Grid>
                                       </CardMedia>
-                                      <Typography gutterBottom variant="h5" component="h2">
+                                      <Typography gutterBottom variant="h6" component="h2">
                                           Varun Prabhu
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
@@ -196,7 +196,7 @@ function About() {
                                               </Grid>
                                           </Grid>
                                       </CardMedia>
-                                      <Typography gutterBottom variant="h5" component="h2">
+                                      <Typography gutterBottom variant="h6" component="h2">
                                           Benson Huang
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
@@ -226,7 +226,7 @@ function About() {
                                               </Grid>
                                           </Grid>
                                       </CardMedia>
-                                      <Typography gutterBottom variant="h5" component="h2">
+                                      <Typography gutterBottom variant="h6" component="h2">
                                           Kyle Zhou
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
@@ -256,7 +256,7 @@ function About() {
                                               </Grid>
                                           </Grid>
                                       </CardMedia>
-                                      <Typography gutterBottom variant="h5" component="h2">
+                                      <Typography gutterBottom variant="h6" component="h2">
                                           Steven Wang
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
@@ -287,7 +287,7 @@ function About() {
                                               </Grid>
                                           </Grid>
                                       </CardMedia>
-                                      <Typography gutterBottom variant="h5" component="h2">
+                                      <Typography gutterBottom variant="h6" component="h2">
                                           Anthony Vento
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
@@ -317,7 +317,7 @@ function About() {
                                               </Grid>
                                           </Grid>
                                       </CardMedia>
-                                      <Typography gutterBottom variant="h5" component="h2">
+                                      <Typography gutterBottom variant="h6" component="h2">
                                           Hasan Saleemi
                                       </Typography>
                                       <Typography variant="body2" color="textSecondary" component="p">
@@ -337,7 +337,7 @@ function About() {
                       </Grid>
               </Grid>
           </Grid>
-
+        <br/>                                    
       </Container>
 
   </Fragment>

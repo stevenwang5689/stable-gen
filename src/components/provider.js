@@ -277,7 +277,7 @@ class Provider extends Component {
         if (error.response) {
           errMessage = error.response.data.message
           if (error.response.data.status === "Timeout") {
-            errMessage += "during count= " + this.state.progress_count + ", entropy= " + this.state.progress_k
+            errMessage += " during configuration count [" + this.state.progress_count + "], attempting to find minimum polymers [" + this.state.progress_k + "]."
           }
         }
         this.setState({

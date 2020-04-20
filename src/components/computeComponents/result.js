@@ -12,6 +12,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import Tooltip from "@material-ui/core/Tooltip";
 
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
@@ -132,14 +133,27 @@ class Result extends Component {
                                                     <Grid item>
                                                         <Grid container spacing={2} justify="flex-end">
                                                             <Grid item>
-                                                                <IconButton size="small" color="secondary" onClick={(e) => this.onClickCopy(config.polymers, e)}>
-                                                                    <FileCopyIcon/>    
-                                                                </IconButton>
+                                                                <Tooltip 
+                                                                    title={<Typography variant="body1" gutterBottom>Copy Configuration</Typography>}
+                                                                    placement="top"
+                                                                    arrow
+                                                                    style={{backgroundColor: "#f5f5f9"}}
+                                                                >                                                       
+                                                                    <IconButton size="small" color="secondary" onClick={(e) => this.onClickCopy(config.polymers, e)}>
+                                                                        <FileCopyIcon/>    
+                                                                    </IconButton>
+                                                                </Tooltip>
                                                             </Grid>
                                                             <Grid item>
-                                                                <IconButton size="small" color="secondary" onClick={(e) => this.onClickDownload(config.polymers, e)}>
-                                                                    <GetAppIcon/>
-                                                                </IconButton>
+                                                                <Tooltip 
+                                                                    title={<Typography variant="body1" gutterBottom>Download Configuration</Typography>}
+                                                                    placement="top"
+                                                                    arrow
+                                                                > 
+                                                                    <IconButton size="small" color="secondary" onClick={(e) => this.onClickDownload(config.polymers, e)}>
+                                                                        <GetAppIcon/>
+                                                                    </IconButton>
+                                                                </Tooltip>
                                                             </Grid>
                                                         </Grid>
                                                     </Grid>
