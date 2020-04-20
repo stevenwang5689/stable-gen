@@ -108,7 +108,7 @@ class Input extends Component {
         }}
         onClick={this.handleTextAreaFocus}
       >
-        <Typography> {"TBN Input"}</Typography>
+        {/* <Typography> {"TBN Input"}</Typography> */}
         {highlightedMonomers}
       </Box>
     );
