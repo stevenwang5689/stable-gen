@@ -4,8 +4,6 @@ import { MContext } from "../provider";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import DeleteForever from "@material-ui/icons/DeleteForever";
@@ -15,7 +13,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import FormControl from "@material-ui/core/FormControl";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import { Link } from "react-router-dom";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 
 import Monomer from "./monomer";
 import "../../App.css";
