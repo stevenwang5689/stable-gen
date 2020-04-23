@@ -17,7 +17,8 @@ class Monomer extends React.Component {
 
     static extractMonomerName(line) {
         if (line.includes(' >')) {
-            return line.replace(/.* >/, '')
+            let index = line.indexOf('>')
+            return line.substring(index + 1).replace(/ .*/, '')
         } else {
             return null
         }
