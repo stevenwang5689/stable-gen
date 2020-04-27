@@ -318,7 +318,7 @@ class Input extends Component {
       >
         <IconButton color='secondary' onClick={(e) => {
           let host = window.location.hostname + (window.location.port ? ':' + window.location.port : '');
-          navigator.clipboard.writeText(
+          this.onClickCopy(
             host +
             '?input=' +
             this.toCharCode(input) +
@@ -343,6 +343,15 @@ class Input extends Component {
         </Alert>
       </Snackbar>
     </Grid >
+  }
+
+  onClickCopy = (value) => {
+    var input = document.createElement('textarea');
+    input.innerHTML = value;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
   }
 
   toCharCode(str) {
