@@ -15,31 +15,30 @@ class Help extends Component {
     super(props);
     this.contentElement = React.createRef();
     this.onClickSidebar = this.onClickSidebar.bind(this);
-
     this.sidebarItems = [
       {
         name: "about",
         label: "StableGen Uses",
         Icon: InfoIcon,
-        onClick: this.onClickSidebar
+        onClick: this.onClickSidebar,
       },
       {
         name: "tbn",
         label: "What is a TBN?",
         Icon: SpeakerNotesIcon,
-        onClick: this.onClickSidebar
+        onClick: this.onClickSidebar,
       },
       {
         name: "ex",
         label: "TBN Example",
         Icon: BubbleChartIcon,
-        onClick: this.onClickSidebar
+        onClick: this.onClickSidebar,
       },
       {
         name: "format",
         label: "Input Format",
         Icon: ViewListIcon,
-        onClick: this.onClickSidebar
+        onClick: this.onClickSidebar,
       },
       {
         name: "constraints",
@@ -53,8 +52,12 @@ class Help extends Component {
           { name: "paired", label: "Paired", onClick: this.onClickSidebar },
           { name: "np", label: "Not Paired", onClick: this.onClickSidebar },
           { name: "ap", label: "Any Paired", onClick: this.onClickSidebar },
-          { name: "nap", label: "Not Any Paired", onClick: this.onClickSidebar }
-        ]
+          {
+            name: "nap",
+            label: "Not Any Paired",
+            onClick: this.onClickSidebar,
+          },
+        ],
       },
       {
         name: "additional",
@@ -64,30 +67,31 @@ class Help extends Component {
           {
             name: "gen",
             label: "Number of Configurations",
-            onClick: this.onClickSidebar
+            onClick: this.onClickSidebar,
           },
           {
             name: "polymer",
             label: "Minimum Polymers",
-            onClick: this.onClickSidebar
-          }
-        ]
-      }
+            onClick: this.onClickSidebar,
+          },
+        ],
+      },
     ];
   }
 
   onClickSidebar = (e, item) => this.contentElement.current.scrollTo(item);
 
-  state = {};
+  state = { width: 0, height: 0 };
+
   render() {
     return (
       <Fragment>
         <div className="overall-div">
           <Grid container spacing={1} justify="center" alignItems="stretch">
-            <Grid item xs={12} sm={2} className="sidebar-grid">
+            <Grid item xs={12} md={3} xl={2} className="sidebar-grid">
               <Sidebar items={this.sidebarItems} />
             </Grid>
-            <Grid item xs={12} sm={9}>
+            <Grid item xs={12} md={9} xl={10}>
               <Content ref={this.contentElement} />
             </Grid>
           </Grid>
