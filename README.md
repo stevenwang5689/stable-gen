@@ -40,13 +40,11 @@ Afterwards, look at `src/components/computeComponents/input.js` and follow the c
 #### 2. What is an easy way to deploy this app? 
 Simply run `npm run build` to generate the `build` folder. Then run `serve -s build` to serve the application on port :5000 by default. 
 
-#### 3. How would I use tmux for deployment?
+#### 3. How can I deploy?
 
 **Shell Instructions:**
 - Build react app: `npm run build`
-- Serve in background: `serve -s build&`
-- Check job in background: `fg` or `jobs`
-- Put job back in background: `<ctrl+z>`
+- Serve Application: `serve -s build`
 
 #### 4. How could I further automate the deployment?
 Consider using supervisord, and adding the program at the bottom of a `supervisord.conf` file + reload:
@@ -55,7 +53,6 @@ Consider using supervisord, and adding the program at the bottom of a `superviso
     directory=/absolute/path/to/stable-gen
     command=/usr/local/bin/serve -s build
     autostart=true
-
 
 # Citation
 
