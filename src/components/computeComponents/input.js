@@ -122,7 +122,6 @@ class Input extends Component {
   }
 
   renderTBNTextField(context) {
-    let placeholder = 'a* b*\na b\na*\nb*\n';
     let showTextField =
       !this.state.syntaxHighlighting ||
       context.state.inputDataText.trim() === '';
@@ -134,7 +133,6 @@ class Input extends Component {
         variant='outlined'
         multiline
         fullWidth
-        placeholder={placeholder}
         rowsMax={1}
         value={context.state.inputDataText}
         onChange={context.onDataTextChangeHandler}
@@ -317,7 +315,7 @@ class Input extends Component {
         interactive
       >
         <IconButton color='secondary' onClick={(e) => {
-          let host = window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+          let host = 'http://' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
           this.onClickCopy(
             host +
             '?input=' +
