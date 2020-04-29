@@ -41,13 +41,6 @@ Afterwards, look at `src/components/computeComponents/input.js` and follow the c
 Simply run `npm run build` to generate the `build` folder. Then run `serve -s build` to serve the application on port :5000 by default. 
 
 #### 3. How would I use tmux for deployment?
-Running deployment instance can be on tmux.
-
-**Tmux:** 
-- Check if tmux sessions exist: `tmux ls`
-- Attach to existing tmux session: `tmux a -t stablegen`
-- Create a tmux session: `tmux new -s stablegen`
-- Detach tmux session w/o exiting: `<ctrl+b, then d>`
 
 **Shell Instructions:**
 - Build react app: `npm run build`
