@@ -46,6 +46,23 @@ class Provider extends Component {
     count: 0,
   }
 
+  componentDidMount() {
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('input')) {
+      let input = urlParams.get('input')
+      this.setState({
+        inputDataText: input
+      })
+    }
+    if (urlParams.has('constraints')) {
+      let constraints = urlParams.get('constraints')
+      this.setState({
+        inputConstraintsText: constraints
+      })
+    }
+    window.history.pushState("object or string", "Title", "/" );
+  }
+
   onExampleChangeHandler = (event) => {
       const exampleName = event.target.value;
 
