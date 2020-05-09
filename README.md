@@ -38,7 +38,10 @@ To add more examples, simply prepare new input.txt and constraints.txt files, co
 Afterwards, look at `src/components/computeComponents/input.js` and follow the convention in the `renderExampleDropdown()` function.
 
 #### 2. What is an easy way to deploy this app? 
-Simply run `npm run build` to generate the `build` folder. Then run `serve -s build` to serve the application on port :5000 by default. 
+Simply run `npm run build` to generate the `build` folder. 
+Then run `serve -s build` to serve the application on port :5000 by default.
+
+If the server is already running, then simply rebuilding the `build` folder will automatically update the website!
 
 #### 3. How can I deploy?
 
