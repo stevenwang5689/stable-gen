@@ -15,7 +15,7 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import LinkIcon from '@material-ui/icons/Link';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -182,7 +182,7 @@ class Input extends Component {
                   <li>To label a binding site, use a colon (:)</li>
                 </ul>
                 For more information on input format, please visit{' '}
-                <Link to='help#input-format'>Help</Link> page.
+                <Link to="/help#input-format">Help</Link> page.
               </Fragment>
             }
             arrow
@@ -241,7 +241,7 @@ class Input extends Component {
                   <li>{'NOTANYPAIRED {b1}'}</li>
                 </ul>
                 For more information on constraints, please visit{' '}
-                <Link to='/help#constraints-format'>Help</Link> page.
+                <Link to="/help#constraints-format">Help</Link> page.
               </Fragment>
             }
             arrow
