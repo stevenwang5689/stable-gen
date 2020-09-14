@@ -93,8 +93,7 @@ class Content extends Component {
           Uses of StableGen
         </h1>
         <p className="content-body">
-          <i>StableGen</i> is a tool primarily for synthetic biologists and
-          researchers that allows users to:
+          <i>StableGen</i> is a tool primarily for researchers in the molecular programming community that allows users to:
           <ul className="ul-content">
             <li className="li-content">
               <span className="li-span-content">
@@ -121,26 +120,27 @@ class Content extends Component {
           What is a TBN?
         </h1>
         <p className="content-body">
-          A Thermodynamic Binding Network (TBN) model is an effective way to
-          represent chemical systems in a standardized format for modeling and
-          simulation. A TBN is composed of individual monomers that have one or
+          The Thermodynamic Binding Networks (TBN) model abstracts the thermodynamics 
+          of a chemical system as counting the number of bonds and separate complexes.
+          A TBN is composed of individual monomers that have one or
           more binding sites that can bind with the binding sites of other
-          monomers. TBNs have <strong>two properties</strong>:
+          monomers. TBNs have the following <strong>properties</strong>:
           <ul className="ul-content">
             <li className="li-content">
               <span className="li-span-content">
                 Complementary binding sites across monomers will bind together
-                to form <b>polymers</b>.{" "}
+                to form <b>polymers</b>. A configuration
+                that maximizes that number of bonds is known as a <b>saturated configuration</b>.{" "}
               </span>
             </li>
             <li className="li-content">
               <span className="li-span-content">
-                The TBN Problem tends towards a state of <b>maximum entropy</b>,
-                when the monomers are arranged in a way that maximizes the
-                number of bonds and the number of separate polymers formed. This
-                is known as a<b> stable-state configuration</b>. A configuration
-                that maximizes that number of bonds but <i>not</i> the number of
-                separate polymers is known as a <b>saturated configuration</b>.
+                We say the entropy of a configuration is the number of separate polymers.
+                Among all saturated configurations, 
+                the TBN tends towards a state of maximum entropy,
+                where the monomers are arranged in a way that maximizes the
+                the number of separate polymers formed. This
+                is known as a <b>stable configuration</b>. 
               </span>
             </li>
           </ul>
@@ -169,15 +169,14 @@ class Content extends Component {
             <figcaption className="content-caption">
               The configuration above shows an example of a{" "}
               <b>saturated configuration</b> for the TBN because the
-              configuration maximizes the number of bonds formed but not the
-              number of polymers formed.
+              configuration maximizes the number of bonds formed.
             </figcaption>
           </figure>
           <figure className="content-figure">
             <img className="content-image-scaled" src={tbn3} alt="TBN3" />
             <figcaption className="content-caption">
-              This shows a<b> stable-state configuration</b> because the
-              configuration maximizes the number of bonds and polymers formed.
+              This shows a<b> stable configuration</b> because the
+              configuration maximizes the number of bonds <strong>and</strong> polymers formed.
               The entropy of the system is <strong>three</strong> as there are
               three polymers formed.{" "}
             </figcaption>
@@ -313,7 +312,7 @@ class Content extends Component {
         </h2>
         <p className="content-body">
           Specifying <b>NOTFREE</b> forces specified monomer to bind to any
-          other monomer
+          other monomer:
         </p>
         <div className="content-div">
           <p className="content-highlight">&emsp;{"NOTFREE {m1}"}</p>

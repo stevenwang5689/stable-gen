@@ -60,8 +60,8 @@ function About() {
               <Grid container spacing={2} direction="row" justify="center" alignItems="flex-start" className={classes.lists}>
                   <Grid  item >
                       <h2>About</h2>
-                      <p>StableGen is an online tool that allows users to calculate and visualize stable states
-                          of chemical systems with user specified inputs and constraints.</p>
+                      <p>StableGen is an online tool for calculating and visualizing thermodynamically preferred 
+                          (stable) states of abstract chemical systems modeled as Thermodynamic Binding Networks.</p>
                       <p>Please reach out to the team if you have any feedback about this website: we would love to make
                           any changes that you feel would improve the tool. Hope you enjoy it!</p>
                   </Grid>
@@ -121,7 +121,7 @@ function About() {
                           <ListItem>
                               <ListItemText
                                   primary="Computing properties of stable configurations of thermodynamic binding networks"
-                                  secondary={"https://arxiv.org/abs/1709.08731v4"}
+                                  secondary={"https://arxiv.org/abs/1709.08731"}
                               />
                           </ListItem>
                           <ListItem>
@@ -344,5 +344,3 @@ function About() {
 }
 
 export default About
-
-
