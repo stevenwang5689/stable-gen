@@ -36,13 +36,33 @@ img:hover{
 
 .Output{
   background-color: #FFF6F3;
+  max-width: calc(100% - 30px);
 }
 
 .syntaxHighlight {
   min-height: calc(50vh - 130px);
   max-height: calc(50vh - 130px);
+  max-width: calc(100% - 30px);
   padding: 18.5px 14px;
   overflow: auto;
+}
+
+.MuiChip-label {
+  white-space: normal !important;
+  word-break: break-all !important;
+  text-align: left !important;
+  line-height: 1.7;
+  margin: 1px !important; 
+}
+
+.MuiChip-label p {
+  margin-block-start: 3px;
+  margin-block-end: 3px;
+} 
+
+.MuiChip-outlined {
+  height: fit-content !important;
+  min-height: 25.094px !important;
 }
 
 .tbn-inputbox textarea {
@@ -76,6 +96,9 @@ img:hover{
 
 .monomer-name {
   margin-left: -8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  height: 19px !important;
 }
 
 .syntaxHighlight p {
